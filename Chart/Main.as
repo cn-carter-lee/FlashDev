@@ -3,7 +3,7 @@ package
 {
 	import charts.series.Element;
 	import charts.Factory;
-	import charts.ObjectCollection;
+	import charts.ChartSetCollection;
 	import elements.menu.Menu;
 	import charts.series.has_tooltip;
 	import flash.events.Event;
@@ -65,7 +65,7 @@ package
 		private var y_legend_left:YLegendBase;
 		private var y_legend_right:YLegendBase;
 		private var keys:Keys;
-		private var obs:ObjectCollection;
+		private var obs:ChartSetCollection;
 		public var tool_tip_wrapper:String;
 		private var sc:ScreenCoords;
 		private var tooltip:Tooltip;
@@ -316,7 +316,7 @@ package
 				return; // <- an error and the JSON was not loaded					
 			if (this.tooltip.get_tip_style() == Tooltip.CLOSEST)
 			{
-				var elements:Array = this.obs.closest_2(this.mouseX, this.mouseY);
+				var elements:Array = this.obs.get_closest_elements(this.mouseX, this.mouseY);
 				this.tooltip.closest(elements);
 			}
 			Mouse.cursor = "button";

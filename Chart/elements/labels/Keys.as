@@ -1,7 +1,7 @@
 package elements.labels
 {
-	import charts.Base;
-	import charts.ObjectCollection;
+	import charts.ChartSetBase;
+	import charts.ChartSetCollection;
 	import flash.display.Sprite;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
@@ -13,11 +13,11 @@ package elements.labels
 		private var count:Number = 0;
 		public var colours:Array;
 		
-		public function Keys(stuff:ObjectCollection)
+		public function Keys(stuff:ChartSetCollection)
 		{
 			this.colours = new Array();
 			var key:Number = 0;
-			for each (var b:Base in stuff.sets)
+			for each (var b:ChartSetBase in stuff.sets)
 			{
 				for each (var o:Object in b.get_keys())
 				{

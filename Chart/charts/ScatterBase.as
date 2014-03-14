@@ -8,7 +8,7 @@
 	import flash.display.Sprite;
 	import charts.series.dots.DefaultDotProperties;
 	
-	public class ScatterBase extends Base {
+	public class ScatterBase extends ChartSetBase {
 
 		// TODO: move this into Base
 		protected var props:Properties;

@@ -9,7 +9,7 @@
 	
 	import flash.display.Sprite;
 
-	public class Pie extends Base
+	public class Pie extends ChartSetBase
 	{
 		
 		private var labels:Array;

@@ -4,7 +4,7 @@
 	import string.Utils;
 	import global.Global;
 	
-	public class HBar extends Base {
+	public class HBar extends ChartSetBase {
 		
 		protected var group:Number;
 		protected var style:Object;

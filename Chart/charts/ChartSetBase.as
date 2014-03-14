@@ -6,7 +6,7 @@ package charts
 	import flash.geom.Point;
 	import elements.axis.XAxisLabels;
 	
-	public class Base extends Sprite
+	public class ChartSetBase extends Sprite
 	{
 		// accessed by the Keys object to display the key
 		protected var key:String;
@@ -22,7 +22,7 @@ package charts
 		
 		protected var axis:Number;
 		
-		public function Base()
+		public function ChartSetBase()
 		{
 		}
 		
@@ -319,8 +319,8 @@ package charts
 				// filter out the mask elements in line charts
 				if (this.getChildAt(i) is Element)
 				{
-					var e:Element = this.getChildAt(i) as Element;
-					e.tooltip_replace_labels(labels);
+					var element:Element = this.getChildAt(i) as Element;
+					element.tooltip_replace_labels(labels);
 				}
 			}
 		}

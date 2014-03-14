@@ -3,7 +3,7 @@
 	import flash.geom.Point;
 	import string.Utils;
 	
-	public class Arrow extends Base {
+	public class Arrow extends ChartSetBase {
 		
 		private var style:Object;
 		

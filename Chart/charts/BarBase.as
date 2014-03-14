@@ -1,12 +1,12 @@
 ﻿package charts {
 	
 	import charts.series.Element;
-	import charts.Base;
+	import charts.ChartSetBase;
 	import string.Utils;
 	import global.Global;
 
 	
-	public class BarBase extends Base
+	public class BarBase extends ChartSetBase
 	{
 		protected var group:Number;
 		//protected var style:Object;

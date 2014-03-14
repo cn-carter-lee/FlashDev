@@ -13,7 +13,7 @@ package charts {
 	import flash.events.TimerEvent;
 	import charts.series.dots.PointDotBase;
 	
-	public class Line extends Base
+	public class Line extends ChartSetBase
 	{
 		// JSON style:
 		protected var props:Properties;

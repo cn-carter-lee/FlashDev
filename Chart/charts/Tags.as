@@ -4,7 +4,7 @@
 	import string.Utils;
 	import charts.series.tags.Tag;
 	
-	public class Tags extends Base {
+	public class Tags extends ChartSetBase {
 		
 		private var style:Object;
 		

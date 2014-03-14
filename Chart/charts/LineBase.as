@@ -10,7 +10,7 @@
 	import charts.series.dots.dot_factory;
 	
 	
-	public class LineBase extends Base
+	public class LineBase extends ChartSetBase
 	{
 		// JSON style:
 		protected var style:Object;

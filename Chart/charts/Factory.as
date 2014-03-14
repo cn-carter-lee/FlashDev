@@ -5,9 +5,9 @@ package charts {
 	{
 		private var attach_right:Array;
 
-		public static function MakeChart( json:Object ) : ObjectCollection
+		public static function MakeChart( json:Object ) : ChartSetCollection
 		{
-			var collection:ObjectCollection = new ObjectCollection();
+			var collection:ChartSetCollection = new ChartSetCollection();
 			
 			// multiple bar charts all have the same X values, so
 			// they are grouped around each X value, this tells
