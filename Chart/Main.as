@@ -54,6 +54,7 @@ package  {
 	import elements.labels.YLegendRight;
 	
 	
+	// Add some comments
 	public class Main extends Sprite {
 		
 		public  var VERSION:String = "2 Lug Wyrm Charmer";
