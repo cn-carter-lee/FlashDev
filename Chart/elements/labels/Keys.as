@@ -17,7 +17,7 @@ package elements.labels
 		{
 			this.colours = new Array();
 			var key:Number = 0;
-			for each (var b:ChartSetBase in stuff.sets)
+			for each (var b:ChartSetBase in stuff.ChartSets)
 			{
 				for each (var o:Object in b.get_keys())
 				{

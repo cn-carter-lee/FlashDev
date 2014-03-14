@@ -3,8 +3,7 @@ package elements.axis
 	import flash.display.Sprite;
 	import flash.geom.Matrix;
 	import string.Utils;
-	import charts.series.bars.Bar3D;
-	import com.serialization.json.JSON;
+	import charts.series.bars.Bar3D;	
 	import Range;
 	
 	public class XAxis extends Sprite

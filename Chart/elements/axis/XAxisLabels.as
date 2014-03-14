@@ -7,8 +7,7 @@ package elements.axis
 	import flash.geom.Rectangle;
 	import elements.axis.AxisLabel;
 	import string.Utils;
-	import string.DateUtils;
-	import com.serialization.json.JSON;
+	import string.DateUtils;	
 	
 	// import DateUtils;
 	

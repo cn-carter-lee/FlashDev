@@ -2,7 +2,6 @@
 	import charts.series.Element;
 	import charts.series.bars.StackCollection;
 	import string.Utils;
-	import com.serialization.json.JSON;
 	import flash.geom.Point;
 	
 	

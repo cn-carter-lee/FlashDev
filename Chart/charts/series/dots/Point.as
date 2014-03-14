@@ -26,12 +26,6 @@ package charts.series.dots {
 			s.visible = false;
 			
 			this.line_mask = s;
-		}
-		
-		public override function set_tip( b:Boolean ):void {
-			
-			this.visible = b;
-			this.line_mask.visible = b;
-		}
+		}	
 	}
 }

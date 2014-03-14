@@ -1,5 +1,4 @@
 package charts {
-	import com.serialization.json.JSON;
 	
 	public class Factory
 	{
@@ -169,7 +168,7 @@ package charts {
 //						this.attach_right = lv.y2_lines.split(",");
 //					}
 			
-			collection.groups = bar_group;
+			collection.ChartGroups = bar_group;
 			return collection;
 		}
 	}

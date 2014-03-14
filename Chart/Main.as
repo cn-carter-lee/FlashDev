@@ -235,7 +235,7 @@ package
 			this.addChild(this.title);
 			
 			// step 4
-			for each (var set:Sprite in this.obs.sets)
+			for each (var set:Sprite in this.obs.ChartSets)
 				this.addChild(set);
 			
 			// step 5
@@ -283,7 +283,7 @@ package
 			right -= this.y_legend_left.get_width();
 			// this object is used in the mouseMove method
 			this.sc = new ScreenCoords(top, left, right, bottom, this.y_axis.get_range(), this.y_axis_right.get_range(), this.x_axis.get_range(), this.x_axis.first_label_width(), this.x_axis.last_label_width(), false);
-			this.sc.set_bar_groups(this.obs.groups);
+			this.sc.set_bar_groups(this.obs.ChartGroups);
 			this.x_axis.resize(sc, 
 				// can we remove this:
 				this.stage.stageHeight - (this.x_legend.get_height() + this.x_axis.labels.get_height()) // <-- up from the bottom

@@ -96,43 +96,9 @@ package charts
 		{
 		}
 		
-		// TODO: old remove when tooltips tested
-		public function closest(x:Number, y:Number):Object
-		{
-			var shortest:Number = Number.MAX_VALUE;
-			var closest:Element = null;
-			var dx:Number;
-			
-			for (var i:Number = 0; i < this.numChildren; i++)
-			{
-				// some of the children will will mask Sprites, so filter those out:
-				if (this.getChildAt(i) is Element)
-				{
-					
-					var e:Element = this.getChildAt(i) as Element;
-					e.set_tip(false);
-					
-					dx = Math.abs(x - e.x);
-					
-					if (dx < shortest)
-					{
-						shortest = dx;
-						closest = e;
-					}
-				}
-			}
-			
-			var dy:Number = 0;
-			if (closest)
-				dy = Math.abs(y - closest.y);
-			
-			return {element: closest, distance_x: shortest, distance_y: dy};
-		}
-				
 		// Line and bar charts will normally only have one Element at any X position, but when using Radar axis you may get many at any give X location. Scatter charts can have many items at the same X position
-		public function closest_2(x:Number, y:Number):Array
+		public function get_closest(x:Number, y:Number):Array
 		{
-			
 			// get the closest Elements X value
 			var x:Number = closest_x(x);
 			var tmp:Array = this.get_all_at_this_x_pos(x);
@@ -140,33 +106,32 @@ package charts
 			var dy:Number = Math.abs(y - closest.y);
 			return closest;
 		}
-
+		
 		// get the X value of the closest points to the mouse
 		private function closest_x(x:Number):Number
 		{
-			
-			var closest:Number = Number.MAX_VALUE;
+			var closest_distance:Number = Number.MAX_VALUE;
 			var p:flash.geom.Point;
-			var x_pos:Number;
-			var dx:Number;
+			var x_postion:Number;
+			var tmp_distance_x:Number;
 			
 			for (var i:Number = 0; i < this.numChildren; i++)
 			{
 				// some of the children will will mask Sprites, so filter those out:
 				if (this.getChildAt(i) is Element)
 				{
-					var e:Element = this.getChildAt(i) as Element;					
-					p = e.get_mid_point();
-					dx = Math.abs(x - p.x);					
-					if (dx < closest)
+					var element:Element = this.getChildAt(i) as Element;
+					p = element.get_mid_point();
+					tmp_distance_x = Math.abs(x - p.x);
+					if (tmp_distance_x < closest_distance)
 					{
-						closest = dx;
-						x_pos = p.x;
+						closest_distance = tmp_distance_x;
+						x_postion = p.x;
 					}
 				}
 			}
 			
-			return x_pos;
+			return x_postion;
 		}
 		
 		// get all the Elements at this X position BarStack overrides this
@@ -191,14 +156,12 @@ package charts
 						//}
 				}
 			}
-			
 			return tmp;
 		}
 		
 		// scatter charts may have many Elements in the same x, y location
 		private function get_closest_y(elements:Array, y:Number):Array
 		{
-			
 			var y_min:Number = Number.MAX_VALUE;
 			var dy:Number;
 			var closest:Array = new Array();
@@ -208,65 +171,20 @@ package charts
 			// get min Y distance
 			for each (e in elements)
 			{
-				
 				p = e.get_mid_point();
 				dy = Math.abs(y - p.y);
-				
 				y_min = Math.min(dy, y_min);
 			}
 			
 			// select all Elements at this Y pos
 			for each (e in elements)
 			{
-				
 				p = e.get_mid_point();
 				dy = Math.abs(y - p.y);
 				if (dy == y_min)
 					closest.push(e);
 			}
-			
 			return closest;
-		}
-		
-		// scatter charts may have many Elements in the same x, y location
-		public function mouse_proximity(x:Number, y:Number):Array
-		{
-			
-			var closest:Number = Number.MAX_VALUE;
-			var p:flash.geom.Point;
-			var i:Number;
-			var e:Element;
-			var mouse:flash.geom.Point = new flash.geom.Point(x, y);
-			
-			// find the closest Elements
-			for (i = 0; i < this.numChildren; i++)
-			{
-				
-				// filter mask Sprites
-				if (this.getChildAt(i) is Element)
-				{
-					
-					e = this.getChildAt(i) as Element;
-					closest = Math.min(flash.geom.Point.distance(e.get_mid_point(), mouse), closest);
-				}
-			}
-			
-			// grab all Elements at this distance
-			var close:Array = [];
-			for (i = 0; i < this.numChildren; i++)
-			{
-				
-				// filter mask Sprites
-				if (this.getChildAt(i) is Element)
-				{
-					
-					e = this.getChildAt(i) as Element;
-					if (flash.geom.Point.distance(e.get_mid_point(), mouse) == closest)
-						close.push(e);
-				}
-			}
-			
-			return close;
 		}
 		
 		// this is a backup function so if the mouse leaves the movie for some reason without raising the mouse out event (this happens if the user is wizzing the mouse about)
@@ -274,11 +192,9 @@ package charts
 		{
 			for (var i:Number = 0; i < this.numChildren; i++)
 			{
-				
 				// filter out the mask elements in line charts
 				if (this.getChildAt(i) is Element)
 				{
-					
 					var e:Element = this.getChildAt(i) as Element;
 					e.set_tip(false);
 				}
