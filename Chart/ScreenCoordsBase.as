@@ -1,4 +1,4 @@
-package {
+﻿package {
 	import flash.geom.Point;
 	
 	public class ScreenCoordsBase

@@ -19,7 +19,7 @@
 			};
 			
 			if( json != null )
-				object_helper.merge_2( json, this.style );
+				object_helper.merge_to_default( json, this.style );
 				
 			// tr.ace_json(this.style);
 				
@@ -50,7 +50,7 @@
 			if( label is String )
 				label_style.text = label as String;
 			else {
-				object_helper.merge_2( label, label_style );
+				object_helper.merge_to_default( label, label_style );
 			}
 
 			// our parent colour is a number, but

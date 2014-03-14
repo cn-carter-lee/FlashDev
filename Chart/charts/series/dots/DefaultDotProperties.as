@@ -1,4 +1,4 @@
-package charts.series.dots {
+﻿package charts.series.dots {
 
 	public class DefaultDotProperties extends Properties
 	{
@@ -28,9 +28,6 @@ package charts.series.dots {
 				
 			super( json, parent );
 			
-			
-			// tr.aces('4', this.get('colour'));
-			// tr.aces('4', this.get('type'));
 		}
 	}
 }

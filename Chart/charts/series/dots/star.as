@@ -1,4 +1,4 @@
-package charts.series.dots {
+﻿package charts.series.dots {
 	
 	import flash.display.Sprite;
 	import flash.display.Graphics;

@@ -135,7 +135,7 @@
 			// Next override with any values at the y_axis.labels level
 			if (( json[axis_name] != null ) && 
 				( json[axis_name].labels != null ) ) {
-				object_helper.merge_2( json[axis_name].labels, this.style );
+				object_helper.merge_to_default( json[axis_name].labels, this.style );
 			}
 			
 			this.add_labels(values);
@@ -153,8 +153,8 @@
 			for each ( var v:Object in values )
 			{
 				var lblStyle:Object = { };
-				object_helper.merge_2( this.style, lblStyle );
-				object_helper.merge_2( v, lblStyle );
+				object_helper.merge_to_default( this.style, lblStyle );
+				object_helper.merge_to_default( v, lblStyle );
 			
 				if ( lblStyle.visible )
 				{
@@ -174,8 +174,6 @@
 		 */
 		public function make_labels(min:Number, max:Number, steps:Number): void {
 
-			tr.aces('make_labels', this.i_need_labels, min, max, false, steps, this.lblText);
-			tr.aces(this.style.show_labels);
 			
 			if ( !this.i_need_labels )
 				return;

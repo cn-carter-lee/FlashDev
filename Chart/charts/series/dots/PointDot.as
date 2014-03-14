@@ -1,4 +1,4 @@
-package charts.series.dots {
+﻿package charts.series.dots {
 	
 	import charts.series.dots.PointDotBase;
 	import flash.display.BlendMode;

@@ -1,4 +1,4 @@
-package string {
+﻿package string {
 
 	public class Css {
 		public var text_align:String;

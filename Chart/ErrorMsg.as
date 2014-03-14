@@ -1,18 +1,24 @@
-package
-{
-	import flash.display.Sprite;
-	import flash.text.StyleSheet;
-	import flash.text.TextField;
-	import flash.text.TextFormat;
+﻿/* */
+
+package {
 	
-	/**
-	 * ...
-	 * @author Carter
-	 */
-	public class ErrorMsg extends Sprite
-	{
-		public function ErrorMsg(msg:String):void
-		{
+	import flash.display.Sprite;
+	import flash.display.Stage;
+    import flash.text.TextField;
+    import flash.text.TextFieldType;
+	import flash.text.TextFormat;
+	import flash.events.Event;
+	import flash.text.TextFieldAutoSize;
+	//import string.Css;
+	import flash.text.StyleSheet;
+	import flash.events.TextEvent;
+
+	
+	
+	public class ErrorMsg extends Sprite {
+		
+		public function ErrorMsg( msg:String ):void {
+			
 			var title:TextField = new TextField();
 			title.text = msg;
 			
@@ -21,7 +27,7 @@ package
 			fmt.font = "Courier";
 			fmt.size = 10;
 			fmt.align = "left";
-			
+		
 			title.setTextFormat(fmt);
 			title.autoSize = "left";
 			title.border = true;
@@ -31,31 +37,30 @@ package
 			this.addChild(title);
 		}
 		
-		public function add_html(html:String):void
-		{
+		public function add_html( html:String ): void {
 			
 			var txt:TextField = new TextField();
-						
-			var style:StyleSheet = new StyleSheet();
 			
+			var style:StyleSheet = new StyleSheet();
+
 			var hover:Object = new Object();
 			hover.fontWeight = "bold";
 			hover.color = "#0000FF";
 			
 			var link:Object = new Object();
 			link.fontWeight = "bold";
-			link.textDecoration = "underline";
+			link.textDecoration= "underline";
 			link.color = "#0000A0";
 			
 			var active:Object = new Object();
 			active.fontWeight = "bold";
 			active.color = "#0000A0";
-			
+
 			var visited:Object = new Object();
 			visited.fontWeight = "bold";
 			visited.color = "#CC0099";
-			visited.textDecoration = "underline";
-			
+			visited.textDecoration= "underline";
+
 			style.setStyle("a:link", link);
 			style.setStyle("a:hover", hover);
 			style.setStyle("a:active", active);
@@ -70,9 +75,8 @@ package
 			txt.y = t.y + t.height + 10;
 			txt.x = 5;
 			
-			this.addChild(txt);
+			this.addChild( txt );
+			
 		}
-	
 	}
-
 }

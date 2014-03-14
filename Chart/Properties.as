@@ -1,4 +1,4 @@
-package {
+﻿package {
 
 	import flash.utils.Dictionary;
 	import string.Utils;
@@ -37,9 +37,7 @@ package {
 			// key/property not found, report and dump the stack trace
 			//
 			var e:Error = new Error();
-			var str:String = e.getStackTrace();
-			
-			trace( 'ERROR: property not found', name, str);
+			var str:String = e.getStackTrace();				
 			return Number.NEGATIVE_INFINITY;
 		}
 		

@@ -20,24 +20,18 @@ package charts
 		}
 		
 		public function get_max_x():Number
-		{
-			
+		{			
 			var max:Number = Number.MIN_VALUE;
-			
 			for each (var o:Base in this.sets)
 				max = Math.max(max, o.get_max_x());
-			
 			return max;
 		}
 		
 		public function get_min_x():Number
 		{
-			
 			var min:Number = Number.MAX_VALUE;
-			
 			for each (var o:Base in this.sets)
 				min = Math.min(min, o.get_min_x());
-			
 			return min;
 		}
 		
@@ -48,15 +42,9 @@ package charts
 				o.resize(sc);
 		}
 		
-		/**
-		 * Tell each set to update the tooltip string and
-		 * eplace all #x_label# with the label
-		 *
-		 * @param	labels
-		 */
+		// Tell each set to update the tooltip string and replace all #x_label# with the label,@param labels		
 		public function tooltip_replace_labels(labels:XAxisLabels):void
-		{
-			
+		{			
 			for each (var o:Base in this.sets)
 				o.tooltip_replace_labels(labels);
 		}
@@ -82,23 +70,18 @@ package charts
 			for each (o in closest)
 				min = Math.min(min, o.distance_x);
 			
-			//
-			// now select all points that are the
-			// min (see above) distance along the X axis
-			//
+			// now select all points that are the min (see above) distance along the X axis
 			var xx:Object = {element: null, distance_x: Number.MAX_VALUE, distance_y: Number.MAX_VALUE};
 			for each (o in closest)
 			{
 				
 				if (o.distance_x == min)
 				{
-					// these share the same X position, so choose
-					// the closest to the mouse in the Y
+					// these share the same X position, so choose the closest to the mouse in the Y					
 					if (o.distance_y < xx.distance_y)
 						xx = o;
 				}
 			}
-			
 			// pie charts may not return an element
 			if (xx.element)
 				xx.element.set_tip(true);
@@ -157,11 +140,8 @@ package charts
 			
 			var e:Element;
 			var s:Base;
-			var p:flash.geom.Point;
-			
-			//
+			var p:flash.geom.Point;		
 			// get closest points from each data set
-			//
 			var closest:Array = new Array();
 			for each (s in this.sets)
 			{
@@ -171,11 +151,7 @@ package charts
 					closest.push(e);
 			}
 			
-			//
-			// find closest point along X axis
-			// different sets may return Elements
-			// in different X locations
-			//
+			// find closest point along X axis different sets may return Elements in different X locations
 			var min_x:Number = Number.MAX_VALUE;
 			for each (e in closest)
 			{
@@ -184,10 +160,7 @@ package charts
 				min_x = Math.min(min_x, Math.abs(x - p.x));
 			}
 			
-			//
-			// filter out the Elements that
-			// are too far away along the X axis
-			//
+			// filter out the Elements that are too far away along the X axis
 			var good_x:Array = new Array();
 			for each (e in closest)
 			{
@@ -197,9 +170,7 @@ package charts
 					good_x.push(e);
 			}
 			
-			//
 			// now get min_y from filtered array
-			//
 			var min_y:Number = Number.MAX_VALUE;
 			for each (e in good_x)
 			{
@@ -208,9 +179,7 @@ package charts
 				min_y = Math.min(min_y, Math.abs(y - p.y));
 			}
 			
-			//
 			// now filter out any that are not min_y
-			//
 			var good_x_and_y:Array = new Array();
 			for each (e in good_x)
 			{
@@ -223,18 +192,13 @@ package charts
 			return good_x_and_y;
 		}
 		
-		//
 		// find the closest point to the mouse
-		//
 		public function mouse_move_proximity(x:Number, y:Number):Array
 		{
 			var e:Element;
 			var s:Base;
 			var p:flash.geom.Point;
-			
-			//
 			// get closest points from each data set
-			//
 			var closest:Array = new Array();
 			for each (s in this.sets)
 			{
@@ -244,9 +208,7 @@ package charts
 					closest.push(e);
 			}
 			
-			//
 			// find the min distance to these
-			//
 			var min_dist:Number = Number.MAX_VALUE;
 			var mouse:flash.geom.Point = new flash.geom.Point(x, y);
 			for each (e in closest)
@@ -265,28 +227,18 @@ package charts
 			return close;
 		}
 		
-		//
 		// are we resizing a PIE chart?
-		//
 		public function has_pie():Boolean
-		{
-			
-			return false;
-		/*
-		   if ( this.sets.length > 0 && ( this.sets[0] is Pie ) )
-		   return true;
-		   else
-		   return false;
-		 */
+		{			
+			if (this.sets.length > 0 && (this.sets[0] is Pie))
+				return true;
+			else
+				return false;
 		}
 		
-		/**
-		 * To stop memory leaks we explicitly kill all
-		 * our children
-		 */
+		// To stop memory leaks we explicitly kill all our children			
 		public function die():void
 		{
-			
 			for each (var o:Base in this.sets)
 				o.die();
 		}

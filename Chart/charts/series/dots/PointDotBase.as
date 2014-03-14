@@ -1,4 +1,4 @@
-package charts.series.dots {
+﻿package charts.series.dots {
 	
 	import flash.display.Sprite;
 	import charts.series.Element;
@@ -214,7 +214,7 @@ package charts.series.dots {
 						{
 							scaleX:1, scaleY:1, alpha:1, time:1.2,
 							delay:d, transition:Equations.easeOutQuad, 
-							onComplete:function():void { /* tr.ace('Fin');*/ }
+							onComplete:function():void {  }
 						} );
 					
 					break;

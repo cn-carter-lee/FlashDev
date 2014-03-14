@@ -27,7 +27,7 @@
 			};
 			
 			if( json != null )
-				object_helper.merge_2( json, this.style );
+				object_helper.merge_to_default( json, this.style );
 				
 			this.colour = Utils.get_colour( this.style.colour );
 			this.grid_colour = Utils.get_colour( this.style['grid-colour'] );

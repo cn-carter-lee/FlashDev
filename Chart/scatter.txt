@@ -1,0 +1,74 @@
+{
+  "title": {
+    "text": "NO.1 middle school's mid-term exam result",
+    "style": "{color: #000000;font-weight:bold;font-size:12px;background-color:#0000FF;}"
+  },
+  "bg_colour": "#ffffff",
+  "x_legend": {
+    "text": "Students of seventh grade",
+    "style": "{color: #000000;font-weight:bold;font-size:12px;background-color:#00FF00;}"
+  },
+  "y_legend": {
+    "text": "Scores",
+    "style": "{color: #000000;background-color:#0000FF;}"
+  },
+  "elements": [
+    {
+      "type": "scatter",
+      "colour": "#FFB900",
+      "text": "Avg",
+      "font-size": 10,
+      "dot-style": {
+        "type": "solid-dot"
+      },
+      "values": [
+        {
+          "x": -5,
+          "y": -5,
+          "tip": "HELLO"
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "colour": "#FF0000"
+        },
+        {
+          "x": 5,
+          "y": 5,
+          "dot-size": 20,
+          "on-click": "trace:moooo"
+        },
+        {
+          "x": 5,
+          "y": -5,
+          "dot-size": 5,
+          "type": "hollow-dot"
+        },
+        {
+          "x": -5,
+          "y": 5,
+          "dot-size": 5
+        },
+        {
+          "x": 0.5,
+          "y": 1,
+          "dot-size": 15
+        }
+      ]
+    } 
+  ],
+  "y_axis": {
+    "min": -10,
+    "step": 5,
+    "max": 100
+  },
+  "x_axis": {
+    "steps": 2,
+    "stroke": 10
+  },
+  "x_label_style": {
+    "alt_axis_step": 1,
+    "alt_axis_colour": "#00FF00",
+    "max": 100
+  }
+}

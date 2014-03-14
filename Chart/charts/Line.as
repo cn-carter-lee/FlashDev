@@ -115,8 +115,7 @@ package charts {
 			
 			this.draw();
 			
-			if( !this.still_animating() ) {
-				// tr.ace( 'Line.as : on show animation stop' );
+			if( !this.still_animating() ) {				
 				this.on_show_timer.stop();
 			}
 		}

@@ -1,4 +1,4 @@
-package charts.series {
+﻿package charts.series {
 	
 	/**
 	 * anything that wants to use our tooltips

@@ -28,7 +28,7 @@ package elements.labels {
 			// defaults:
 			this.style = "font-size: 12px";
 			
-			object_helper.merge_2( json, this );
+			object_helper.merge_to_default( json, this );
 			
 			this.css = new Css( this.style );
 			this.build( this.text );
@@ -36,14 +36,10 @@ package elements.labels {
 		
 		public function resize():void {
 			if( this.text == null )
-				return;
-				
+				return;				
 			this.getChildAt(0).width = this.stage.stageWidth;
-			
-			
-			//
+							
 			// is the title aligned (text-align: xxx)?
-			//
 			var tmp:String = this.css.text_align;
 			switch( tmp )
 			{
