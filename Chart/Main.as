@@ -1,4 +1,3 @@
-
 package
 {
 	import charts.series.Element;
@@ -52,7 +51,7 @@ package
 	
 	import flash.ui.Mouse;
 	
-	public class main extends Sprite
+	public class Main extends Sprite
 	{
 		public var VERSION:String = "PYS 1.0";
 		private var title:Title = null;
@@ -77,7 +76,7 @@ package
 		private var chart_parameters:Object;
 		private var json:String;
 		
-		public function main()
+		public function Main()
 		{
 			this.chart_parameters = LoaderInfo(this.loaderInfo).parameters;
 			if (this.chart_parameters['loading'] == null)
