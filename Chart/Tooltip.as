@@ -63,8 +63,8 @@ package
 		}
 		
 		public function make_tip(elements:Array):void
-		{			
-			this.graphics.clear();			
+		{
+			this.graphics.clear();
 			while (this.numChildren > 0)
 				this.removeChildAt(0);
 			
@@ -76,26 +76,26 @@ package
 				var o:Object = this.make_one_tip(e, x);
 				height = Math.max(height, o.height);
 				x += o.width + 2;
-			}			
+			}
 			this.graphics.lineStyle(this.style.stroke, this.style.colour, 1);
 			this.graphics.beginFill(this.style.background, 1);
 			this.graphics.drawRoundRect(0, 0, width + 10, height + 5, this.style.rounded, this.style.rounded);
 		}
 		
 		private function make_one_tip(e:has_tooltip, x:Number):Object
-		{			
+		{
 			var tt:String = e.get_tooltip();
-			var lines:Array = tt.split('<br>');		
+			var lines:Array = tt.split('<br>');
 			var top:Number = 5;
-			var width:Number = 0;			
+			var width:Number = 0;
 			if (lines.length > 1)
-			{				
+			{
 				var title:TextField = this.make_title(lines.shift());
 				title.mouseEnabled = false;
 				title.x = x;
 				title.y = top;
 				top += title.height;
-				width = title.width;			
+				width = title.width;
 				this.addChild(title);
 			}
 			
@@ -104,13 +104,13 @@ package
 			text.x = x;
 			text.y = top;
 			width = Math.max(width, text.width);
-			this.addChild(text);			
+			this.addChild(text);
 			top += text.height;
 			return {width: width, height: top};
 		}
 		
 		private function make_title(text:String):TextField
-		{			
+		{
 			var title:TextField = new TextField();
 			title.mouseEnabled = false;
 			title.htmlText = text;
@@ -136,9 +136,9 @@ package
 		}
 		
 		private function make_body(body:String):TextField
-		{		
+		{
 			var text:TextField = new TextField();
-			text.mouseEnabled = false;			
+			text.mouseEnabled = false;
 			text.htmlText = body;
 			var fmt2:TextFormat = new TextFormat();
 			fmt2.color = this.style.body.color;
@@ -147,14 +147,14 @@ package
 			fmt2.size = this.style.body.font_size;
 			fmt2.align = "left";
 			text.setTextFormat(fmt2);
-			text.autoSize = "left";			
+			text.autoSize = "left";
 			return text;
 		}
 		
 		private function get_pos(e:has_tooltip):flash.geom.Point
-		{			
-			var pos:Object = e.get_tip_pos();		
-			var x:Number = (pos.x + this.width + 16) > this.stage.stageWidth ? (this.stage.stageWidth - this.width - 16) : pos.x;			
+		{
+			var pos:Object = e.get_tip_pos();
+			var x:Number = (pos.x + this.width + 16) > this.stage.stageWidth ? (this.stage.stageWidth - this.width - 16) : pos.x;
 			var y:Number = pos.y;
 			y -= 4;
 			y -= (this.height + 10); // 10 == border size			
@@ -171,7 +171,7 @@ package
 			
 			// remove the 'hide' tween
 			Tweener.removeTweens(this);
-			var p:flash.geom.Point = this.get_pos(e);			
+			var p:flash.geom.Point = this.get_pos(e);
 			if (this.style.mouse == Tooltip.CLOSEST)
 			{
 				// make the tooltip appear (if invisible) and shoot to the correct position
@@ -183,7 +183,7 @@ package
 			else
 			{
 				// make the tooltip fade in gently
-				this.tip_showing = true;				
+				this.tip_showing = true;
 				this.alpha = 0
 				this.visible = true;
 				this.x = p.x;
@@ -193,7 +193,7 @@ package
 		}
 		
 		public function draw(e:has_tooltip):void
-		{			
+		{
 			if (this.cached_elements[0] == e)
 			{
 				// if the tip is showing, don't make it show again because this makes it flicker				
@@ -201,11 +201,11 @@ package
 					this.show_tip(e);
 			}
 			else
-			{				
+			{
 				// this is a new tooltip, tell the old highlighted item to, return to ground state
-				this.untip();				
+				this.untip();
 				// get the new text and recreate it
-				this.cached_elements = [e];				
+				this.cached_elements = [e];
 				this.make_tip([e]);
 				this.show_tip(e);
 			}
@@ -214,16 +214,15 @@ package
 		public function closest(elements:Array):void
 		{
 			if (elements.length == 0)
-				return;	
-				
+				return;
+			
 			if (this.is_cached(elements))
-				return;			
+				return;
 			this.untip();
 			this.cached_elements = elements;
-			this.tip();			
+			this.tip();
 			
 			this.make_tip(elements);
-			
 			var p:flash.geom.Point = this.get_pos(elements[0]);
 			
 			this.visible = true;
@@ -231,7 +230,7 @@ package
 			Tweener.addTween(this, {x: p.x, time: 0.3, transition: Equations.easeOutExpo});
 			Tweener.addTween(this, {y: p.y, time: 0.3, transition: Equations.easeOutExpo});
 		}
-				
+		
 		// TODO: if elements has 1 item and cached_elements has 2 one of which is in elements, this function  returns true which is wrong						
 		private function is_cached(elements:Array):Boolean
 		{
@@ -241,8 +240,7 @@ package
 			
 			for each (var e:has_tooltip in elements)
 				if (this.cached_elements.indexOf(e) == -1)
-					return false;
-			
+					return false;			
 			return true;
 		}
 		
@@ -268,7 +266,7 @@ package
 		
 		public function hide():void
 		{
-			this.tip_showing = false;			
+			this.tip_showing = false;
 			Tweener.addTween(this, {alpha: 0, time: 0.6, transition: Equations.easeOutExpo, onComplete: hideAway});
 		}
 		
@@ -283,7 +281,7 @@ package
 		}
 		
 		public function die():void
-		{			
+		{
 			this.filters = [];
 			this.graphics.clear();
 			

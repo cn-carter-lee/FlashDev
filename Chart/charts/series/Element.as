@@ -1,5 +1,5 @@
 ﻿package charts.series
-{	
+{
 	import charts.series.has_tooltip;
 	import flash.display.Sprite;
 	import string.Utils;
@@ -36,7 +36,7 @@
 		}
 		
 		public function resize(sc:ScreenCoordsBase):void
-		{			
+		{
 			var p:flash.geom.Point = sc.get_get_x_from_pos_and_y_from_val(this._x, this._y, this.right_axis);
 			this.x = p.x;
 			this.y = p.y;
@@ -44,7 +44,7 @@
 		
 		// for tooltip closest - return the middle point		
 		public function get_mid_point():flash.geom.Point
-		{			
+		{
 			// dots have x, y in the center of the dot
 			return new flash.geom.Point(this.x, this.y);
 		}
@@ -68,7 +68,7 @@
 		
 		// if this is put in the Element constructor, it is called multiple times for some reason :-(
 		protected function attach_events():void
-		{			
+		{
 			// weak references so the garbage collector will kill them:
 			this.addEventListener(MouseEvent.MOUSE_OVER, this.mouseOver, false, 0, true);
 			this.addEventListener(MouseEvent.MOUSE_OUT, this.mouseOut, false, 0, true);

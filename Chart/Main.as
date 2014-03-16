@@ -1,5 +1,7 @@
 package
 {
+	import charts.Line;
+	import charts.Scatter;
 	import charts.series.Element;
 	import charts.Factory;
 	import charts.ChartSetCollection;
@@ -64,7 +66,7 @@ package
 		private var y_legend_left:YLegendBase;
 		private var y_legend_right:YLegendBase;
 		private var keys:Keys;
-		private var obs:ChartSetCollection;
+		private var listChartSet:ChartSetCollection;
 		public var tool_tip_wrapper:String;
 		private var sc:ScreenCoords;
 		private var tooltip:Tooltip;
@@ -74,7 +76,6 @@ package
 		private var URL:String;
 		private var id:String;
 		private var chart_parameters:Object;
-		private var json:String;
 		
 		public function Main()
 		{
@@ -187,9 +188,10 @@ package
 		private function loadJsonData(json_string:String):void
 		{
 			var ok:Boolean = false;
+			var jsonObj:Object;
 			try
 			{
-				var json:Object = JSON.parse(json_string, null);
+				jsonObj = JSON.parse(json_string, null);
 				ok = true;
 			}
 			catch (e:Error)
@@ -204,23 +206,25 @@ package
 				// remove 'loading data...' msg:
 				this.removeChildAt(0);
 				// START TO BUILD CHART
-				this.build_chart(json);
+				this.build_chart(jsonObj);
 				// force this to be garbage collected
-				json = null;
+				jsonObj = null;
 			}
 		}
 		
 		private function build_chart(json:Object):void
 		{
-			if (this.obs != null)
+			if (this.listChartSet != null)
 				this.die();
 			// init singletons:
-			NumberFormat.getInstance(json);
-			NumberFormat.getInstanceY2(json);
+			// NumberFormat.getInstance(json);
+			// NumberFormat.getInstanceY2(json);
 			this.tooltip = new Tooltip(json.tooltip);
 			
 			var g:Global = Global.getInstance();
 			g.set_tooltip_string(this.tooltip.tip_text);
+			
+			this.listChartSet = Factory.MakeChart(json);
 			
 			// step 1 these are common to both X Y charts and PIE charts:
 			this.stage_background = new StageBackground(json);
@@ -234,7 +238,7 @@ package
 			this.addChild(this.title);
 			
 			// step 4
-			for each (var set:Sprite in this.obs.ChartSets)
+			for each (var set:Sprite in this.listChartSet.ChartSets)
 				this.addChild(set);
 			
 			// step 5
@@ -282,7 +286,7 @@ package
 			right -= this.y_legend_left.get_width();
 			// this object is used in the mouseMove method
 			this.sc = new ScreenCoords(top, left, right, bottom, this.y_axis.get_range(), this.y_axis_right.get_range(), this.x_axis.get_range(), this.x_axis.first_label_width(), this.x_axis.last_label_width(), false);
-			this.sc.set_bar_groups(this.obs.ChartGroups);
+			this.sc.set_bar_groups(this.listChartSet.ChartGroups);
 			this.x_axis.resize(sc, 
 				// can we remove this:
 				this.stage.stageHeight - (this.x_legend.get_height() + this.x_axis.labels.get_height()) // <-- up from the bottom
@@ -292,7 +296,7 @@ package
 			this.x_legend.resize(sc);
 			this.y_legend_left.resize();
 			this.y_legend_right.resize();
-			this.obs.resize(sc);
+			this.listChartSet.resize(sc);
 			
 			return sc;
 		}
@@ -314,8 +318,22 @@ package
 				return; // <- an error and the JSON was not loaded					
 			if (this.tooltip.get_tip_style() == Tooltip.CLOSEST)
 			{
-				var elements:Array = this.obs.get_closest_elements(this.mouseX, this.mouseY);
-				this.tooltip.closest(elements);
+				var elements:Array = this.listChartSet.get_closest_elements(this.mouseX, this.mouseY);
+				var scatterElements:Array = new Array();
+				for each (var o:Object in elements)
+				{
+					if (o.parent is Scatter)
+					{
+						scatterElements.push(o);
+					}
+				}
+				
+				if (scatterElements.length == 0)
+				{
+					this.mouseOut(null);
+					return;
+				}
+				this.tooltip.closest(scatterElements);
 			}
 			Mouse.cursor = "button";
 		}
@@ -330,8 +348,8 @@ package
 			if (this.tooltip != null)
 				this.tooltip.hide();
 			
-			if (this.obs != null)
-				this.obs.mouse_out();
+			if (this.listChartSet != null)
+				this.listChartSet.mouse_out();
 			Mouse.cursor = "arrow";
 		}
 		
@@ -345,11 +363,11 @@ package
 		private function build_chart_background(json:Object):void
 		{
 			// This reads all the 'elements' of the chart.  e.g. bars and lines, then creates them as sprites			
-			this.obs = Factory.MakeChart(json);
+			
 			this.x_legend = new XLegend(json.x_legend);
 			this.y_legend_left = new YLegendLeft(json);
 			this.y_legend_right = new YLegendRight(json);
-			this.x_axis = new XAxis(json, this.obs.get_min_x(), this.obs.get_max_x());
+			this.x_axis = new XAxis(json, this.listChartSet.get_min_x(), this.listChartSet.get_max_x());
 			this.y_axis = new YAxisLeft();
 			this.y_axis_right = new YAxisRight();
 			
@@ -359,8 +377,8 @@ package
 			g.x_labels = this.x_axis.labels;
 			g.x_legend = this.x_legend;
 			// pick up X Axis labels for the tooltips			
-			this.obs.tooltip_replace_labels(this.x_axis.labels);
-			this.keys = new Keys(this.obs);
+			this.listChartSet.tooltip_replace_labels(this.x_axis.labels);
+			this.keys = new Keys(this.listChartSet);
 			this.addChild(this.x_legend);
 			this.addChild(this.y_legend_left);
 			this.addChild(this.y_legend_right);
@@ -376,8 +394,8 @@ package
 		// Remove all our referenced objects		
 		private function die():void
 		{
-			this.obs.die();
-			this.obs = null;
+			this.listChartSet.die();
+			this.listChartSet = null;
 			
 			if (this.tooltip != null)
 				this.tooltip.die();
@@ -441,6 +459,7 @@ package
 		
 		private function onContextMenuHandler(event:ContextMenuEvent):void
 		{
+			// Triggers when click the right mouse click
 		}
 	}
 }
