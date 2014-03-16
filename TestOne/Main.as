@@ -15,19 +15,8 @@ package
 		
 		public function Main():void
 		{
-			if (stage)
-				init();
-			else
-				addEventListener(Event.ADDED_TO_STAGE, init);
-		}
-		
-		private function init(e:Event = null):void
-		{
 			line = new PysLine();
 			this.addChild(line);
-			removeEventListener(Event.ADDED_TO_STAGE, init);
 		}
-	
 	}
-
 }

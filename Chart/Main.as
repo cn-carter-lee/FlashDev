@@ -180,11 +180,11 @@ package
 		private function jsonFileLoaded(event:Event):void
 		{
 			var loader:URLLoader = URLLoader(event.target);
-			this.parse_json(loader.data);
+			this.loadJsonData(loader.data);
 		}
 		
 		// we have data! parse it and make the chart
-		private function parse_json(json_string:String):void
+		private function loadJsonData(json_string:String):void
 		{
 			var ok:Boolean = false;
 			try
@@ -303,7 +303,6 @@ package
 			this.stage.align = StageAlign.TOP_LEFT;
 			// ----- RESIZE ---- noScale: now we can pick up resize events
 			this.stage.scaleMode = StageScaleMode.NO_SCALE;
-			this.stage.addEventListener(Event.ACTIVATE, this.activateHandler);
 			this.stage.addEventListener(Event.RESIZE, this.resizeHandler);
 			this.stage.addEventListener(Event.MOUSE_LEAVE, this.mouseOut);
 			this.addEventListener(MouseEvent.MOUSE_OVER, this.mouseMove);
@@ -319,11 +318,6 @@ package
 				this.tooltip.closest(elements);
 			}
 			Mouse.cursor = "button";
-		}
-		
-		private function activateHandler(event:Event):void
-		{
-		
 		}
 		
 		private function resizeHandler(event:Event):void
@@ -344,7 +338,7 @@ package
 		// an external interface, used by javascript to pass in a JSON string				
 		public function load(s:String):void
 		{
-			this.parse_json(s);
+			this.loadJsonData(s);
 		}
 		
 		// PIE charts don't have this.build grid, axis, legends and key		
@@ -447,6 +441,6 @@ package
 		
 		private function onContextMenuHandler(event:ContextMenuEvent):void
 		{
-		}		
+		}
 	}
 }
