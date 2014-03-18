@@ -5,7 +5,7 @@
     <movie outputType="Application" />
     <movie input="" />
     <movie path="TestOne.swf" />
-    <movie fps="30" />
+    <movie fps="60" />
     <movie width="800" />
     <movie height="600" />
     <movie version="11" />
@@ -15,7 +15,7 @@
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
-    <!-- example: <class path="..." /> -->
+    <class path="." />
   </classpaths>
   <!-- Build options -->
   <build>
@@ -27,7 +27,7 @@
     <option inline="False" />
     <option locale="" />
     <option loadConfig="" />
-    <option optimize="True" />
+    <option optimize="False" />
     <option omitTraces="True" />
     <option showActionScriptWarnings="True" />
     <option showBindingWarnings="True" />
@@ -68,7 +68,13 @@
   </intrinsics>
   <!-- Assets to embed into the output SWF -->
   <library>
-    <asset path="images\cursor_resize.png" />
+    <asset path="images\drag.png" />
+    <asset path="images\dragbar1.png" />
+    <asset path="images\dragbar2.png" />
+    <asset path="images\dragbar3.png" />
+    <asset path="images\dragbar_bottom.png" />
+    <asset path="images\dragbar_middle.png" />
+    <asset path="images\dragbar_top.png" />
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>

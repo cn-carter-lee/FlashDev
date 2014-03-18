@@ -6,17 +6,14 @@ package
 	import flash.events.MouseEvent;
 	import flash.ui.Mouse;
 	
-	/**
-	 * ...
-	 * @author PYS
-	 */
-	[Frame(factoryClass="Preloader")]
-	
 	public class Main extends Sprite
 	{
-		
-		private var pysCursor:PysCursor;
+		private var line1:PysLine
+		private var line2:PysLine;
 		private var bar1:PysBar;
+		
+		private var dragCursor:DragCursor = new DragCursor();
+		public var dragging:Boolean = false;
 		
 		public function Main():void
 		{
@@ -30,11 +27,11 @@ package
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			
-			var line1:PysLine = new PysLine();
+			line1 = new PysLine();
 			this.addChild(line1);
 			line1.y = 0;
 			
-			var line2:PysLine = new PysLine();
+			line2 = new PysLine();
 			line2.y = 100;
 			this.addChild(line2);
 			
@@ -47,10 +44,16 @@ package
 			line2.resize();
 			bar1.resize();
 			
-			// pysCursor = new PysCursor();
-			// this.addChild(pysCursor);
-			// pysCursor.visible = false;
+			this.addChild(dragCursor);
 			stage.addEventListener(MouseEvent.MOUSE_MOVE, mouseMove);
+			stage.addEventListener(Event.RESIZE, resize);
+		}
+		
+		private function resize(event:Event):void
+		{
+			line1.resize();
+			line2.resize();
+			bar1.resize();
 		}
 		
 		private function line1resize(event:Event):void
@@ -61,9 +64,9 @@ package
 		private function mouseMove(event:MouseEvent):void
 		{
 			// Mouse.hide();
-			//pysCursor.x = event.stageX;
-			//pysCursor.y = event.stageY;			
-			bar1.resize();
+			dragCursor.x = event.stageX;
+			dragCursor.y = event.stageY;
+			bar1.resize();			
 		}
 	}
 }

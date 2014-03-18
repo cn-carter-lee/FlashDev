@@ -1,3 +1,4 @@
+/*
 package 
 {
 	import flash.display.DisplayObject;
@@ -9,10 +10,10 @@ package
 	import flash.events.ProgressEvent;
 	import flash.utils.getDefinitionByName;
 	
-	/**
+	
 	 * ...
 	 * @author PYS
-	 */
+	 
 	public class Preloader extends MovieClip 
 	{
 		
@@ -68,3 +69,5 @@ package
 	}
 	
 }
+
+*/
