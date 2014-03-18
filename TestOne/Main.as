@@ -1,7 +1,10 @@
 package
 {
+	
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import flash.events.MouseEvent;
+	import flash.ui.Mouse;
 	
 	/**
 	 * ...
@@ -11,33 +14,55 @@ package
 	
 	public class Main extends Sprite
 	{
+		
+		private var pysCursor:PysCursor;
+		
 		public function Main():void
 		{
-			this.addEventListener(Event.ENTER_FRAME, enter);
+			if (stage)
+				init();
+			else
+				addEventListener(Event.ADDED_TO_STAGE, init);
 		}
 		
-		private function enter(event:Event):void
+		private function init(e:Event = null):void
 		{
-			var line:PysLine = new PysLine();
+			removeEventListener(Event.ADDED_TO_STAGE, init);
 			
-			this.addChild(line);
-			
-			line.y = 0;
+			var line1:PysLine = new PysLine();
+			this.addChild(line1);
+			line1.y = 0;
 			
 			var line2:PysLine = new PysLine();
 			line2.y = 100;
 			this.addChild(line2);
 			
-			var line3:PysLine = new PysLine();
-			line3.y = 200;
-			this.addChild(line3);
-			
-			var bar1:PysBar = new PysBar(line, line2);
+			var bar1:PysBar = new PysBar(line1, line2);
 			this.addChild(bar1);
-			line.resize();
+			
+			line1.addEventListener(Event.RESIZE, line1resize);
+			
+			line1.resize();
 			line2.resize();
-			line3.resize();
 			bar1.resize();
+			
+			pysCursor = new PysCursor();
+			this.addChild(pysCursor);
+			// pysCursor.visible = false;
+			stage.addEventListener(MouseEvent.MOUSE_MOVE, mouseMove);
+		
+		}
+		
+		private function line1resize(event:Event):void
+		{
+			trace("xxxxx");
+		}
+		
+		private function mouseMove(event:MouseEvent):void
+		{
+			Mouse.hide();
+			pysCursor.x = event.stageX;
+			pysCursor.y = event.stageY;
 		}
 	}
 }

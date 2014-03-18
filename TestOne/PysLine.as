@@ -11,11 +11,9 @@ package
 	 */
 	public class PysLine extends Sprite
 	{
+		
 		public function PysLine()
 		{
-			
-			
-			this.addEventListener(Event.ENTER_FRAME, enter);
 			this.addEventListener(MouseEvent.MOUSE_OVER, mouseOver);
 			this.addEventListener(MouseEvent.MOUSE_OUT, mouseOut);
 			
@@ -26,10 +24,11 @@ package
 		public function resize():void
 		{
 			drawLine(0x00FF00);
+		
 		}
 		
 		private function drawLine(color:uint):void
-		{			
+		{
 			var width:Number = this.y;
 			this.graphics.clear();
 			this.graphics.beginFill(color, 1);
@@ -40,8 +39,6 @@ package
 		private function mouseOver(event:Event):void
 		{
 			drawLine(0xCCCCCC);
-			trace(this.width);
-			trace(this.height);
 		}
 		
 		private function mouseOut(event:Event):void
@@ -50,8 +47,6 @@ package
 			drawLine(0x00FF00);
 			Mouse.cursor = "arrow";
 			trace(this.width);
-			trace(this.height);
-		
 		}
 		
 		private function mouseDown(event:Event):void
@@ -65,11 +60,5 @@ package
 			Mouse.cursor = "arrow";
 			this.stopDrag();
 		}
-		
-		private function enter(event:Event):void
-		{
-		
-		}
 	}
-
 }
