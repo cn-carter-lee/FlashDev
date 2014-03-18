@@ -16,6 +16,7 @@ package
 	{
 		
 		private var pysCursor:PysCursor;
+		private var bar1:PysBar;
 		
 		public function Main():void
 		{
@@ -37,7 +38,7 @@ package
 			line2.y = 100;
 			this.addChild(line2);
 			
-			var bar1:PysBar = new PysBar(line1, line2);
+			bar1 = new PysBar(line1, line2);
 			this.addChild(bar1);
 			
 			line1.addEventListener(Event.RESIZE, line1resize);
@@ -46,23 +47,23 @@ package
 			line2.resize();
 			bar1.resize();
 			
-			pysCursor = new PysCursor();
-			this.addChild(pysCursor);
+			// pysCursor = new PysCursor();
+			// this.addChild(pysCursor);
 			// pysCursor.visible = false;
 			stage.addEventListener(MouseEvent.MOUSE_MOVE, mouseMove);
-		
 		}
 		
 		private function line1resize(event:Event):void
 		{
-			trace("xxxxx");
+		
 		}
 		
 		private function mouseMove(event:MouseEvent):void
 		{
-			Mouse.hide();
-			pysCursor.x = event.stageX;
-			pysCursor.y = event.stageY;
+			// Mouse.hide();
+			//pysCursor.x = event.stageX;
+			//pysCursor.y = event.stageY;			
+			bar1.resize();
 		}
 	}
 }

@@ -8,15 +8,15 @@
   <compiler>
     <define append="true">
       <name>CONFIG::debug</name>
-      <value>true</value>
-    </define>
-    <define append="true">
-      <name>CONFIG::release</name>
       <value>false</value>
     </define>
     <define append="true">
+      <name>CONFIG::release</name>
+      <value>true</value>
+    </define>
+    <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'2014/3/17'</value>
+      <value>'2014/3/18'</value>
     </define>
     <define append="true">
       <name>CONFIG::air</name>
@@ -30,6 +30,7 @@
       <name>CONFIG::desktop</name>
       <value>false</value>
     </define>
+    <omit-trace-statements>true</omit-trace-statements>
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
       <path-element>D:\Dev Test\FlashTest\FlashDev\Chart</path-element>

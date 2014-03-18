@@ -313,10 +313,10 @@ package
 			if (!this.tooltip)
 				// <- an error and the JSON was not loaded
 				return;
-				
+			
 			if (this.tooltip.get_tip_style() == Tooltip.CLOSEST)
 			{
-				var closestElements:Array = this.listChartSet.get_closest_elements(this.mouseX, this.mouseY);					
+				var closestElements:Array = this.listChartSet.get_closest_elements(this.mouseX, this.mouseY);
 				if (closestElements.length == 0)
 				{
 					this.mouseOut(null);
