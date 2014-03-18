@@ -68,7 +68,8 @@ package charts
 			{
 				var tmpElments:Array = s.get_closest(x, y);
 				for each (element in tmpElments)
-					closestElements.push(element);
+					if (element.parent is Scatter)
+						closestElements.push(element);
 			}
 			
 			// find closest point along X axis different sets may return Elements in different X locations

@@ -13,9 +13,9 @@ package
 	{
 		public function PysLine()
 		{
-			drawLine(0x00FF00);
-			this.addEventListener(Event.RESIZE, drawLine);
 			
+			
+			this.addEventListener(Event.ENTER_FRAME, enter);
 			this.addEventListener(MouseEvent.MOUSE_OVER, mouseOver);
 			this.addEventListener(MouseEvent.MOUSE_OUT, mouseOut);
 			
@@ -23,25 +23,32 @@ package
 			this.addEventListener(MouseEvent.MOUSE_UP, mouseUp);
 		}
 		
-		private function drawLine(color:uint):void
+		public function resize():void
 		{
+			drawLine(0x00FF00);
+		}
+		
+		private function drawLine(color:uint):void
+		{			
+			var width:Number = this.y;
 			this.graphics.clear();
 			this.graphics.beginFill(color, 1);
-			this.graphics.drawRect(0, 0, 1000, 10);
+			this.graphics.drawRect(0, 0, this.stage.stageWidth, 5);
 			this.graphics.endFill();
 		}
 		
 		private function mouseOver(event:Event):void
 		{
-			drawLine(0xFF0000);
+			drawLine(0xCCCCCC);
 			trace(this.width);
 			trace(this.height);
 		}
 		
 		private function mouseOut(event:Event):void
 		{
+			return;
 			drawLine(0x00FF00);
-			Mouse.cursor = "arror";
+			Mouse.cursor = "arrow";
 			trace(this.width);
 			trace(this.height);
 		
@@ -57,6 +64,11 @@ package
 		{
 			Mouse.cursor = "arrow";
 			this.stopDrag();
+		}
+		
+		private function enter(event:Event):void
+		{
+		
 		}
 	}
 

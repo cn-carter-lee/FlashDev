@@ -18,6 +18,7 @@
       "colour": "#0000FF",
       "text": "Avg",
       "font-size": 10,
+	  "tip": "Scatter<br>#val#",
       "dot-style": {
         "type": "solid-dot",
 		"dot-size": 3
@@ -58,7 +59,7 @@
 		  "type": "hollow-dot",
 		  "on-click": "trace:moooo",
           "dot-size":10,
-		  "tip": "THIS IS A WONDERFUL WORLD!!!"
+		  "tip": "THIS IS A WONDERFUL WORLD123!!!"
         }
       ]
     },

@@ -102,8 +102,7 @@ package charts
 			// get the closest Elements X value
 			var x:Number = closest_x(x);
 			var tmp:Array = this.get_all_at_this_x_pos(x);
-			var closest:Array = this.get_closest_y(tmp, y);
-			var dy:Number = Math.abs(y - closest.y);
+			var closest:Array = this.get_closest_y(tmp, y);			
 			return closest;
 		}
 		
@@ -136,8 +135,7 @@ package charts
 		
 		// get all the Elements at this X position BarStack overrides this
 		protected function get_all_at_this_x_pos(x:Number):Array
-		{
-			
+		{			
 			var tmp:Array = new Array();
 			var p:flash.geom.Point;
 			var e:Element;
