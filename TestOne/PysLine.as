@@ -1,5 +1,6 @@
 package
 {
+	import flash.display.Shape;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
@@ -76,6 +77,12 @@ package
 		{
 			Mouse.cursor = "arrow";
 			this.stopDrag();
+			
+			
+			
+			var s:Shape = new Shape();
+			
+			
 		}
 	}
 }
