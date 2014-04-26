@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/jquery.handsontable.full.css" />
+    <script type="text/javascript" src="js/jquery.1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.handsontable.full.js" charset= "UTF-8"></script>
+    <meta charset="utf-8">
+    <title>Handsontable</title>
+</head>
+<body>
+    <div id="dataTable">
+    </div>
+    <script type="text/javascript">
+        var data = [
+    ["", "Kia", "Nissan", "Toyota", "Honda"],
+    ["2008", 10, 11, 12, 13],
+    ["2009", 20, 11, 14, 13],
+    ["2010", 30, 15, 12, 13]
+  ];
+        $("#dataTable").handsontable({
+            data: data,
+            startRows: 6,
+            startCols: 8,
+            contextMenu:['remove_row','row_above', 'row_below']
+        });
+    </script>
+</body>
+</html>

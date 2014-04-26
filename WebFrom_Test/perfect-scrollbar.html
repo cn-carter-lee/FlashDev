@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/perfect-scrollbar.css" />
+    <script type="text/javascript" src="js/jquery.1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/perfect-scrollbar.js"></script>
+    <title></title>
+    <style>
+        .contentHolder
+        {
+            position: relative;
+            margin: 0px auto;
+            padding: 0px;
+            width: 600px;
+            height: 400px;
+            overflow: hidden;
+        }
+        .contentHolder .content
+        {
+            background-image: url('images/azusa.jpg');
+            width: 1280px;
+            height: 720px;
+        }
+    </style>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $('#Default').perfectScrollbar();
+        });
+    </script>
+</head>
+<body>
+    <div id="Default" class="contentHolder">
+        <div class="content">
+        </div>
+    </div>
+</body>
+</html>

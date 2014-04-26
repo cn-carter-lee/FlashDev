@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/line.css" />
+    <link rel="stylesheet" type="text/css" href="css/perfect-scrollbar.css" />
+    <script type="text/javascript" src="js/jquery.1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/perfect-scrollbar.js"></script>
+    <meta charset="GB2312" />
+    <title>Demo of jQuery timeline plugin</title>
+    <style type="text/css">
+        body
+        {
+            margin: 0;
+            padding: 0;
+        }
+        .marker
+        {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            z-index: 2;
+            position: absolute;
+            top: 1.5px;
+            left: 50px;
+            background: url(/img/main_img.png) no-repeat 0 -84px;
+        }
+        
+        .markerhover
+        {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            z-index: 2;
+            position: absolute;
+            top: 1.5px;
+            left: 50px;
+            background: url(../img/main_img.png) no-repeat -27px -84px;
+        }
+        
+        .marker-tip
+        {
+            height: 16px;
+            cursor: pointer;
+            z-index: 2;
+            position: absolute;
+            font-size: 12px;
+            top: -10px;
+        }
+        .content-middle
+        {
+            width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .customer
+        {
+            cursor: url(images/cursor.png),auto;
+        }
+        
+        .e-message
+        {
+            background-color: #666666;
+            position: absolute;
+            top: 25px;
+            color: white;
+        }
+        
+        .message-pointer
+        {
+            background: url(/img/main_img.png) no-repeat 0 -122px;
+            width: 14px;
+            height: 18px;
+            position: absolute;
+            top: -11px;
+            z-index: 1;
+        }
+        
+        .msg
+        {
+            padding: 5px;
+            font-size: 10px;
+            cursor: pointer;
+            z-index: 100;
+            position: relative;
+        }
+    </style>
+    <script type="text/javascript">
+
+    </script>
+</head>
+<body>
+    <br />
+    <br />
+    <br />
+    <br />
+    <div id="demo" class="content-middle" style="overflow: hidden; position:relative;height:80px;padding-top:30px;">
+        <div id="eventline" style="position: relative;">
+            <div style="width: 1700px; margin: 0; padding: 0; background: url(images/line.png) repeat-x center;">
+                <div style="background: url(images/arrow.png) no-repeat center right;">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="content-middle" style="background: #ccc; clear: both;">
+        <div class="customer" id="bar" style="width: 30px; height: 30px; border: 1px #000 solid;">
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    var $toolTip = null;
+    var events = [{ id: 1, name: "Wonderful", left: 50 }, { id: 2, name: "Wonderful", left: 150 }, { id: 3, name: "Wonderful", left: 450}];
+    function getId(str) {
+        return str.substring(str.indexOf('_') + 1);
+    }
+    for (var i = 0; i < events.length; i++) {
+        var $retHtml = $('<div id=marker_' + events[i].id + ' style="left: ' + events[i].left + 'px;" class="marker"></div><div style="left: ' + (events[i].left - 5) + 'px;" class="marker-tip">3月28日</div>').data('event', events[i]);
+        $retHtml.mouseover(
+                function (e) {
+                    var $t = $(e.target);
+                    $t.attr('class', "markerhover");
+                    $toolTip = $('<div class="e-message" id="tooltip_' + getId(e.target.id) + '" style="left:' + $t.css('left') + '">' +
+                        '<div class="message-pointer"></div>' +
+                        '<div class="msg" id="msg_1">Joined Faecbook</div>' +
+                        '</div>');
+                    $('#eventline').append($toolTip);
+                });
+        $retHtml.mouseleave(
+                function (e) {
+                    var $t = $(e.target);
+                    $t.attr('class', "marker");
+                    if ($toolTip) $toolTip.remove();
+                });
+
+        $('#eventline').append($retHtml);
+    }
+</script>

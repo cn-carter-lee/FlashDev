@@ -1,0 +1,277 @@
+{
+  "classes": [
+    {
+      "classid": 1,
+      "name": "一班"
+    }
+  ],
+  "title": {
+    "text": "",
+    "style": "{color: #000000;font-weight:bold;font-size:12px;background-color:#0000FF;}"
+  },
+  "bg_colour": "#ffffff",
+  "x_legend": {
+    "text": "",
+    "style": "{color: #000000;font-weight:bold;font-size:12px;background-color:#00FF00;}"
+  },
+  "y_legend": {
+    "text": "",
+    "style": "{color: #000000;font-weight:bold;font-size:12px;background-color:#00FF00;}"
+  },
+  "y2_legend": {
+    "text": "",
+    "style": "{color: #000000;font-weight:bold;font-size:12px;background-color:#00FF00;}"
+  },
+  "charts": {
+    "text": "Grade One",
+    "scatter": {
+      "type": "scatter",
+      "colour": "#0000FF",
+      "text": "二班",
+      "font-size": 10,
+      "tip": "Scatter<br>#val#",
+      "dot-style": {
+        "type": "solid-dot",
+        "dot-size": 3
+      },
+      "values": [
+        {
+          "x": 0,
+          "y": 39
+        },
+        {
+          "x": 1,
+          "y": 45
+        },
+        {
+          "x": 2,
+          "y": 49
+        },
+        {
+          "x": 3,
+          "y": 50
+        },
+        {
+          "x": 4,
+          "y": 54
+        },
+        {
+          "x": 5,
+          "y": 55
+        },
+        {
+          "x": 6,
+          "y": 56
+        },
+        {
+          "x": 7,
+          "y": 61
+        },
+        {
+          "x": 8,
+          "y": 61
+        },
+        {
+          "x": 9,
+          "y": 65
+        },
+        {
+          "x": 10,
+          "y": 65
+        },
+        {
+          "x": 11,
+          "y": 65
+        },
+        {
+          "x": 12,
+          "y": 65
+        },
+        {
+          "x": 13,
+          "y": 66
+        },
+        {
+          "x": 14,
+          "y": 67
+        },
+        {
+          "x": 15,
+          "y": 68
+        },
+        {
+          "x": 16,
+          "y": 68
+        },
+        {
+          "x": 17,
+          "y": 71
+        },
+        {
+          "x": 18,
+          "y": 71
+        },
+        {
+          "x": 19,
+          "y": 73
+        },
+        {
+          "x": 20,
+          "y": 74
+        },
+        {
+          "x": 21,
+          "y": 74
+        },
+        {
+          "x": 22,
+          "y": 75
+        },
+        {
+          "x": 23,
+          "y": 75
+        },
+        {
+          "x": 24,
+          "y": 75
+        },
+        {
+          "x": 25,
+          "y": 75
+        },
+        {
+          "x": 26,
+          "y": 76
+        },
+        {
+          "x": 27,
+          "y": 77
+        },
+        {
+          "x": 28,
+          "y": 77
+        },
+        {
+          "x": 29,
+          "y": 79
+        },
+        {
+          "x": 30,
+          "y": 79
+        },
+        {
+          "x": 31,
+          "y": 80
+        },
+        {
+          "x": 32,
+          "y": 81
+        },
+        {
+          "x": 33,
+          "y": 81
+        },
+        {
+          "x": 34,
+          "y": 81
+        },
+        {
+          "x": 35,
+          "y": 83
+        },
+        {
+          "x": 36,
+          "y": 83
+        },
+        {
+          "x": 37,
+          "y": 84
+        },
+        {
+          "x": 38,
+          "y": 85
+        },
+        {
+          "x": 39,
+          "y": 87
+        },
+        {
+          "x": 40,
+          "y": 93
+        },
+        {
+          "x": 41,
+          "y": 98,
+          "colour": "#FF0000",
+          "type": "hollow-dot",
+          "on-click": "trace:moooo",
+          "dot-size": 3,
+          "tip": "李明:#val#"
+        }
+      ]
+    },
+    "lines": [
+      {
+        "text": "一班",
+        "identifier": 1,
+        "colour": "#000000",
+        "values": [
+          21,
+          35,
+          45,
+          49,
+          50,
+          51,
+          56,
+          56,
+          59,
+          59,
+          59,
+          60,
+          61,
+          62,
+          63,
+          63,
+          66,
+          66,
+          68,
+          69,
+          69,
+          70,
+          70,
+          70,
+          70,
+          71,
+          72,
+          72,
+          74,
+          74,
+          75,
+          76,
+          76,
+          76,
+          78,
+          78,
+          79,
+          81,
+          82,
+          88
+        ]
+      }
+    ]
+  },
+  "y_axis": {
+    "min": 0,
+    "step": 5,
+    "max": 100
+  },
+  "x_axis": {
+    "steps": 1,
+    "stroke": 1
+  },
+  "x_label_style": {
+    "alt_axis_step": 1,
+    "alt_axis_colour": "#00FF00",
+    "max": 100
+  }
+}
