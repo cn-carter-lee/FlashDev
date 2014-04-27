@@ -41,20 +41,36 @@
         </div>
     </div>
     <div style="width: 100%; background-color: #ffffff;">
-        <div class="middle-container" style="">
+        <div class="middle-container clear">
             <div class="logo">
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li id="menu_index" runat="server" onmouseover="overTopMenu(this)" onmouseout="outTopMenu(this)">
+                        <img src="/images/menu_home.png" alt="网站首页" /><br />
+                        <a href="#">网站首页</a></li>
+                    <li id="menu_download" runat="server" onmouseover="overTopMenu(this)" onmouseout="outTopMenu(this)">
+                        <img src="/images/menu_download.png" alt="常用下载" /><br />
+                        <a href="#">文件下载</a></li>
+                    <li id="menu_module" runat="server" onmouseover="overTopMenu(this)" onmouseout="outTopMenu(this)">
+                        <img src="/images/menu_module.png" alt="常用模块" /><br />
+                        <a href="#">常用模块</a></li>
+                    <li id="menu_news" runat="server" onmouseover="overTopMenu(this)" onmouseout="outTopMenu(this)">
+                        <img src="/images/menu_news.png" alt="新闻中心" /><br />
+                        <a href="#">新闻中心</a></li>
+                    <li id="menu_sites" runat="server" onmouseover="overTopMenu(this)" onmouseout="outTopMenu(this)">
+                        <img src="/images/menu_site.png" alt="优秀网站" /><br />
+                        <a href="#">优秀网站</a></li>
+                    <li id="menu_psycase" runat="server" onmouseover="overTopMenu(this)" onmouseout="outTopMenu(this)">
+                        <img src="/images/menu_case.png" alt="服务案例" /><br />
+                        <a href="#">服务案例</a></li>
+                </ul>
             </div>
             <div style="margin-top: 10px; float: left; height: 40px; font-size: 18px;">
                 <ul class="top-ul">
                     <li><a href="#">考试分析</a></li>
                     <li><a href="#">新手指引</a></li>
                     <li><a href="#">关于我们</a></li>
-                </ul>
-            </div>
-            <div style="margin-top: 10px; float: right; height: 40px; font-size: 18px;">
-                <ul class="top-ul">
-                    <li><a href="#">登录</a></li>
-                    <li><a href="#">注册</a></li>
                 </ul>
             </div>
         </div>
@@ -100,7 +116,7 @@
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
     </div>
     <hr class="middle-container" />
     <div class="middle-container exam-info">
@@ -289,7 +305,7 @@
                 <a href="javascript:void(0)" class="bds_qzone" data-cmd="qzone"></a><a href="javascript:void(0)"
                     class="icon-weixin"></a>
             </div>
-            <div class="clear">
+            <div class="clear" style="display: none;">
                 <div class="thumbs clear">
                     <a href="javascript:void(0)" style="background: url(images/thumbsdown.png);"></a>
                     <a href="javascript:void(0)" style="background: url(images/thumbsup.png);"></a>
