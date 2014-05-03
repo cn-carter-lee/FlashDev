@@ -1,6 +1,4 @@
-﻿
-
-//
+﻿//
 function selectColumn(num) {
     var o = 'table.score-analysis td:nth-child(' + (parseInt(num) + 4) + ')';
     $(o).addClass('highlight');
@@ -231,19 +229,14 @@ $(document).ready(function () {
 
     $("#btnPrintChart").click(function () {
         addOverLay();
-        var url = "http://" + window.location.hostname + "/capture.aspx";
-        document.getElementById("altContent").exportImage(url);
-
+        window.setTimeout(function () {
+            var url = "http://" + window.location.hostname + "/capture.aspx";
+            document.getElementById("altContent").exportImage(url);
+        }, 3000);
     });
 
     $("#btnSaveChart").click(function () {
         printPanel();
     });
 
-
-
-
 });
-
-
-
