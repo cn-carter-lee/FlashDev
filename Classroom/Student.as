@@ -2,7 +2,9 @@ package
 {
 	import flash.display.Bitmap;
 	import flash.display.Sprite;
+	import flash.events.Event;
 	import flash.events.MouseEvent;
+	import flash.geom.Rectangle;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	import flash.ui.Mouse;
@@ -57,17 +59,36 @@ package
 					draw(0xffffff, 0);
 					Mouse.cursor = "arrow";
 				});
+			
+			this.addEventListener(MouseEvent.MOUSE_DOWN, mouseDown);
+			this.addEventListener(MouseEvent.MOUSE_UP, mouseUp);
+		}
+		
+		private function mouseDown(event:Event):void
+		{
+			this.startDrag();
+		}
+		
+		private function mouseUp(event:Event):void
+		{
+			try
+			{
+				this.stopDrag();
+			}
+			catch (error:Error)
+			{
+			}
 		}
 		
 		private function draw(color:uint, lineThickness:uint):void
 		{
+			trace(this.width);
+			trace(this.height);
 			this.graphics.clear();
-			// this.graphics.beginFill(0xebeff9, 1);
 			this.graphics.beginFill(color, 1);
 			if (lineThickness > 0)
 				this.graphics.lineStyle(lineThickness, 0x000000);
 			this.graphics.drawRect(this.x, this.y, this.width, this.height);
-			//this.graphics.drawRect(this.x, this.y, this.width, this.height);
 			this.graphics.endFill();
 		}
 		
