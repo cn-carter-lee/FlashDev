@@ -23,7 +23,7 @@ package
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			for (var i:Number = 0; i < 8; i++)
 			{
-				var student:Student = new Student("李雷");				
+				var student:Student = new Student("***");				
 				this.addChild(student);				
 				student.x = i * 35+10;
 				student.y = 10;

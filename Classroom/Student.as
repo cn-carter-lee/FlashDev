@@ -51,7 +51,7 @@ package
 			
 			this.addEventListener(MouseEvent.MOUSE_OVER, function(event:MouseEvent):void
 				{
-					draw(0xff0000, 2);
+					draw(0xCCCCCC, 2);
 					Mouse.cursor = "button";
 				});
 			this.addEventListener(MouseEvent.MOUSE_OUT, function(event:MouseEvent):void
@@ -82,8 +82,8 @@ package
 		
 		private function draw(color:uint, lineThickness:uint):void
 		{
-			trace(this.width);
-			trace(this.height);
+			trace(this.x);
+			trace(this.y);
 			this.graphics.clear();
 			this.graphics.beginFill(color, 1);
 			if (lineThickness > 0)
