@@ -4,6 +4,7 @@ package
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
+	import flash.geom.Point;
 	import flash.geom.Rectangle;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
@@ -24,9 +25,11 @@ package
 		public var text:String;
 		
 		private var textField:TextField;
+		private var is_draging:Boolean;
 		
 		public function Student(text:String)
 		{
+			this.is_draging = false;
 			this.text = " " + text;
 			
 			var textFormat:TextFormat = new TextFormat();
@@ -43,60 +46,74 @@ package
 			textField.setTextFormat(textFormat);
 			
 			textField.autoSize = "center";
-			//textField.x = 0;
-			//textField.y = 40;
 			this.addChild(textField);
-			
 			this.addChild(studentIcon);
 			
+			studentIcon.x = 0;
+			studentIcon.y = 0;
+			textField.x = 0;
+			textField.y = 40;
+			
+			/* */
 			this.addEventListener(MouseEvent.MOUSE_OVER, function(event:MouseEvent):void
 				{
 					draw(0xCCCCCC, 2);
-					Mouse.cursor = "button";
+				
 				});
 			this.addEventListener(MouseEvent.MOUSE_OUT, function(event:MouseEvent):void
 				{
 					draw(0xffffff, 0);
-					Mouse.cursor = "arrow";
+				
 				});
 			
 			this.addEventListener(MouseEvent.MOUSE_DOWN, mouseDown);
 			this.addEventListener(MouseEvent.MOUSE_UP, mouseUp);
+			this.addEventListener(MouseEvent.MOUSE_MOVE, mouseMove);
 		}
 		
 		private function mouseDown(event:Event):void
 		{
+			Mouse.cursor = "button";
 			this.startDrag();
+			this.is_draging = true;
+		}
+		
+		private function mouseMove(event:Event):void
+		{
+		
 		}
 		
 		private function mouseUp(event:Event):void
 		{
-			try
-			{
-				this.stopDrag();
-			}
-			catch (error:Error)
-			{
-			}
+			this.stopDrag();
+			Mouse.cursor = "arrow";
+			this.is_draging = false;
+			// this.resize();
 		}
 		
 		private function draw(color:uint, lineThickness:uint):void
 		{
-			trace(this.x);
-			trace(this.y);
+			var topLeftStage:Point = this.localToGlobal(new Point(0, 0));
+			
+			trace("this:x=" + this.x.toString() + ",y=" + this.y);
+			trace("topLeftStage:x=" + topLeftStage.x.toString() + ",y=" + topLeftStage.y);
+			
+			trace("student:x=" + studentIcon.x.toString() + ",y=" + studentIcon.y);
+			trace("parent:x=" + this.parent.x.toString() + ",y=" + this.parent.y);
+			trace("........................................");
 			this.graphics.clear();
 			this.graphics.beginFill(color, 1);
-			if (lineThickness > 0)
-				this.graphics.lineStyle(lineThickness, 0x000000);
-			this.graphics.drawRect(this.x, this.y, this.width, this.height);
+			//if (lineThickness > 0)
+			//this.graphics.lineStyle(lineThickness, 0x000000);
+			//this.graphics.drawRect(topLeftStage.x, topLeftStage.y, this.width, this.height);
+			this.graphics.drawRect(topLeftStage.x, topLeftStage.y, this.width, this.height);
 			this.graphics.endFill();
 		}
 		
 		public function resize():void
 		{
 			studentIcon.x = this.x;
-			studentIcon.y = this.y;
-			
+			studentIcon.y = this.y;			
 			textField.x = this.x;
 			textField.y = this.y + 40;
 		}
