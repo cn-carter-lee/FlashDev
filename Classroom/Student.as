@@ -71,32 +71,35 @@ package
 			this.addEventListener(MouseEvent.MOUSE_MOVE, mouseMove);
 		}
 		
-		private function mouseDown(event:Event):void
+		private function mouseDown(event:MouseEvent):void
 		{
+			this.parent.addChild(this);
 			Mouse.cursor = "button";
 			this.startDrag();
 			this.is_draging = true;
 		}
 		
-		private function mouseMove(event:Event):void
+		private function mouseMove(event:MouseEvent):void
 		{
 		
 		}
 		
-		private function mouseUp(event:Event):void
+		private function mouseUp(event:MouseEvent):void
 		{
 			this.stopDrag();
 			Mouse.cursor = "arrow";
 			this.is_draging = false;
+			
+			event.updateAfterEvent();
 			// this.resize();
 		}
 		
 		private function draw(color:uint, lineThickness:uint):void
 		{
-			var topLeftStage:Point = this.localToGlobal(new Point(0, 0));
+			var targetPoint:Point = this.parent.localToGlobal(new Point(0, 0));
 			
 			trace("this:x=" + this.x.toString() + ",y=" + this.y);
-			trace("topLeftStage:x=" + topLeftStage.x.toString() + ",y=" + topLeftStage.y);
+			trace("targetPoint:x=" + targetPoint.x.toString() + ",y=" + targetPoint.y);
 			
 			trace("student:x=" + studentIcon.x.toString() + ",y=" + studentIcon.y);
 			trace("parent:x=" + this.parent.x.toString() + ",y=" + this.parent.y);
@@ -106,7 +109,8 @@ package
 			//if (lineThickness > 0)
 			//this.graphics.lineStyle(lineThickness, 0x000000);
 			//this.graphics.drawRect(topLeftStage.x, topLeftStage.y, this.width, this.height);
-			this.graphics.drawRect(topLeftStage.x, topLeftStage.y, this.width, this.height);
+			// this.graphics.drawRect(targetPoint.x+this.x, targetPoint.y+this.y, this.width, this.height);
+			this.graphics.drawRect(this.x, this.y, this.width, this.height);
 			this.graphics.endFill();
 		}
 		

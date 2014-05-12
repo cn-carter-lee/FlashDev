@@ -34,6 +34,7 @@ package
 				this.addChild(student);
 				
 			}
+			
 		
 		}
 		
