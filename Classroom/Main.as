@@ -24,18 +24,14 @@ package
 			/*	var student:Student = new Student("***");
 			 this.addChild(student);*/
 			
-			 
 			for (var i:Number = 0; i < 8; i++)
 			{
 				var student:Student = new Student("***");				
 				student.x = i * 35 + 10;
 				student.y = 10;
 				student.resize();
-				this.addChild(student);
-				
-			}
-			
-		
+				this.addChild(student);				
+			}				
 		}
 		
 		private function resize():void

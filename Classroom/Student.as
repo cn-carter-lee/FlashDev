@@ -95,29 +95,20 @@ package
 		}
 		
 		private function draw(color:uint, lineThickness:uint):void
-		{
-			var targetPoint:Point = this.parent.localToGlobal(new Point(0, 0));
-			
-			trace("this:x=" + this.x.toString() + ",y=" + this.y);
-			trace("targetPoint:x=" + targetPoint.x.toString() + ",y=" + targetPoint.y);
-			
-			trace("student:x=" + studentIcon.x.toString() + ",y=" + studentIcon.y);
-			trace("parent:x=" + this.parent.x.toString() + ",y=" + this.parent.y);
-			trace("........................................");
+		{			
 			this.graphics.clear();
 			this.graphics.beginFill(color, 1);
-			//if (lineThickness > 0)
-			//this.graphics.lineStyle(lineThickness, 0x000000);
-			//this.graphics.drawRect(topLeftStage.x, topLeftStage.y, this.width, this.height);
-			// this.graphics.drawRect(targetPoint.x+this.x, targetPoint.y+this.y, this.width, this.height);
-			this.graphics.drawRect(this.x, this.y, this.width, this.height);
+			if (lineThickness > 0)
+				this.graphics.lineStyle(lineThickness, 0x000000);
+			var rec:Rectangle = this.getRect(this);			
+			this.graphics.drawRect(rec.x, rec.y, this.width, this.height);
 			this.graphics.endFill();
 		}
 		
 		public function resize():void
 		{
 			studentIcon.x = this.x;
-			studentIcon.y = this.y;			
+			studentIcon.y = this.y;
 			textField.x = this.x;
 			textField.y = this.y + 40;
 		}
