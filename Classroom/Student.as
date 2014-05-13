@@ -53,7 +53,6 @@ package
 			textField.x = 0;
 			textField.y = 40;
 			
-			/* */
 			this.addEventListener(MouseEvent.MOUSE_OVER, function(event:MouseEvent):void
 				{
 					draw(0xCCCCCC, 2);
@@ -79,18 +78,17 @@ package
 		
 		private function mouseMoving(event:MouseEvent):void
 		{
-			for (var i = 0; i < this.parent.numChildren; i++)
+			for (var i:Number = 0; i < this.parent.numChildren; i++)
 			{
-				var obj:Sprite = this.parent[i];
-				if (typeof(obj) is Student)
-				{
-					var targetStudent = obj as Student;
+				var obj:Object = this.parent.getChildAt(i);
+				if (obj is Student && obj != this)
+				{					
+					var targetStudent:Student = obj as Student;
 					if (this.hitTestObject(targetStudent))
 					{
 						trace("true");
 						return;
-					}
-					
+					}					
 				}
 			}
 		}

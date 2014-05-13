@@ -8,11 +8,11 @@
   <compiler>
     <define append="true">
       <name>CONFIG::debug</name>
-      <value>true</value>
+      <value>false</value>
     </define>
     <define append="true">
       <name>CONFIG::release</name>
-      <value>false</value>
+      <value>true</value>
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
@@ -30,13 +30,16 @@
       <name>CONFIG::desktop</name>
       <value>false</value>
     </define>
-    <verbose-stacktraces>true</verbose-stacktraces>
+    <optimize>true</optimize>
+    <omit-trace-statements>true</omit-trace-statements>
+    <verbose-stacktraces>false</verbose-stacktraces>
     <source-path append="true">
-      <path-element>D:\Software\flash\Library\AS3\classes</path-element>
+      <path-element>D:\dev_code\Git\FlashDev\FlashDev\Chart\src</path-element>
+      <path-element>D:\Tools\flashdevelop\FlashDevelop-4.5.2\Library\AS3\classes</path-element>
     </source-path>
   </compiler>
   <file-specs>
-    <path-element>C:\Users\cli\Desktop\TestProject\Git\FlashDev\FlashDev\Chart\Main.as</path-element>
+    <path-element>D:\dev_code\Git\FlashDev\FlashDev\Chart\Main.as</path-element>
   </file-specs>
   <default-background-color>#FFFFFF</default-background-color>
   <default-frame-rate>30</default-frame-rate>
