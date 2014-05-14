@@ -7,8 +7,7 @@ package
 	import flash.events.IOErrorEvent;
 	import flash.external.ExternalInterface;
 	
-	/**
-	 * ...
+	/**	 
 	 * @author PYS
 	 */
 	public class Main extends Sprite
@@ -56,10 +55,8 @@ package
 		
 		private function load_external_file(file:String):void
 		{
-			// this.URL = file;
-			// LOAD THE DATA			
-			var loader:URLLoader = new URLLoader();
-			
+			// this.URL = file;  LOAD THE DATA 			
+			var loader:URLLoader = new URLLoader();			
 			loader.addEventListener(IOErrorEvent.IO_ERROR, this.ioError);
 			loader.addEventListener(Event.COMPLETE, jsonFileLoaded);
 			var request:URLRequest = new URLRequest(file);
@@ -68,7 +65,7 @@ package
 		
 		private function ioError(e:IOErrorEvent):void
 		{
-			// remove the 'loading data...' msg:
+			// remove the 'loading data...'
 			this.removeChildAt(0);
 			var msg:ErrorMsg = new ErrorMsg('Open Flash Chart\nIO ERROR\nLoading test data\n' + e.text);
 			msg.add_html('This is the URL that I tried to open:<br><a href="' + this.URL + '">' + this.URL + '</a>');

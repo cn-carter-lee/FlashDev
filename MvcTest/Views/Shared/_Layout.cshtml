@@ -5,15 +5,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
     @Styles.Render("~/Content/css")
-    <script src="/Scripts/jquery-1.10.2.js"></script>
-    <script src="/Scripts/jquery-ui-1.10.4.custom.js"></script>
-    <script src="/Scripts/jquery.jqtimeline.js"></script>
-    <script src="/Scripts/jquery.handsontable.full.js"></script>
-    <script src="/Scripts/select2.js"></script>
-    <script src="/Scripts/perfect-scrollbar.js"></script>
-    <script src="/Scripts/swfobject.js"></script>
-    <script src="/Scripts/dataloader.js"></script>
-    <script src="/Scripts/site.js"></script>
+    @RenderSection("head", required: false)
 </head>
 <body>
     <!--

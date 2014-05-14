@@ -1,275 +1,280 @@
 ﻿@{
     ViewBag.Title = "THIS IS A WONDERFUL WORLD!!!!!";
 }
-@section featured {
-   
+@section head {
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+    <script src="/Scripts/jquery-ui-1.10.4.custom.js"></script>
+    <script src="/Scripts/jquery.jqtimeline.js"></script>
+    <script src="/Scripts/jquery.handsontable.full.js"></script>
+    <script src="/Scripts/select2.js"></script>
+    <script src="/Scripts/perfect-scrollbar.js"></script>
+    <script src="/Scripts/swfobject.js"></script>
+    <script src="/Scripts/dataloader.js"></script>
+    <script src="/Scripts/teacher.js"></script>
 }
-
 <!---->
-    <div id="dialog-modal" title="考试成绩">
-        <div style="height: 120px;">
-            保存对本次成绩的修改!</div>
-    </div>
-    <div id="dialog-form" title="增加新列">
-        <p class="validateTips">
-            请输入要增加列的名字.</p>
-        <form>
-        <label for="name">
-            名字</label>
-        <input type="text" name="name" id="columName" class="text ui-widget-content ui-corner-all" />
-        </form>
-    </div>
-    
-    <div style="background: #fff; padding-top: 20px;">
-        <div class="middle-container">
-            <div style="width: 300px; height: 100px; float: left; font-family: 宋体;">
-                <div id="dd" class="wrapper" style="float: left;">
-                    <div class="select-menu">
-                        <span><b>英语</b></span>
-                        <div class="bubble">
-                            <div class="title">
-                                请选择考试科目:</div>
-                            <ul>
-                                <li>英语</li><li>数学</li><li>物理</li><li>化学</li><li>生物</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div style="float: left; height: 26px; line-height: 26px; margin-left: 10px;">
-                    &gt;&gt;</div>
-                <div id="dd2" class="wrapper" style="float: left;">
-                    <div class="select-menu" style="float: left; margin-left: 10px;">
-                        <span><b>初一</b></span>
-                        <div class="bubble">
-                            <div class="title">
-                                请选择考试年级:</div>
-                            <ul>
-                                <li>初一</li><li>初二</li><li>初三</li>
-                            </ul>
-                        </div>
+<div id="dialog-modal" title="考试成绩">
+    <div style="height: 120px;">
+        保存对本次成绩的修改!</div>
+</div>
+<div id="dialog-form" title="增加新列">
+    <p class="validateTips">
+        请输入要增加列的名字.</p>
+    <form>
+    <label for="name">
+        名字</label>
+    <input type="text" name="name" id="columName" class="text ui-widget-content ui-corner-all" />
+    </form>
+</div>
+<div style="background: #fff; padding-top: 20px;">
+    <div class="middle-container">
+        <div style="width: 300px; height: 100px; float: left; font-family: 宋体;">
+            <div id="dd" class="wrapper" style="float: left;">
+                <div class="select-menu">
+                    <span><b>英语</b></span>
+                    <div class="bubble">
+                        <div class="title">
+                            请选择考试科目:</div>
+                        <ul>
+                            <li>英语</li><li>数学</li><li>物理</li><li>化学</li><li>生物</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div id="lineContainer" style="float: right; width: 650px; height: 50px; overflow: hidden;
-                position: relative; padding-top: 10px;">
-                <div id="eventline" style="position: relative;">
-                    <div style="width: 1600px; margin: 0; padding: 0; background: url(/images/line.png) repeat-x center;">
-                        <div style="background: url(/images/arrow.png) no-repeat center right;">
-                            &nbsp;
-                        </div>
+            <div style="float: left; height: 26px; line-height: 26px; margin-left: 10px;">
+                &gt;&gt;</div>
+            <div id="dd2" class="wrapper" style="float: left;">
+                <div class="select-menu" style="float: left; margin-left: 10px;">
+                    <span><b>初一</b></span>
+                    <div class="bubble">
+                        <div class="title">
+                            请选择考试年级:</div>
+                        <ul>
+                            <li>初一</li><li>初二</li><li>初三</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <hr class="middle-container" />
-    <div class="middle-container exam-info">
-        <h1>
-            2013届初三中考一模</h1>
-        <div style="">
-            考试时间:2014年3月28日 <span class="sep">|</span> 考生总数:600人<br />
-            备注:校内统考
-        </div>
-    </div>
-    <div class="middle-container exam-data">
-        <div class="exam-data-list">
-            <div class="hdg">
-                <div class="title">
-                    考生成绩</div>
-                <dl class="menu">
-                    <dt></dt>
-                    <dd>
-                        <input type="text" value="..." style="height: 25px; line-height: 25px; width: 100px;
-                            padding: 0 5px; border: 1px solid #ccc; border-radius: 3px;" />
-                    </dd>
-                    <dd>
-                        <a id="A2" class="button" href="javascript:void(0)">查询</a></dd>
-                    <dd>
-                        <a id="btnAddScore" class="button" href="javascript:void(0)">保存</a>
-                    </dd>
-                    <dd>
-                        <a class="button" href="javascript:void(0)">导入</a>
-                    </dd>
-                    <dd>
-                        <a class="button" href="javascript:void(0)">导出</a>
-                    </dd>
-                </dl>
-            </div>
-            <div id="dataTable" class="table">
-            </div>
-        </div>
-        <div class="exam-chart">
-            <div class="hdg">
-                <div class="title">
-                    统计图表</div>
-                <dl class="menu">
-                    <dt></dt>
-                    <dd>
-                        <a id="btnPrintChart" class="button" href="javascript:void(0)">打印</a>
-                    </dd>
-                    <dd>
-                        <a id="btnSaveChart" class="button" href="javascript:void(0)">另存为</a>
-                    </dd>
-                </dl>
-            </div>
-            <div id="altContent">
-                <h1>
-                    Chart</h1>
-                <p>
-                    <a href="http://www.adobe.com/go/getflashplayer">Get Adobe Flash player</a></p>
-            </div>
-            <div class="hdg">
-                <div class="title">
-                    成绩统计</div>
-                <dl class="menu">
-                    <dt></dt>
-                    <dd>
-                        <a id="A3" class="button" href="javascript:void(0)">打印</a>
-                    </dd>
-                    <dd>
-                        <a class="button" href="javascript:void(0)" onclick="">另存为</a>
-                    </dd>
-                    <dd>
-                        <a id="addColumn" class="button" href="javascript:void(0)" onclick="">增加列</a>
-                    </dd>
-                </dl>
-            </div>
-            <table class="score-analysis" cellpadding="0" cellspacing="0" border="0">
-                <thead>
-                    <tr>
-                        <td>
-                            班别
-                        </td>
-                        <td>
-                            人数
-                        </td>
-                        <td>
-                            总分
-                        </td>
-                        <td>
-                            平均分
-                        </td>
-                        <td>
-                            <span>优秀/率</span>
-                        </td>
-                        <td>
-                            <span>良好/率</span>
-                        </td>
-                        <td>
-                            <span>及格/率</span>
-                        </td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            一班
-                        </td>
-                        <td>
-                            50
-                        </td>
-                        <td>
-                            450
-                        </td>
-                        <td>
-                            90
-                        </td>
-                        <td>
-                            <span>5 / 5%</span>
-                        </td>
-                        <td>
-                            <span>5 / 32%</span>
-                        </td>
-                        <td>
-                            <span>5 / 32%</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            二班
-                        </td>
-                        <td>
-                            50
-                        </td>
-                        <td>
-                            450
-                        </td>
-                        <td>
-                            90
-                        </td>
-                        <td>
-                            <span>5 / 5%</span>
-                        </td>
-                        <td>
-                            <span>5 / 32%</span>
-                        </td>
-                        <td>
-                            <span>5 / 32%</span>
-                        </td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td>
-                            全部
-                        </td>
-                        <td>
-                        </td>
-                        <td>
-                        </td>
-                        <td>
-                        </td>
-                        <td>
-                            <span>5 / 5%</span>
-                        </td>
-                        <td>
-                            <span>5 / 5%</span>
-                        </td>
-                        <td>
-                            <span>5 / 5%</span>
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>
-            <div class="hdg">
-                <div class="title">
-                    数据分析</div>
-                <dl class="menu">
-                    <dt></dt>
-                </dl>
-            </div>
-            <div>
-                本次考试概况：<br />
-                &nbsp;&nbsp;&nbsp;&nbsp; 考生共有**人，总分**分，平均分**分；**考生(**%)超过优秀线，**考生(**%)超过及格线;**班(平均分)排名第一，**班(平均分)排名最后;优秀率最高**班(**%)、最低**班(**%);**班考生分数最集中，**班两极分化较严重；考生排名前五名:**(**)、**(**)、**(**)、**(**)、**(**);考生排名后五：**(**)、**(**)、**(**)、**(**)、**(**);
-                <br />
-                <br />
-                与*******考试比较：<br />
-                &nbsp;&nbsp;&nbsp;&nbsp; 考生人数增加**人，总分增加**分，平均分增加**分；
-                优秀人数增加**人(**%);及格人数增加**人(**%);**班(**%)进步最大，**班(-**%)退步最大;**班(+**人/+**%)优秀率提高最多,**班(-**人/-**%)优秀率减少最多;**班(+**人/+**%)及格率提高最多,**班(-**人/-**%)及格率减少最多;**班分数集中趋势最明显,**班两极分化趋势最明显;进步最大前五考生**(**)、**(**)、**(**)、**(**)、**(**);退步最大前五:**(**)、**(**)、**(**)、**(**)、**(**);
-            </div>
-            <div class="share clear  bdsharebuttonbox">
-                <label class="tit">
-                    分享到：</label>
-                <a href="javascript:void(0)" class="bds_qzone" data-cmd="qzone"></a><a href="javascript:void(0)"
-                    class="icon-weixin"></a>
-            </div>
-            <div class="clear" style="display: none;">
-                <div class="thumbs clear">
-                    <a href="javascript:void(0)" style="background: url(~/images/thumbsdown.png);"></a>
-                    <a href="javascript:void(0)" style="background: url(~/images/thumbsup.png);"></a>
+        <div id="lineContainer" style="float: right; width: 650px; height: 50px; overflow: hidden;
+            position: relative; padding-top: 10px;">
+            <div id="eventline" style="position: relative;">
+                <div style="width: 1600px; margin: 0; padding: 0; background: url(/images/line.png) repeat-x center;">
+                    <div style="background: url(/images/arrow.png) no-repeat center right;">
+                        &nbsp;
+                    </div>
                 </div>
             </div>
-            <div class="hdg">
-                <div class="title">
-                    常见问题</div>
-                <dl class="menu">
-                    <dt></dt>
-                </dl>
-            </div>
-            <fieldset>
-                <legend><span>常见问题</span></legend>
-            </fieldset>
         </div>
     </div>
-    <div style="clear: both;">
+</div>
+<hr class="middle-container" />
+<div class="middle-container exam-info">
+    <h1>
+        2013届初三中考一模</h1>
+    <div style="">
+        考试时间:2014年3月28日 <span class="sep">|</span> 考生总数:600人<br />
+        备注:校内统考
     </div>
+</div>
+<div class="middle-container exam-data">
+    <div class="exam-data-list">
+        <div class="hdg">
+            <div class="title">
+                考生成绩</div>
+            <dl class="menu">
+                <dt></dt>
+                <dd>
+                    <input type="text" value="..." style="height: 25px; line-height: 25px; width: 100px;
+                        padding: 0 5px; border: 1px solid #ccc; border-radius: 3px;" />
+                </dd>
+                <dd>
+                    <a id="A2" class="button" href="javascript:void(0)">查询</a></dd>
+                <dd>
+                    <a id="btnAddScore" class="button" href="javascript:void(0)">保存</a>
+                </dd>
+                <dd>
+                    <a class="button" href="javascript:void(0)">导入</a>
+                </dd>
+                <dd>
+                    <a class="button" href="javascript:void(0)">导出</a>
+                </dd>
+            </dl>
+        </div>
+        <div id="dataTable" class="table">
+        </div>
+    </div>
+    <div class="exam-chart">
+        <div class="hdg">
+            <div class="title">
+                统计图表</div>
+            <dl class="menu">
+                <dt></dt>
+                <dd>
+                    <a id="btnPrintChart" class="button" href="javascript:void(0)">打印</a>
+                </dd>
+                <dd>
+                    <a id="btnSaveChart" class="button" href="javascript:void(0)">另存为</a>
+                </dd>
+            </dl>
+        </div>
+        <div id="altContent">
+            <h1>
+                Chart</h1>
+            <p>
+                <a href="http://www.adobe.com/go/getflashplayer">Get Adobe Flash player</a></p>
+        </div>
+        <div class="hdg">
+            <div class="title">
+                成绩统计</div>
+            <dl class="menu">
+                <dt></dt>
+                <dd>
+                    <a id="A3" class="button" href="javascript:void(0)">打印</a>
+                </dd>
+                <dd>
+                    <a class="button" href="javascript:void(0)" onclick="">另存为</a>
+                </dd>
+                <dd>
+                    <a id="addColumn" class="button" href="javascript:void(0)" onclick="">增加列</a>
+                </dd>
+            </dl>
+        </div>
+        <table class="score-analysis" cellpadding="0" cellspacing="0" border="0">
+            <thead>
+                <tr>
+                    <td>
+                        班别
+                    </td>
+                    <td>
+                        人数
+                    </td>
+                    <td>
+                        总分
+                    </td>
+                    <td>
+                        平均分
+                    </td>
+                    <td>
+                        <span>优秀/率</span>
+                    </td>
+                    <td>
+                        <span>良好/率</span>
+                    </td>
+                    <td>
+                        <span>及格/率</span>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        一班
+                    </td>
+                    <td>
+                        50
+                    </td>
+                    <td>
+                        450
+                    </td>
+                    <td>
+                        90
+                    </td>
+                    <td>
+                        <span>5 / 5%</span>
+                    </td>
+                    <td>
+                        <span>5 / 32%</span>
+                    </td>
+                    <td>
+                        <span>5 / 32%</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        二班
+                    </td>
+                    <td>
+                        50
+                    </td>
+                    <td>
+                        450
+                    </td>
+                    <td>
+                        90
+                    </td>
+                    <td>
+                        <span>5 / 5%</span>
+                    </td>
+                    <td>
+                        <span>5 / 32%</span>
+                    </td>
+                    <td>
+                        <span>5 / 32%</span>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        全部
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        <span>5 / 5%</span>
+                    </td>
+                    <td>
+                        <span>5 / 5%</span>
+                    </td>
+                    <td>
+                        <span>5 / 5%</span>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="hdg">
+            <div class="title">
+                数据分析</div>
+            <dl class="menu">
+                <dt></dt>
+            </dl>
+        </div>
+        <div>
+            本次考试概况：<br />
+            &nbsp;&nbsp;&nbsp;&nbsp; 考生共有**人，总分**分，平均分**分；**考生(**%)超过优秀线，**考生(**%)超过及格线;**班(平均分)排名第一，**班(平均分)排名最后;优秀率最高**班(**%)、最低**班(**%);**班考生分数最集中，**班两极分化较严重；考生排名前五名:**(**)、**(**)、**(**)、**(**)、**(**);考生排名后五：**(**)、**(**)、**(**)、**(**)、**(**);
+            <br />
+            <br />
+            与*******考试比较：<br />
+            &nbsp;&nbsp;&nbsp;&nbsp; 考生人数增加**人，总分增加**分，平均分增加**分； 优秀人数增加**人(**%);及格人数增加**人(**%);**班(**%)进步最大，**班(-**%)退步最大;**班(+**人/+**%)优秀率提高最多,**班(-**人/-**%)优秀率减少最多;**班(+**人/+**%)及格率提高最多,**班(-**人/-**%)及格率减少最多;**班分数集中趋势最明显,**班两极分化趋势最明显;进步最大前五考生**(**)、**(**)、**(**)、**(**)、**(**);退步最大前五:**(**)、**(**)、**(**)、**(**)、**(**);
+        </div>
+        <div class="share clear  bdsharebuttonbox">
+            <label class="tit">
+                分享到：</label>
+            <a href="javascript:void(0)" class="bds_qzone" data-cmd="qzone"></a><a href="javascript:void(0)"
+                class="icon-weixin"></a>
+        </div>
+        <div class="clear" style="display: none;">
+            <div class="thumbs clear">
+                <a href="javascript:void(0)" style="background: url(~/images/thumbsdown.png);"></a>
+                <a href="javascript:void(0)" style="background: url(~/images/thumbsup.png);"></a>
+            </div>
+        </div>
+        <div class="hdg">
+            <div class="title">
+                常见问题</div>
+            <dl class="menu">
+                <dt></dt>
+            </dl>
+        </div>
+        <fieldset>
+            <legend><span>常见问题</span></legend>
+        </fieldset>
+    </div>
+</div>
+<div style="clear: both;">
+</div>

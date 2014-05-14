@@ -311,7 +311,6 @@
     <Content Include="Scripts\backup\modernizr-2.5.3.js" />
     <Content Include="Scripts\backup\_references.js" />
     <Content Include="Scripts\bak_ jquery.handsontable.full.js" />
-    <Content Include="Scripts\dataloader.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.8.3.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.custom.js" />
@@ -321,9 +320,11 @@
     <Content Include="Scripts\jquery.uploadfile.min.js" />
     <Content Include="Scripts\perfect-scrollbar.js" />
     <Content Include="Scripts\select2.js" />
-    <Content Include="Scripts\site.js" />
+    <Content Include="Scripts\student.js" />
     <Content Include="Scripts\swfobject.js" />
+    <Content Include="Scripts\teacher.js" />
     <Content Include="Scripts\timeline.js" />
+    <Content Include="student.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
