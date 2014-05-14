@@ -67,6 +67,17 @@ package
 			this.addEventListener(MouseEvent.MOUSE_UP, mouseUp);
 		}
 		
+		public function hitByOther():void
+		{
+			draw(0x0000ff, 1, 0.2);
+		}
+		
+		public function unHitByOther():void
+		{
+			draw(0xffffff, 0, 1);
+		
+		}
+		
 		private function mouseDown(event:MouseEvent):void
 		{
 			this.parent.addChild(this);
@@ -78,19 +89,7 @@ package
 		
 		private function mouseMoving(event:MouseEvent):void
 		{
-			for (var i:Number = 0; i < this.parent.numChildren; i++)
-			{
-				var obj:Object = this.parent.getChildAt(i);
-				if (obj is Student && obj != this)
-				{					
-					var targetStudent:Student = obj as Student;
-					if (this.hitTestObject(targetStudent))
-					{
-						trace("true");
-						return;
-					}					
-				}
-			}
+			getHitStudent();
 		}
 		
 		private function mouseUp(event:MouseEvent):void
@@ -98,10 +97,43 @@ package
 			this.stopDrag();
 			Mouse.cursor = "arrow";
 			event.updateAfterEvent();
-			Tweener.addTween(this, {x: dragPoint.x, y: dragPoint.y, time: 0.2, transition: "linear"});
+			// hit someone
+			var hitStudent:Student = getHitStudent();
+			if (hitStudent != null)
+			{
+				var tempSort:Number = this.Sort;
+				this.Sort = hitStudent.Sort;
+				hitStudent.Sort = tempSort;
+				Tweener.addTween(this, {x: hitStudent.x, y: hitStudent.y, time: 0.2, transition: "linear"});
+				Tweener.addTween(hitStudent, {x: dragPoint.x, y: dragPoint.y, time: 0.5, transition: "linear"});
+			}
+			else
+				// not hit anyone,back to oritional position						
+				Tweener.addTween(this, {x: dragPoint.x, y: dragPoint.y, time: 0.2, transition: "linear"});
 		}
 		
-		private function draw(color:uint, lineThickness:uint):void
+		private function getHitStudent():Student
+		{
+			var retStudent:Student = null;
+			for (var i:Number = 0; i < this.parent.numChildren; i++)
+			{
+				var obj:Object = this.parent.getChildAt(i);
+				if (obj is Student && obj != this)
+				{
+					var targetStudent:Student = obj as Student;
+					if (this.hitTestObject(targetStudent))
+					{
+						targetStudent.hitByOther();
+						retStudent = targetStudent;
+					}
+					else
+						targetStudent.unHitByOther();
+				}
+			}
+			return retStudent;
+		}
+		
+		private function draw(color:uint, lineThickness:uint, alpha = 1):void
 		{
 			this.graphics.clear();
 			this.graphics.beginFill(color, 1);
@@ -110,6 +142,7 @@ package
 			var rec:Rectangle = this.getRect(this);
 			this.graphics.drawRect(rec.x, rec.y, this.width, this.height);
 			this.graphics.endFill();
+			this.alpha = alpha;
 		}
 		
 		public function resize():void

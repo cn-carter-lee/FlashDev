@@ -85,8 +85,9 @@ $(function () {
     new DropDown($('#dd'));
     new DropDown($('#dd2'));
 });
-
+alert("dd");
 $(document).ready(function () {
+    
     var $toolTip = null;
     var events = [{ id: 1, name: "Wonderful", left: 50 }, { id: 2, name: "Wonderful", left: 150 }, { id: 3, name: "Wonderful", left: 1450}];
     function getId(str) {

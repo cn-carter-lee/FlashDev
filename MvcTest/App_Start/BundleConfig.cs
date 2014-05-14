@@ -20,10 +20,23 @@ namespace MvcTest
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+            bundles.Add(new ScriptBundle("~/Scripts/js").Include(
+                        "~/Scripts/jquery-1.10.2.js",
+                        "~/Scripts/jquery-ui-1.10.4.custom.js",
+                        "~/Scripts/jquery.jqtimeline.js",
+                        "~/Scripts/jquery.handsontable.full.js",
+                        "~/Scripts/select2.js",
+                        "~/Scripts/perfect-scrollbar.js",
+                        "~/Scripts/swfobject.js",
+                        "~/Scripts/dataloader.js",
+                        "~/Scripts/site.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/css/jquery-ui-1.10.4.custom.css",
+                "~/Content/css/jquery.jqtimeline.css",
+                "~/Content/css/jquery.handsontable.full.css",
+                "~/Content/css/select2.css",
+                "~/Content/css/perfect-scrollbar.css",
+                "~/Content/css/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",

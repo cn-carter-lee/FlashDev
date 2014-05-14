@@ -162,8 +162,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
+    <Compile Include="Controllers\Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -171,6 +172,33 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="classscore.txt" />
+    <Content Include="Content\css\custom_dropdown.css" />
+    <Content Include="Content\css\custom_dropdown_demo.css" />
+    <Content Include="Content\css\images\animated-overlay.gif" />
+    <Content Include="Content\css\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\css\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\css\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\css\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\css\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\css\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\css\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\css\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\css\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\css\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\css\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\css\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\flash\Classroom.swf" />
+    <Content Include="Content\css\jquery-ui-1.10.4.custom.css" />
+    <Content Include="Content\css\jquery.handsontable.full.css" />
+    <Content Include="Content\css\jquery.jqtimeline.css" />
+    <Content Include="Content\css\jquery.timeline.blue.css" />
+    <Content Include="Content\css\line.css" />
+    <Content Include="Content\css\main.css" />
+    <Content Include="Content\css\perfect-scrollbar.css" />
+    <Content Include="Content\css\select2.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -225,23 +253,77 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\css\uploadfile.min.css" />
+    <Content Include="examclass.txt" />
+    <Content Include="exams.txt" />
     <Content Include="favicon.ico" />
+    <Content Include="flash.txt" />
+    <Content Include="flash\Chart.swf" />
+    <Content Include="flash\Classroom.swf" />
+    <Content Include="flash\expressInstall.swf" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.7.1.js" />
-    <Content Include="Scripts\jquery-1.7.1.min.js" />
-    <Content Include="Scripts\jquery-ui-1.8.20.js" />
-    <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\knockout-2.1.0.debug.js" />
-    <Content Include="Scripts\knockout-2.1.0.js" />
-    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Images\arrow.png" />
+    <Content Include="Images\bg.jpg" />
+    <Content Include="Images\box_bottom.png" />
+    <Content Include="Images\cursor.png" />
+    <Content Include="Images\line.png" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\logo.jpg" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\main_img.png" />
+    <Content Include="Images\menu_case.png" />
+    <Content Include="Images\menu_download.png" />
+    <Content Include="Images\menu_home.png" />
+    <Content Include="Images\menu_module.png" />
+    <Content Include="Images\menu_news.png" />
+    <Content Include="Images\menu_seo.png" />
+    <Content Include="Images\menu_site.png" />
+    <Content Include="Images\select-menu-1.png" />
+    <Content Include="Images\select-menu-2.png" />
+    <Content Include="Images\select-menu-3.png" />
+    <Content Include="Images\select-menu-box.png" />
+    <Content Include="Images\select-menu-click-1.png" />
+    <Content Include="Images\select-menu-click-2.png" />
+    <Content Include="Images\select-menu-click-3.png" />
+    <Content Include="Images\select-menu-over-1.png" />
+    <Content Include="Images\select-menu-over-2.png" />
+    <Content Include="Images\select-menu-over-3.png" />
+    <Content Include="Images\share.png" />
+    <Content Include="Images\thumbsdown.png" />
+    <Content Include="Images\thumbsup.png" />
+    <Content Include="line.txt" />
+    <Content Include="line2.txt" />
+    <Content Include="line_test.txt" />
+    <Content Include="Scripts\backup\jquery-1.7.1-vsdoc.js" />
+    <Content Include="Scripts\backup\jquery-1.7.1.js" />
+    <Content Include="Scripts\backup\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\backup\jquery-ui-1.8.20.js" />
+    <Content Include="Scripts\backup\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\backup\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\backup\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\backup\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\backup\jquery.validate.js" />
+    <Content Include="Scripts\backup\jquery.validate.min.js" />
+    <Content Include="Scripts\backup\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\backup\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\backup\knockout-2.1.0.debug.js" />
+    <Content Include="Scripts\backup\knockout-2.1.0.js" />
+    <Content Include="Scripts\backup\modernizr-2.5.3.js" />
+    <Content Include="Scripts\backup\_references.js" />
+    <Content Include="Scripts\bak_ jquery.handsontable.full.js" />
+    <Content Include="Scripts\dataloader.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.8.3.js" />
+    <Content Include="Scripts\jquery-ui-1.10.4.custom.js" />
+    <Content Include="Scripts\jquery.1.9.1.min.js" />
+    <Content Include="Scripts\jquery.handsontable.full.js" />
+    <Content Include="Scripts\jquery.jqtimeline.js" />
+    <Content Include="Scripts\jquery.uploadfile.min.js" />
+    <Content Include="Scripts\perfect-scrollbar.js" />
+    <Content Include="Scripts\select2.js" />
+    <Content Include="Scripts\site.js" />
+    <Content Include="Scripts\swfobject.js" />
+    <Content Include="Scripts\timeline.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -249,8 +331,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Content\Site.css" />
-    <Content Include="Scripts\_references.js" />
+    <Content Include="Content\css\Site.css" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
     <Content Include="Images\heroAccent.png" />
@@ -287,6 +368,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Teacher\About.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Teacher\Contact.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Teacher\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Teacher\Student.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
