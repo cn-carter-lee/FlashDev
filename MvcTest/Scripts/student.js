@@ -13,17 +13,12 @@ var attributes = {
 };
 swfobject.embedSWF(
 			"/flash/Classroom.swf",
-			"altContent", "550", "350", "10.0.0",
+			"altContent", "600", "400", "10.0.0",
 			"/falsh/expressInstall.swf",
             { "data-file": "flash.txt" },
 			flashvars, params, attributes);
 
 
-function getMyVar() {
-    alert("AAAAA");
-    return "/student.txt";
-}
-
-function getChartValues() {
-    var v = '';
+function getMyVar() {    
+    return "/datafile/student.txt";
 }

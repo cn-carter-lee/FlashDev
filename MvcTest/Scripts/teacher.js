@@ -22,8 +22,8 @@ jQuery(document).ready(function ($) {
     $('#lineContainer').perfectScrollbar();
 });
 
-function getMyVar() {
-    return "/exams.txt";
+function getMyVar() {    
+    return "/datafile/exams.txt";
 }
 
 function getChartValues() {

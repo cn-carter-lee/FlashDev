@@ -16,8 +16,7 @@ package
 	 * @author PYS
 	 */
 	public class Student extends Sprite
-	{
-		
+	{		
 		[Embed(source="assets/images/user.png")]
 		private var StudentIcon:Class;
 		private var studentIcon:Bitmap = new StudentIcon();

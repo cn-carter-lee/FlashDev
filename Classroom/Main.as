@@ -28,7 +28,7 @@ package
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			this.addChild(new Loading("loading..."));
-			var filePath:String = this.callExternalCallback("getMyVar", 1);
+			var filePath:String = this.callExternalCallback("getMyVar");
 			if (filePath != null)
 			{
 				try
@@ -41,7 +41,7 @@ package
 				}
 			}
 			else
-			{
+			{				
 				try
 				{
 					this.load_external_file("student.txt");
@@ -116,9 +116,14 @@ package
 			}
 		}
 		
+		private function addCallback(functionName:String, closure:Function):void
+		{
+			if (ExternalInterface.available)
+				ExternalInterface.addCallback(functionName, closure);
+		}		
+		
 		private function callExternalCallback(functionName:String, ... optionalArgs):*
 		{
-			// the debug player does not have an external interface because it is NOT embedded in a browser			
 			if (ExternalInterface.available)
 				return ExternalInterface.call(functionName, optionalArgs);
 		}

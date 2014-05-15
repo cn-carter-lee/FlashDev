@@ -162,6 +162,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\StudentApiController.cs" />
+    <Compile Include="Controllers\TeacherApiController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -169,10 +172,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\StudentTag.cs" />
+    <Compile Include="Models\Teacher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="classscore.txt" />
+    <Content Include="datafile\classscore.txt" />
     <Content Include="Content\css\custom_dropdown.css" />
     <Content Include="Content\css\custom_dropdown_demo.css" />
     <Content Include="Content\css\images\animated-overlay.gif" />
@@ -254,10 +260,10 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Content\css\uploadfile.min.css" />
-    <Content Include="examclass.txt" />
-    <Content Include="exams.txt" />
+    <Content Include="datafile\examclass.txt" />
+    <Content Include="datafile\exams.txt" />
     <Content Include="favicon.ico" />
-    <Content Include="flash.txt" />
+    <Content Include="datafile\flash.txt" />
     <Content Include="flash\Chart.swf" />
     <Content Include="flash\Classroom.swf" />
     <Content Include="flash\expressInstall.swf" />
@@ -291,9 +297,9 @@
     <Content Include="Images\share.png" />
     <Content Include="Images\thumbsdown.png" />
     <Content Include="Images\thumbsup.png" />
-    <Content Include="line.txt" />
-    <Content Include="line2.txt" />
-    <Content Include="line_test.txt" />
+    <Content Include="datafile\line.txt" />
+    <Content Include="datafile\line2.txt" />
+    <Content Include="datafile\line_test.txt" />
     <Content Include="Scripts\backup\jquery-1.7.1-vsdoc.js" />
     <Content Include="Scripts\backup\jquery-1.7.1.js" />
     <Content Include="Scripts\backup\jquery-1.7.1.min.js" />
@@ -324,7 +330,7 @@
     <Content Include="Scripts\swfobject.js" />
     <Content Include="Scripts\teacher.js" />
     <Content Include="Scripts\timeline.js" />
-    <Content Include="student.txt" />
+    <Content Include="datafile\student.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -366,6 +372,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
