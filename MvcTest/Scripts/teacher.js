@@ -116,7 +116,6 @@ DropDown.prototype = {
 
 $(function () {
     new DropDown($('#dd'));
-    new DropDown($('#dd2'));
 });
 
 $(document).ready(function () {

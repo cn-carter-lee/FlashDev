@@ -163,6 +163,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\HeadTeacherController.cs" />
     <Compile Include="Controllers\StudentApiController.cs" />
     <Compile Include="Controllers\TeacherApiController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
@@ -178,6 +179,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\images\box_close.png" />
+    <Content Include="Content\css\images\dropdown_arrow.png" />
     <Content Include="datafile\classscore.txt" />
     <Content Include="Content\css\custom_dropdown.css" />
     <Content Include="Content\css\custom_dropdown_demo.css" />
@@ -202,7 +205,7 @@
     <Content Include="Content\css\jquery.jqtimeline.css" />
     <Content Include="Content\css\jquery.timeline.blue.css" />
     <Content Include="Content\css\line.css" />
-    <Content Include="Content\css\main.css" />
+    <Content Include="Content\css\basic.css" />
     <Content Include="Content\css\perfect-scrollbar.css" />
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -338,7 +341,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Content\css\Site.css" />
+    <Content Include="Content\css\teacher.css" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
     <Content Include="Images\heroAccent.png" />
@@ -388,6 +391,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Teacher\Student.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\HeadTeacher\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

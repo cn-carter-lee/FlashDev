@@ -16,7 +16,7 @@ package
 	 * @author PYS
 	 */
 	public class Student extends Sprite
-	{		
+	{
 		[Embed(source="assets/images/user.png")]
 		private var StudentIcon:Class;
 		private var studentIcon:Bitmap = new StudentIcon();
@@ -105,10 +105,12 @@ package
 				hitStudent.Sort = tempSort;
 				Tweener.addTween(this, {x: hitStudent.x, y: hitStudent.y, time: 0.2, transition: "linear"});
 				Tweener.addTween(hitStudent, {x: dragPoint.x, y: dragPoint.y, time: 0.5, transition: "linear"});
+				
 			}
 			else
 				// not hit anyone,back to oritional position						
 				Tweener.addTween(this, {x: dragPoint.x, y: dragPoint.y, time: 0.2, transition: "linear"});
+			this.unHitAll();
 		}
 		
 		private function getHitStudent():Student
@@ -120,7 +122,7 @@ package
 				if (obj is Student && obj != this)
 				{
 					var targetStudent:Student = obj as Student;
-					if (this.hitTestObject(targetStudent))
+					if (this.hitTestObject(targetStudent) && retStudent == null)
 					{
 						targetStudent.hitByOther();
 						retStudent = targetStudent;
@@ -130,6 +132,19 @@ package
 				}
 			}
 			return retStudent;
+		}
+		
+		private function unHitAll()
+		{
+			for (var i:Number = 0; i < this.parent.numChildren; i++)
+			{
+				var obj:Object = this.parent.getChildAt(i);
+				if (obj is Student)
+				{
+					var targetStudent:Student = obj as Student;
+					targetStudent.unHitByOther();
+				}
+			}
 		}
 		
 		private function draw(color:uint, lineThickness:uint, alpha = 1):void

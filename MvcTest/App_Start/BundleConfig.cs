@@ -36,7 +36,7 @@ namespace MvcTest
                 "~/Content/css/jquery.handsontable.full.css",
                 "~/Content/css/select2.css",
                 "~/Content/css/perfect-scrollbar.css",
-                "~/Content/css/site.css"));
+                "~/Content/css/basic.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",

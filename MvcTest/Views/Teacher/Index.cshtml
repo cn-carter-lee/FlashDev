@@ -1,7 +1,8 @@
 ﻿@{
-    ViewBag.Title = "THIS IS A WONDERFUL WORLD!!!!!";
+    ViewBag.Title = "";
 }
 @section head {
+    <link href="/Content/css/teacher.css" rel="stylesheet" />
     <script src="/Scripts/jquery-1.10.2.js"></script>
     <script src="/Scripts/jquery-ui-1.10.4.custom.js"></script>
     <script src="/Scripts/jquery.jqtimeline.js"></script>
@@ -9,7 +10,6 @@
     <script src="/Scripts/select2.js"></script>
     <script src="/Scripts/perfect-scrollbar.js"></script>
     <script src="/Scripts/swfobject.js"></script>
-    <script src="/Scripts/dataloader.js"></script>
     <script src="/Scripts/teacher.js"></script>
 }
 <!---->
@@ -29,28 +29,19 @@
 <div style="background: #fff; padding-top: 20px;">
     <div class="middle-container">
         <div style="width: 300px; height: 100px; float: left; font-family: 宋体;">
-            <div id="dd" class="wrapper" style="float: left;">
-                <div class="select-menu">
-                    <span><b>英语</b></span>
-                    <div class="bubble">
-                        <div class="title">
-                            请选择考试科目:</div>
-                        <ul>
-                            <li>英语</li><li>数学</li><li>物理</li><li>化学</li><li>生物</li>
-                        </ul>
-                    </div>
-                </div>
+            <div style="float: left;">
+                <span><b>英语</b></span>
             </div>
             <div style="float: left; height: 26px; line-height: 26px; margin-left: 10px;">
                 &gt;&gt;</div>
-            <div id="dd2" class="wrapper" style="float: left;">
+            <div id="dd" class="wrapper" style="float: left;">
                 <div class="select-menu" style="float: left; margin-left: 10px;">
                     <span><b>初一</b></span>
                     <div class="bubble">
                         <div class="title">
                             请选择考试年级:</div>
                         <ul>
-                            <li>初一</li><li>初二</li><li>初三</li>
+                            <li>初一</li><li>初二</li>
                         </ul>
                     </div>
                 </div>
@@ -73,7 +64,9 @@
     <h1>
         2013届初三中考一模</h1>
     <div style="">
-        考试时间:2014年3月28日 <span class="sep">|</span> 考生总数:600人<br />
+        考试时间:2014年3月28日
+        <br />
+        考生总数:600人<br />
         备注:校内统考
     </div>
 </div>
