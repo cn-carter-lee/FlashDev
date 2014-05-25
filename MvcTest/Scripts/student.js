@@ -13,7 +13,7 @@ var attributes = {
 };
 swfobject.embedSWF(
 			"/flash/Classroom.swf",
-			"altContent", "600", "400", "10.0.0",
+			"altContent", "650", "400", "10.0.0",
 			"/falsh/expressInstall.swf",
             { "data-file": "flash.txt" },
 			flashvars, params, attributes);

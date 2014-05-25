@@ -19,7 +19,7 @@
         .wrapper.active .bubble { position: absolute; width: 300px; height: 100px; margin-top: 4px; margin-bottom: 20px; top: 25; font-size: 12px; color: #666; background-color: #fff; background-clip: padding-box; border: 1px solid #ccc; border: 1px solid rgba(0,0,0,0.15); border-radius: 5px; box-shadow: 0 3px 12px rgba(0,0,0,0.25); }
         .wrapper .dropdown { width: 10px; height: 100%; margin-right: 5px; background: url(/Content/css/images/dropdown_arrow.png) no-repeat center; }
         .wrapper.active .title { padding: 2px 10px; background-color: #eeeeee; background-repeat: repeat-x; border-bottom: 1px solid #ddd; font-weight: bold; }
-        .wrapper.active .title span { display: block; float: right;width:20px;height:20px;cursor: pointer;background: url(/Content/css/images/box_close.png) no-repeat center; }
+        .wrapper.active .title span { display: block; float: right; width: 20px; height: 20px; cursor: pointer; background: url(/Content/css/images/box_close.png) no-repeat center; }
         .wrapper.active ul { list-style: none; margin: 0; padding: 0; }
         .wrapper.active li { float: left; color: #555; margin-left: 20px; margin-top: 5px; text-decoration: underline; cursor: pointer; }
         .wrapper.active li.selected { font-weight: bold; text-decoration: none; }
@@ -30,8 +30,10 @@
     </style>
 }
 <div class="middle-container clear" style="margin-top: 10px;">
-    <div class="fl">
-        <div style="border: 1px solid #ccc;">
+    <div style="margin: 10px 0px; text-align: center; font-weight: bold; font-size: 30px;">
+        江南中学 初二1班 学业水平数据</div>
+    <div class="clear"><div class="fl">
+        <div style="">
             <div id="altContent">
                 <h1>
                     Chart</h1>
@@ -40,34 +42,47 @@
             </div>
         </div>
     </div>
-    <div class="fr" style="width: 300px;">
-        <ul class="clear tag_list clear">
-        </ul>
-        <div id="dd" class="fl wrapper clear" style="">
-            <div class="select-menu fl">
-                <input type="text" class="fl" id="txtAddTag" style="width: 88px; height: 26px; line-height: 26px;
-                    padding: 0px 5px; border: 0px; margin: 0;" value="输入..." />
-                <div id="myimg" class="fr dropdown">
-                </div>
-            </div>
-            <input type="button" id="btnAddTag" value="添加标签" />
-            <div class="bubble">
-                <div class="title">
-                    请选择对该学生的印象: <span title="关闭"></span>
-                </div>
-                <ul>
-                    <li>活泼</li><li>聪明</li><li>可爱</li><li>开朗</li><li>努力</li><li>好动</li><li>善良</li><li>天真</li><li>
-                        自信</li><li>乖巧</li>
-                </ul>
-            </div>
-        </div>
+    <div class="fr" style="width: 300px; overflow: hidden; line-height: 2;">
+        <span style="font-weight: bold;">常见问题：</span>
+        <br />
+        1. 成绩数据从哪里来？<br />
+        答：所有成绩有科任老师上传，数据真实准确。<br />
+        2.左边的图怎么理解？<br />
+        答：每个月的数据点由综合各科数据后得出，数据点越高表示整个班级学业水平越高；连线为当月及之前所有数据点的平均值，该线显示趋势。<br />
+        3.数据点的值是怎么计算出来的？<br />
     </div>
+    
+        
+    </div><div>
+            班级奖惩记录：</div>
 </div>
 <div class="middle-container">
     <ul id="products">
     </ul>
     <br />
     <br />
+</div>
+<div>
+    <ul class="clear tag_list clear">
+    </ul>
+    <div id="dd" class="fl wrapper clear" style="">
+        <div class="select-menu fl">
+            <input type="text" class="fl" id="txtAddTag" style="width: 88px; height: 26px; line-height: 26px;
+                padding: 0px 5px; border: 0px; margin: 0;" value="输入..." />
+            <div id="myimg" class="fr dropdown">
+            </div>
+        </div>
+        <input type="button" id="btnAddTag" value="添加标签" />
+        <div class="bubble">
+            <div class="title">
+                请选择对该学生的印象: <span title="关闭"></span>
+            </div>
+            <ul>
+                <li>活泼</li><li>聪明</li><li>可爱</li><li>开朗</li><li>努力</li><li>好动</li><li>善良</li><li>天真</li><li>
+                    自信</li><li>乖巧</li>
+            </ul>
+        </div>
+    </div>
 </div>
 <script type="text/javascript">
     function DropDown(el) {
@@ -78,7 +93,7 @@
 
     DropDown.prototype = {
         initEvents: function () {
-            var obj = this;            
+            var obj = this;
             obj.img.on('click', function (event) {
                 $(dd).toggleClass('active');
                 $($(this).find('.select-menu')[0]).attr('class', 'select-menu-over');
@@ -99,7 +114,7 @@
     $(function () {
         new DropDown($('#dd'));
     });
-    
+
     function addTag(name) {
         $('<li>', { html: '<a href="#" class="name">' + name + '</a> <a href="#" class="remove" title="删除"  onclick="$(this).parent().remove()"></a>' }).appendTo($('.tag_list'));
     }
