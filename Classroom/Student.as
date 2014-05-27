@@ -21,45 +21,71 @@ package
 		private var StudentIcon:Class;
 		private var studentIcon:Bitmap = new StudentIcon();
 		
+		[Embed(source="assets/images/desk.png")]
+		private var Desk:Class;
+		private var desk:Bitmap = new Desk();
+		
+		[Embed(source="assets/images/girl.png")]
+		private var Girl:Class;
+		private var girl:Bitmap = new Girl();
+		
+		[Embed(source="assets/images/boy.png")]
+		private var Boy:Class;
+		private var boy:Bitmap = new Boy();
+		
+		[Embed(source="assets/images/question.png")]
+		private var Question:Class;
+		private var question:Bitmap = new Question();
+		
 		public var ID:String;
 		public var Name:String;
 		public var Sort:Number;
 		private var textField:TextField;
 		private var dragPoint:Point;
+		private var stageBackgroundColor:uint = 0x7dde91;
 		
-		public function Student(name:String)
+		public function Student(name:String,sex:Number)
 		{
 			this.Name = name;
 			var textFormat:TextFormat = new TextFormat();
 			textFormat.font = "宋体,Verdana";
 			textFormat.size = 12;
 			textFormat.bold = false;
-			textFormat.align = "left";
-			textFormat.color = 0x555555;
+			textFormat.align = "center";
+			textFormat.color = 0xffffff;
+			
 			
 			textField = new TextField();
 			textField.text = this.Name;
 			textField.border = false;
-			textField.borderColor = 0xCCCCCC;
+			textField.borderColor = stageBackgroundColor;
+			textField.width = 50;
+			textField.height = 20;
 			textField.setTextFormat(textFormat);
 			
-			textField.autoSize = "center";
-			this.addChild(textField);
-			this.addChild(studentIcon);
+			//textField.autoSize = "center";
 			
+			this.addChild(desk);
+			this.addChild(textField);
+			switch(sex)
+			{
+				case 0:this.addChild(boy); break;
+				case 1:this.addChild(girl); break;
+				case 2:this.addChild(question); break;				
+			}
+					
 			studentIcon.x = 0;
 			studentIcon.y = 0;
 			textField.x = 0;
-			textField.y = 40;
+			textField.y = 20;
 			
 			this.addEventListener(MouseEvent.MOUSE_OVER, function(event:MouseEvent):void
 				{
-					draw(0xCCCCCC, 2);
-				
+					draw(stageBackgroundColor, 2, 0.5);
 				});
 			this.addEventListener(MouseEvent.MOUSE_OUT, function(event:MouseEvent):void
 				{
-					draw(0xffffff, 0);
+					draw(stageBackgroundColor, 0);
 				});
 			
 			this.addEventListener(MouseEvent.MOUSE_DOWN, mouseDown);
@@ -73,7 +99,7 @@ package
 		
 		public function unHitByOther():void
 		{
-			draw(0xffffff, 0, 1);
+			draw(stageBackgroundColor, 0, 1);
 		
 		}
 		
@@ -105,7 +131,6 @@ package
 				hitStudent.Sort = tempSort;
 				Tweener.addTween(this, {x: hitStudent.x, y: hitStudent.y, time: 0.2, transition: "linear"});
 				Tweener.addTween(hitStudent, {x: dragPoint.x, y: dragPoint.y, time: 0.5, transition: "linear"});
-				
 			}
 			else
 				// not hit anyone,back to oritional position						

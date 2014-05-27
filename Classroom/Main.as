@@ -1,5 +1,6 @@
 package
 {
+
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.net.URLLoader;
@@ -15,7 +16,8 @@ package
 		private var URL:String;
 		private var OK:Boolean;
 		private var columnCount:Number = 8;
-		
+		private var platform:Platform = new Platform();
+
 		public function Main():void
 		{			
 			if (stage)
@@ -104,13 +106,16 @@ package
 		
 		private function buildRoom(students:Object):void
 		{
+			platform.x = 300;
+			platform.y  = 10; 
+			this.addChild(this.platform);
 			var width1:Number = 60;
 			var width2:Number = (stage.stageWidth - width1 * this.columnCount) / columnCount;
 			for (var i:Number = 0; i < students.length; i++)
 			{
-				var student:Student = new Student(students[i].name);
+				var student:Student = new Student(students[i].name,students[i].sex);
 				student.x = (int(i%this.columnCount)) * (width1 + width2);
-				student.y = (int(i/this.columnCount))*80 + 10;
+				student.y = (int(i/this.columnCount))*80 + 70;
 				student.resize();
 				this.addChild(student);
 			}

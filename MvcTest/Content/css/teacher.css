@@ -1,7 +1,4 @@
-﻿
-
-
-.marker { width: 16px; height: 16px; cursor: pointer; z-index: 2; position: absolute; top: 1.5px; left: 50px; background: url(/Images/main_img.png) no-repeat 0 -84px; }
+﻿.marker { width: 16px; height: 16px; cursor: pointer; z-index: 2; position: absolute; top: 1.5px; left: 50px; background: url(/Images/main_img.png) no-repeat 0 -84px; }
 
 .markerhover { width: 16px; height: 16px; cursor: pointer; z-index: 2; position: absolute; top: 1.5px; left: 50px; background: url(/Images/main_img.png) no-repeat -27px -84px; }
 
@@ -47,8 +44,6 @@
 .exam-data-list .menu .button:hover, .button:active { text-decoration: none; background-color: #cccccc; background-image: linear-gradient(#eee, #ddd); background-repeat: repeat-x; border-color: #ccc; }
 .exam-data-list .menu a { display: inline-block; height: 25px; line-height: 25px; padding: 0 5px; font-size: 13px; text-decoration: none; }
 .exam-data-list .menu .score { width: 50px; height: 25px; line-height: 25px; margin: 0; border: 1px solid #cccccc; padding-left: 10px; font-size: 12px; color: #ffffff; background: #1886c5; font-weight: bold; position: relative; }
-
-
 
 .exam-data-list .table { width: 100%; }
 

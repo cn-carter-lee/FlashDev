@@ -16,7 +16,11 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
+<<<<<<< HEAD
       <value>'2014/5/27'</value>
+=======
+      <value>'2014/5/25'</value>
+>>>>>>> ba161475d65b6aca652b275f2562c9728c9f3f29
     </define>
     <define append="true">
       <name>CONFIG::air</name>
@@ -38,10 +42,10 @@
   <file-specs>
     <path-element>C:\Users\cli\Desktop\TestProject\Git\FlashDev\Classroom\Main.as</path-element>
   </file-specs>
-  <default-background-color>#FFFFFF</default-background-color>
+  <default-background-color>#7DDE91</default-background-color>
   <default-frame-rate>30</default-frame-rate>
   <default-size>
-    <width>600</width>
+    <width>650</width>
     <height>400</height>
   </default-size>
 </flex-config>
