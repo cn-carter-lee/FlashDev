@@ -45,13 +45,22 @@
             </div>
         </div>
         <div class="fr" style="width: 300px; overflow: hidden; line-height: 2;">
-            <span style="font-weight: bold;">常见问题：</span>
-            <br />
-            1. 成绩数据从哪里来？<br />
-            答：所有成绩有科任老师上传，数据真实准确。<br />
-            2.左边的图怎么理解？<br />
-            答：每个月的数据点由综合各科数据后得出，数据点越高表示整个班级学业水平越高；连线为当月及之前所有数据点的平均值，该线显示趋势。<br />
-            3.数据点的值是怎么计算出来的？<br />
+            <ul class="clear tag_list clear">
+            </ul>
+            <div id="dd" class="fl wrapper clear" style="">
+                <input type="text" class="fl" id="txtAddTag" style="width: 88px; height: 26px; line-height: 26px;
+                    padding: 0px 5px;  margin: 0;" value="输入..." />
+                <input type="button" id="btnAddTag" value="添加标签" />
+                <div class="bubble">
+                    <div class="title">
+                        请选择对该学生的印象: <span title="关闭"></span>
+                    </div>
+                    <ul>
+                        <li>活泼</li><li>聪明</li><li>可爱</li><li>开朗</li><li>努力</li><li>好动</li><li>善良</li><li>天真</li><li>
+                            自信</li><li>乖巧</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
     <div class="title">
@@ -114,26 +123,6 @@
     <br />
 </div>
 <div>
-    <ul class="clear tag_list clear">
-    </ul>
-    <div id="dd" class="fl wrapper clear" style="">
-        <div class="select-menu fl">
-            <input type="text" class="fl" id="txtAddTag" style="width: 88px; height: 26px; line-height: 26px;
-                padding: 0px 5px; border: 0px; margin: 0;" value="输入..." />
-            <div id="myimg" class="fr dropdown">
-            </div>
-        </div>
-        <input type="button" id="btnAddTag" value="添加标签" />
-        <div class="bubble">
-            <div class="title">
-                请选择对该学生的印象: <span title="关闭"></span>
-            </div>
-            <ul>
-                <li>活泼</li><li>聪明</li><li>可爱</li><li>开朗</li><li>努力</li><li>好动</li><li>善良</li><li>天真</li><li>
-                    自信</li><li>乖巧</li>
-            </ul>
-        </div>
-    </div>
 </div>
 <script type="text/javascript">
     function DropDown(el) {

@@ -1,6 +1,6 @@
 package
 {
-
+	
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.net.URLLoader;
@@ -8,7 +8,7 @@ package
 	import flash.events.IOErrorEvent;
 	import flash.external.ExternalInterface;
 	
-	/**	 
+	/**
 	 * @author PYS
 	 */
 	public class Main extends Sprite
@@ -17,9 +17,10 @@ package
 		private var OK:Boolean;
 		private var columnCount:Number = 8;
 		private var platform:Platform = new Platform();
-
+		private var blackboard:Blackboard = new Blackboard();
+		
 		public function Main():void
-		{			
+		{
 			if (stage)
 				init();
 			else
@@ -43,7 +44,7 @@ package
 				}
 			}
 			else
-			{				
+			{
 				try
 				{
 					this.load_external_file("student.txt");
@@ -58,7 +59,7 @@ package
 		private function load_external_file(file:String):void
 		{
 			// this.URL = file;  LOAD THE DATA 			
-			var loader:URLLoader = new URLLoader();			
+			var loader:URLLoader = new URLLoader();
 			loader.addEventListener(IOErrorEvent.IO_ERROR, this.ioError);
 			loader.addEventListener(Event.COMPLETE, jsonFileLoaded);
 			var request:URLRequest = new URLRequest(file);
@@ -106,16 +107,21 @@ package
 		
 		private function buildRoom(students:Object):void
 		{
+			blackboard.x = 230;
+			blackboard.y = 0;
+			this.addChild(this.blackboard);
+			
 			platform.x = 300;
-			platform.y  = 10; 
+			platform.y = 40;			
 			this.addChild(this.platform);
+			
 			var width1:Number = 60;
 			var width2:Number = (stage.stageWidth - width1 * this.columnCount) / columnCount;
 			for (var i:Number = 0; i < students.length; i++)
 			{
-				var student:Student = new Student(students[i].name,students[i].sex);
-				student.x = (int(i%this.columnCount)) * (width1 + width2);
-				student.y = (int(i/this.columnCount))*80 + 70;
+				var student:Student = new Student(students[i].name, students[i].sex);
+				student.x = (int(i % this.columnCount)) * (width1 + width2);
+				student.y = (int(i / this.columnCount)) * 80 + 100;
 				student.resize();
 				this.addChild(student);
 			}
@@ -125,7 +131,7 @@ package
 		{
 			if (ExternalInterface.available)
 				ExternalInterface.addCallback(functionName, closure);
-		}		
+		}
 		
 		private function callExternalCallback(functionName:String, ... optionalArgs):*
 		{
