@@ -14,15 +14,8 @@
         .tag_list li .remove { position: absolute; top: 0; bottom: 0; right: 0; border-radius: 0 11px 11px 0; padding: 2px 4px 2px 6px; color: #e0e0e0; padding: 0; width: 16px; background-color: #588a00; border-left: 1px solid #b2d165; }
         .tag_list li .remove:after { float: left; font-size: 11px; line-height: 13px; content: "\00D7"; margin: 1px 0 0 3px; }
         
-        .wrapper { position: relative; z-index: 3; }
-        .wrapper .bubble { width: 310px; height: 0px; clear: both; position: absolute; overflow: hidden; }
-        .wrapper.active .bubble { position: absolute; width: 300px; height: 100px; margin-top: 4px; margin-bottom: 20px; top: 25; font-size: 12px; color: #666; background-color: #fff; background-clip: padding-box; border: 1px solid #ccc; border: 1px solid rgba(0,0,0,0.15); border-radius: 5px; box-shadow: 0 3px 12px rgba(0,0,0,0.25); }
-        .wrapper .dropdown { width: 10px; height: 100%; margin-right: 5px; background: url(/Content/css/images/dropdown_arrow.png) no-repeat center; }
-        .wrapper.active .title { padding: 2px 10px; background-color: #eeeeee; background-repeat: repeat-x; border-bottom: 1px solid #ddd; font-weight: bold; }
-        .wrapper.active .title span { display: block; float: right; width: 20px; height: 20px; cursor: pointer; background: url(/Content/css/images/box_close.png) no-repeat center; }
-        .wrapper.active ul { list-style: none; margin: 0; padding: 0; }
-        .wrapper.active li { float: left; color: #555; margin-left: 20px; margin-top: 5px; text-decoration: underline; cursor: pointer; }
-        .wrapper.active li.selected { font-weight: bold; text-decoration: none; }
+        .tag_option_list { list-style: none; margin: 0; padding: 0; }
+        .tag_option_list li { float: left; color: #555; margin-left: 20px; margin-top: 5px; text-decoration: underline; cursor: pointer; }
         
         
         .select-menu { width: 120px; height: 26px; line-height: 26px; cursor: pointer; border-radius: 3px; border: 1px solid #d5d5d5; text-shadow: 0 1px 0 rgba(255,255,255,0.9); }
@@ -31,90 +24,22 @@
     </style>
 }
 <div class="middle-container clear" style="margin-top: 10px;">
-    <div style="margin: 10px 0px; text-align: center; font-weight: bold; font-size: 30px;">
-        江南中学 初二1班 学业水平数据</div>
     <div class="clear">
         <div class="fl">
-            <div style="">
-                <div id="altContent">
-                    <h1>
-                        Chart</h1>
-                    <p>
-                        <a href="http://www.adobe.com/go/getflashplayer">Get Adobe Flash player</a></p>
-                </div>
-            </div>
         </div>
         <div class="fr" style="width: 300px; overflow: hidden; line-height: 2;">
             <ul class="clear tag_list clear">
             </ul>
             <div id="dd" class="fl wrapper clear" style="">
                 <input type="text" class="fl" id="txtAddTag" style="width: 88px; height: 26px; line-height: 26px;
-                    padding: 0px 5px;  margin: 0;" value="输入..." />
+                    padding: 0px 5px; margin: 0;" value="输入..." />
                 <input type="button" id="btnAddTag" value="添加标签" />
-                <div class="bubble">
-                    <div class="title">
-                        请选择对该学生的印象: <span title="关闭"></span>
-                    </div>
-                    <ul>
-                        <li>活泼</li><li>聪明</li><li>可爱</li><li>开朗</li><li>努力</li><li>好动</li><li>善良</li><li>天真</li><li>
-                            自信</li><li>乖巧</li>
-                    </ul>
-                </div>
+                <ul class="tag_option_list clears">
+                    <li>OP1</li><li>OP2</li><li>OP3</li><li>OP4</li>
+                </ul>
             </div>
         </div>
     </div>
-    <div class="title">
-        班级奖惩记录：</div>
-    <table style="width: 100%; text-align: left; font-weight: 100;">
-        <thead>
-            <tr>
-                <td>
-                    序号
-                </td>
-                <td>
-                    奖惩
-                </td>
-                <td>
-                    日期
-                </td>
-                <td>
-                    内容
-                </td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    1
-                </td>
-                <td>
-                    奖
-                </td>
-                <td>
-                    2014年5月20日
-                </td>
-                <td>
-                    XXXXXXXXXXXXXXXXXXXXX
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    2
-                </td>
-                <td>
-                    奖
-                </td>
-                <td>
-                    2014年5月21日
-                </td>
-                <td>
-                    XXXXXXXXXXXXXXXXXXXXX
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="title">
-        各科数据图表：</div>
 </div>
 <div class="middle-container">
     <ul id="products">
@@ -125,42 +50,10 @@
 <div>
 </div>
 <script type="text/javascript">
-    function DropDown(el) {
-        this.dd = el;
-        this.img = $('#myimg')
-        this.initEvents();
-    }
-
-    DropDown.prototype = {
-        initEvents: function () {
-            var obj = this;
-            obj.img.on('click', function (event) {
-                $(dd).toggleClass('active');
-                $($(this).find('.select-menu')[0]).attr('class', 'select-menu-over');
-                event.stopPropagation();
-            });
-
-            obj.dd.on('click', function (event) {
-                if (event.target.nodeName == "LI") {
-                    var allListElements = $(this).find("li");
-                    addTag($(event.target).text());
-                    event.target.remove();
-                }
-                event.stopPropagation();
-            });
-        }
-    }
-
-    $(function () {
-        new DropDown($('#dd'));
-    });
-
     function addTag(name) {
-        $('<li>', { html: '<a href="#" class="name">' + name + '</a> <a href="#" class="remove" title="删除"  onclick="$(this).parent().remove()"></a>' }).appendTo($('.tag_list'));
+        $('<li>', { html: '<a href="javascript:void(0)" class="name">' + name + '</a> <a href="#" class="remove" title="删除"  onclick="$(this).parent().remove()"></a>' }).appendTo($('.tag_list'));
     }
 
-    addTag("懂事");
-    ////////////
     var uri = '/api/StudentApi/GetTags';
     function formatItem(item) {
         return item.TagName;
@@ -169,7 +62,21 @@
         $("#btnAddTag").click(function () {
             addTag($("#txtAddTag").val());
         });
+        var apiUrl = "/api/StudentApi/GetTags";
+        $.getJSON(apiUrl)
+        .done(function (data) {
+            $.each(data, function (key, item) {
+                // Add a list item for the product.
+                // $('<li>', { text: formatItem(item) }).appendTo($('#products'));
+                addTag(item.TagName);
+            });
+        });
+
     });
+
+
+
+
     /*
     $.getJSON(uri)
     .done(function (data) {
