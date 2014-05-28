@@ -17,7 +17,6 @@
         .tag_option_list { list-style: none; margin: 0; padding: 0; }
         .tag_option_list li { float: left; color: #555; margin-left: 20px; margin-top: 5px; text-decoration: underline; cursor: pointer; }
         
-        
         .select-menu { width: 120px; height: 26px; line-height: 26px; cursor: pointer; border-radius: 3px; border: 1px solid #d5d5d5; text-shadow: 0 1px 0 rgba(255,255,255,0.9); }
         .select-menu-over { width: 120px; height: 26px; line-height: 26px; cursor: pointer; border-radius: 3px; border: 1px solid #d5d5d5; text-shadow: 0 1px 0 rgba(255,255,255,0.9); background-image: linear-gradient(#fcfcfc, #ddd); background-repeat: repeat-x; }
         .title { font-size: 16px; font-weight: 900; }
@@ -51,7 +50,7 @@
 </div>
 <script type="text/javascript">
     function addTag(name) {
-        $('<li>', { html: '<a href="javascript:void(0)" class="name">' + name + '</a> <a href="#" class="remove" title="删除"  onclick="$(this).parent().remove()"></a>' }).appendTo($('.tag_list'));
+        $('<li>', { html: '<a href="javascript:void(0)" class="name">' + name + '</a> <a href="javascript:void(0)" class="remove" title="删除"  onclick="$(this).parent().remove()"></a>' }).appendTo($('.tag_list'));
     }
 
     var uri = '/api/StudentApi/GetTags';
@@ -72,31 +71,14 @@
             });
         });
 
+
+        $(".tag_option_list").on('click', function (event) {
+            if (event.target.nodeName == "LI") {
+                var allListElements = $(this).find("li");
+                addTag($(event.target).text());
+                event.target.remove();
+            }
+            event.stopPropagation();
+        });
     });
-
-
-
-
-    /*
-    $.getJSON(uri)
-    .done(function (data) {
-    $.each(data, function (key, item) {
-    $('<li>', { text: formatItem(item) }).appendTo($('#products'));
-    });
-    });
-    function formatItem(item) {
-    return item.TagName;
-    }
-
-    function find() {
-    var id = $('#prodId').val();
-    $.getJSON(uri + '/' + id)
-    .done(function (data) {
-    $('#product').text(formatItem(data));
-    })
-    .fail(function (jqXHR, textStatus, err) {
-    $('#product').text('Error: ' + err);
-    });
-    }
-    */
 </script>
