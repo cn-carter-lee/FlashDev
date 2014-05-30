@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using MvcTest.Models;
 
 namespace MvcTest
 {
@@ -23,6 +24,9 @@ namespace MvcTest
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+
+            // Added
+            System.Data.Entity.Database.SetInitializer(new StudentContextInitializer());
         }
     }
 }

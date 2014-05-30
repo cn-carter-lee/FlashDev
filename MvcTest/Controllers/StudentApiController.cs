@@ -22,9 +22,15 @@ namespace MvcTest.Controllers
             return tags;
         }
 
-        public void AddTag(string name)
+        public StudentTag Post(StudentTag value)
         {
+            repository.Add(value);
+            return value;
+        }
 
+        public void Delete(int id)
+        {
+            repository.Remove(id);
         }
     }
 }

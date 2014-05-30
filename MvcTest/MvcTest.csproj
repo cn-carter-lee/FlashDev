@@ -176,6 +176,8 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\IStudentTagRepository.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\StudentContext.cs" />
+    <Compile Include="Models\StudentContextInitializer.cs" />
     <Compile Include="Models\StudentTag.cs" />
     <Compile Include="Models\StudentTagRepository.cs" />
     <Compile Include="Models\Teacher.cs" />
