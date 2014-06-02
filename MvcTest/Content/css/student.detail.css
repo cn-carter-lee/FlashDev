@@ -1,0 +1,43 @@
+﻿.title { font: bold 16px; }
+.left_side { width: 650px; }
+.right_side { width: 300px; overflow: hidden; }
+.exam_title { font-size: 25px; font-weight: bold; text-align: center; }
+.student_info { width: 100%; }
+.nav { width: 100%; margin-top: 10px; margin-bottom: 10px; font-family: 宋体; font-weight: bold; }
+
+.teacher_message { width: 600;margin-left:25px; border: 1px solid #ccc; }
+.teacher_message thead { font-weight: bold; }
+.teacher_message .no { width: 50px; }
+.teacher_message .time { width: 150px; }
+
+title { font-size: 16px; font-weight: bold; }
+.text_box { margin-bottom: 20px; border: 1px solid #ccc; padding: 0px 10px 10px 10px; }
+.question { margin-bottom: 20px; border: 1px solid #ccc; padding: 0px 10px 0 10px; line-height: 2; }
+.question p { margin: 0; padding: 0; }
+.question .title { font-size: 16px; font-weight: bold; }
+.clear:after { content: '.'; clear: both; display: block; height: 0; visibility: hidden; font-size: 0; line-height: 0; }
+.tag_list_container { height: 80px; }
+.tag_list { margin: 0px 0 10px 0; padding: 0; list-style-type: none; }
+.tag_list li { float: left; margin: 2px 3px 2px 0; position: relative; font-size: 11px; line-height: 13px; position: relative; }
+.tag_list li .name { background-color: #588a00; border-radius: 11px 0 0 11px; float: left; margin-right: 16px; color: #fff; padding: 2px 4px 2px 6px; text-decoration: none; font-size: 11px; line-height: 13px; }
+.tag_list li .remove { position: absolute; top: 0; bottom: 0; right: 0; border-radius: 0 11px 11px 0; padding: 2px 4px 2px 6px; color: #e0e0e0; padding: 0; width: 16px; background-color: #588a00; border-left: 1px solid #b2d165; }
+.tag_list li .remove:after { float: left; font-size: 11px; line-height: 13px; content: "\00D7"; margin: 1px 0 0 3px; }
+
+.tag_option_list { list-style: none; margin: 0; padding: 0; }
+.tag_option_list li { height: 20px; line-height: 20px; text-align: center; float: left; color: #555; font-weight: bold; border: 1px solid #ccc; padding: 0 5px; margin: 0 10px 0 0; cursor: pointer; }
+.tag_add_box { }
+.tag_add_box .txt { width: 150px; height: 20px; line-height: 20px; padding: 0px 5px; margin: 0; border-radius: 3px; }
+.tag_add_box .txt_bg { background: url(/images/input_bg.png) no-repeat 2px 2px; }
+.tag_add_box .btn { }
+.title { font-size: 16px; font-weight: 900; }
+.stars { list-style-type: none; margin: 10px 0 0 0; padding: 0; }
+.stars li { margin: 0; padding: 0; }
+.stars li label { width: 150px; margin: 0; padding: 0; overflow: hidden; display: inline-block; }
+
+.course { border-top: 2px solid #000; margin-top: 10px; font-weight: bold; }
+.course_tab_nav { list-style: none; margin: 10px 0 0 0; padding: 0; border-bottom: 1px solid #ccc; }
+.course_tab_nav li { width: 50px; float: left; margin-right: 20px; text-align: center;  cursor: pointer; border-left: 1px solid #ccc; border-right: 1px solid #ccc; border-top: 1px solid #ccc; }
+.course_tab_nav li.selected { background: #ccc; }
+.course_left { }
+.course_right { }
+.course_box {padding:10px 0;border-left:1px solid #ccc;border-right:1px solid #ccc;border-bottom:1px solid #ccc; }

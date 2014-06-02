@@ -16,8 +16,8 @@ namespace MvcTest.Controllers
         {
             StudentTag[] tags = new StudentTag[]
             {
-               new StudentTag{TagId=1, TagName="good"},
-               new StudentTag{TagId=1, TagName="kind"}
+               new StudentTag{Id=1, Name="好动"},
+               new StudentTag{Id=1, Name="善良"}
             };
             return tags;
         }

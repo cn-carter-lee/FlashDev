@@ -7,11 +7,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MvcTest.Models
 {
+    [Table("StudentTag")]
     public class StudentTag
     {
-        [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public int TagId { get; set; }
-        public string TagName { get; set; }
+        //[Key]
+        public int Id { set; get; }
+        public int StudentId { set; get; }
+        public int TeacherId { set; get; }
+        public string Name { set; get; }
     }
 }

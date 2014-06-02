@@ -5,80 +5,211 @@
     <script src="/Scripts/jquery-1.10.2.js"></script>
     <script src="/Scripts/jquery-ui-1.10.4.custom.js"></script>
     <script src="/Scripts/swfobject.js"></script>
-    <script src="/Scripts/student.js"></script>
+    <script src="/Scripts/student.detail.js"></script>
+    <link href="/Content/css/student.detail.css" rel="stylesheet" />
     <style type="text/css">
-        .clear:after { content: '.'; clear: both; display: block; height: 0; visibility: hidden; font-size: 0; line-height: 0; }
-        .tag_list { margin: 0; padding: 0; list-style-type: none; }
-        .tag_list li { float: left; margin: 2px 3px 2px 0; position: relative; font-size: 11px; line-height: 13px; position: relative; }
-        .tag_list li .name { background-color: #588a00; border-radius: 11px 0 0 11px; float: left; margin-right: 16px; color: #fff; padding: 2px 4px 2px 6px; text-decoration: none; font-size: 11px; line-height: 13px; }
-        .tag_list li .remove { position: absolute; top: 0; bottom: 0; right: 0; border-radius: 0 11px 11px 0; padding: 2px 4px 2px 6px; color: #e0e0e0; padding: 0; width: 16px; background-color: #588a00; border-left: 1px solid #b2d165; }
-        .tag_list li .remove:after { float: left; font-size: 11px; line-height: 13px; content: "\00D7"; margin: 1px 0 0 3px; }
         
-        .tag_option_list { list-style: none; margin: 0; padding: 0; }
-        .tag_option_list li { float: left; color: #555; margin-left: 20px; margin-top: 5px; text-decoration: underline; cursor: pointer; }
-        
-        .select-menu { width: 120px; height: 26px; line-height: 26px; cursor: pointer; border-radius: 3px; border: 1px solid #d5d5d5; text-shadow: 0 1px 0 rgba(255,255,255,0.9); }
-        .select-menu-over { width: 120px; height: 26px; line-height: 26px; cursor: pointer; border-radius: 3px; border: 1px solid #d5d5d5; text-shadow: 0 1px 0 rgba(255,255,255,0.9); background-image: linear-gradient(#fcfcfc, #ddd); background-repeat: repeat-x; }
-        .title { font-size: 16px; font-weight: 900; }
     </style>
 }
 <div class="middle-container clear" style="margin-top: 10px;">
     <div class="clear">
-        <div class="fl">
+        <div class="fl left_side">
+            <div class="exam_title">
+                学生学业水平数据</div>
+            <table class="student_info" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        学校：江南中学
+                    </td>
+                    <td>
+                        班级：初二（3）班
+                    </td>
+                    <td>
+                        学号：20140442688
+                    </td>
+                    <td>
+                        姓名：谢思敏
+                    </td>
+                </tr>
+            </table>
+            <div class="nav">
+                初二 〉</div>
+            <div style="height: 300px;">
+            </div>
+            <div class="title">
+                班主任评语/留言
+            </div>
+            <table class="teacher_message">
+                <thead>
+                    <tr>
+                        <td class="no">
+                            序号
+                        </td>
+                        <td class="time">
+                            时间
+                        </td>
+                        <td>
+                            内容
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            2013年12月1日
+                        </td>
+                        <td>
+                            *********************************
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            2013年12月1日
+                        </td>
+                        <td>
+                            *********************************
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            3
+                        </td>
+                        <td>
+                            2013年12月1日
+                        </td>
+                        <td>
+                            *********************************
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="fr" style="width: 300px; overflow: hidden; line-height: 2;">
-            <ul class="clear tag_list clear">
-            </ul>
-            <div id="dd" class="fl wrapper clear" style="">
-                <input type="text" class="fl" id="txtAddTag" style="width: 88px; height: 26px; line-height: 26px;
-                    padding: 0px 5px; margin: 0;" value="输入..." />
-                <input type="button" id="btnAddTag" value="添加标签" />
-                <ul class="tag_option_list clears">
-                    <li>OP1</li><li>OP2</li><li>OP3</li><li>OP4</li>
+        <div class="fr right_side">
+            <!--  question -->
+            <div class="question">
+                <p class="title">
+                    常见问题：</p>
+                <p>
+                    1.成绩数据从哪里来？</p>
+                <p>
+                    答：所有成绩由科任老师上传，数据真实准确。</p>
+                <p>
+                    2.左边的图怎么理解？</p>
+                <p>
+                    答：每个数据点有综合各科测验考试成绩后得出，数据点越高表示学业水平越高，连线为各个数据点的平均线，该线能显示趋势？</p>
+                <p>
+                    3.考试分数高了为什么图表却显示退步？</p>
+                <p>
+                    答：因为多数考生分数也提高了，且提高幅度比该考生达，因此该考生应属于退步。</p>
+            </div>
+            <!--  teacher section -->
+            <div class="text_box">
+                <div class="title">
+                    对该学生的印象：</div>
+                <div class="tag_list_container">
+                    <ul class="tag_list clear">
+                    </ul>
+                </div>
+                <div class="tag_add_box">
+                    <input type="text" id="txtAddTag" class="txt txt_bg" />
+                    <input type="button" id="btnAddTag" class="btn" value="添加标签" />
+                </div>
+                <div style="margin: 10px 0 10px 0;">
+                    其他老师对他/她的印象：</div>
+                <ul class="tag_option_list clear">
+                    <li>活泼</li><li>聪明</li><li>可爱</li><li>开朗</li><li>努力</li>
+                </ul>
+            </div>
+            <!--  Appraise teacher section -->
+            <div class="text_box">
+                <div class="title">
+                    给老师打个分吧：</div>
+                <ul class="stars">
+                    <li>
+                        <label>
+                            班主任 : XXX</label><span class="ks-simplestar"><img src="/images/star-1.png"><img src="/images/star-1.png"><img
+                                src="/images/star-1.png"><img src="/images/star-1.png"><img src="/images/star-1.png"></span></li>
+                    <li>
+                        <label>
+                            语文:XXX</label><span class="ks-simplestar"><img src="/images/star-1.png"><img src="/images/star-1.png"><img
+                                src="/images/star-1.png"><img src="/images/star-1.png"><img src="/images/star-1.png"></span></li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
-<div class="middle-container">
-    <ul id="products">
+<div class="middle-container course clear">
+    <ul class="course_tab_nav clear">
+        <li class="selected">语文</li>
+        <li>数学</li>
+        <li>英语</li>
+        <li>政治</li>
+        <li>物理</li>
+        <li>化学</li>
     </ul>
-    <br />
-    <br />
+    <div class="course_box clear">
+        <div class="left_side fl">
+            <div style="height: 300px;">
+            </div>
+            <table class="teacher_message">
+                <thead>
+                    <tr>
+                        <td class="no">
+                            序号
+                        </td>
+                        <td class="time">
+                            时间
+                        </td>
+                        <td>
+                            内容
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            2013年12月1日
+                        </td>
+                        <td>
+                            *********************************
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            2013年12月1日
+                        </td>
+                        <td>
+                            *********************************
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            3
+                        </td>
+                        <td>
+                            2013年12月1日
+                        </td>
+                        <td>
+                            *********************************
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="right_side fr">
+            <img src="../../Images/ads.png" />
+        </div>
+    </div>
 </div>
-<div>
-</div>
-<script type="text/javascript">
-    function addTag(name) {
-        $('<li>', { html: '<a href="javascript:void(0)" class="name">' + name + '</a> <a href="javascript:void(0)" class="remove" title="删除"  onclick="$(this).parent().remove()"></a>' }).appendTo($('.tag_list'));
-    }
-
-    var uri = '/api/StudentApi/GetTags';
-    function formatItem(item) {
-        return item.TagName;
-    }
-    $(document).ready(function () {
-        $("#btnAddTag").click(function () {
-            addTag($("#txtAddTag").val());
-        });
-        var apiUrl = "/api/StudentApi/GetTags";
-        $.getJSON(apiUrl)
-        .done(function (data) {
-            $.each(data, function (key, item) {
-                // Add a list item for the product.
-                // $('<li>', { text: formatItem(item) }).appendTo($('#products'));
-                addTag(item.TagName);
-            });
-        });
-
-
-        $(".tag_option_list").on('click', function (event) {
-            if (event.target.nodeName == "LI") {
-                var allListElements = $(this).find("li");
-                addTag($(event.target).text());
-                event.target.remove();
-            }
-            event.stopPropagation();
-        });
-    });
-</script>

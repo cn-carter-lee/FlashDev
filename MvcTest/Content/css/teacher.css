@@ -77,5 +77,12 @@
 .share .icon-weixin { background-position: -35px 0; }
 
 
-#overlay {width:100%;height:100%;  position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #fff; opacity: 0.8; filter: alpha(opacity=70); z-index:999; }
-#loading { width: 50px; height: 57px; position: absolute; top: 50%; left: 50%; margin: -28px 0 0 -25px;z-index:999; }
+#overlay { width: 100%; height: 100%; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #fff; opacity: 0.8; filter: alpha(opacity=70); z-index: 999; }
+#loading { width: 50px; height: 57px; position: absolute; top: 50%; left: 50%; margin: -28px 0 0 -25px; z-index: 999; }
+
+.cs { top: 120px; right: 10px; position: fixed; text-align: center; }
+.cs_title { height: 22px; line-height: 22px; font-size: 12px; font-weight: bold; background: #000; color: #fff; text-align: center; cursor: pointer; }
+.cs_box { padding-top: 10px; border: 1px solid #EBEBEB; border-top-width: 0; overflow: hidden; width: 118px; }
+.atop { width: 100%; height: 26px; background: url(/images/atop.png) center no-repeat; border-top: 1px solid #ccc; }
+.atop a { display: block; width: 100%; height: 26px; }
+

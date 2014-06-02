@@ -14,7 +14,9 @@ namespace MvcTest.Models
 
         StudentTag IStudentTagRepository.Add(StudentTag tag)
         {
-            throw new NotImplementedException();
+            DataGateway<DataContext>.Instance.Add(tag);
+            DataGateway<DataContext>.Instance.Save();
+            return tag;
         }
 
         void IStudentTagRepository.Remove(int id)

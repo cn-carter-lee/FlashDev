@@ -22,7 +22,7 @@ jQuery(document).ready(function ($) {
     $('#lineContainer').perfectScrollbar();
 });
 
-function getMyVar() {    
+function getMyVar() {
     return "/datafile/exams.txt";
 }
 
@@ -277,4 +277,8 @@ $(document).ready(function () {
         printPanel();
     });
 
+
+    // Advice
+   $("#btnAdvice").colorbox({ html: "<h1>Welcome</h1>" })
+   
 });
