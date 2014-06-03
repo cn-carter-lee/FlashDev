@@ -7,9 +7,6 @@
     <script src="/Scripts/swfobject.js"></script>
     <script src="/Scripts/student.detail.js"></script>
     <link href="/Content/css/student.detail.css" rel="stylesheet" />
-    <style type="text/css">
-        
-    </style>
 }
 <div class="middle-container clear" style="margin-top: 10px;">
     <div class="clear">
@@ -145,15 +142,16 @@
     </div>
 </div>
 <div class="middle-container course clear">
-    <ul class="course_tab_nav clear">
-        <li class="selected">语文</li>
-        <li>数学</li>
-        <li>英语</li>
-        <li>政治</li>
-        <li>物理</li>
-        <li>化学</li>
+    <ul class='tabs'>
+        <li><a href='#tab1'>语文</a></li>
+        <li><a href='#tab2'>数学</a></li>
+        <li><a href='#tab3'>英语</a></li>
+        <li><a href='#tab3'>政治</a></li>
+        <li><a href='#tab3'>物理</a></li>
+        <li><a href='#tab3'>化学</a></li>
     </ul>
-    <div class="course_box clear">
+    <div id='tab1' class="tab_content">
+        <div class="course_box clear">
         <div class="left_side fl">
             <div style="height: 300px;">
             </div>
@@ -211,5 +209,12 @@
         <div class="right_side fr">
             <img src="../../Images/ads.png" />
         </div>
+    </div>
+    </div>
+    <div id='tab2' class="tab_content">
+        This is the 2nd tab.
+    </div>
+    <div id='tab3' class="tab_content">
+        And this is the 3rd tab.
     </div>
 </div>

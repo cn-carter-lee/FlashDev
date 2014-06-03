@@ -357,7 +357,7 @@
     <Content Include="Scripts\jquery.uploadfile.min.js" />
     <Content Include="Scripts\perfect-scrollbar.js" />
     <Content Include="Scripts\select2.js" />
-    <Content Include="Scripts\student.js" />
+    <Content Include="Scripts\head-teacher.js" />
     <Content Include="Scripts\swfobject.js" />
     <Content Include="Scripts\teacher.js" />
     <Content Include="Scripts\timeline.js" />

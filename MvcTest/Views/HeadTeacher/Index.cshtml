@@ -2,10 +2,12 @@
     ViewBag.Title = "";
 }
 @section head {
+    <link href="/Content/css/theknot.colorbox.css" rel="stylesheet" />
     <script src="/Scripts/jquery-1.10.2.js"></script>
     <script src="/Scripts/jquery-ui-1.10.4.custom.js"></script>
+    <script src="/Scripts/jquery.colorbox-min.js"></script>
     <script src="/Scripts/swfobject.js"></script>
-    <script src="/Scripts/student.js"></script>
+    <script src="/Scripts/head-teacher.js"></script>
     <style type="text/css">
         .clear:after { content: '.'; clear: both; display: block; height: 0; visibility: hidden; font-size: 0; line-height: 0; }
         .tag_list { margin: 0; padding: 0; list-style-type: none; }
@@ -24,10 +26,11 @@
         .wrapper.active li { float: left; color: #555; margin-left: 20px; margin-top: 5px; text-decoration: underline; cursor: pointer; }
         .wrapper.active li.selected { font-weight: bold; text-decoration: none; }
         
-        
         .select-menu { width: 120px; height: 26px; line-height: 26px; cursor: pointer; border-radius: 3px; border: 1px solid #d5d5d5; text-shadow: 0 1px 0 rgba(255,255,255,0.9); }
         .select-menu-over { width: 120px; height: 26px; line-height: 26px; cursor: pointer; border-radius: 3px; border: 1px solid #d5d5d5; text-shadow: 0 1px 0 rgba(255,255,255,0.9); background-image: linear-gradient(#fcfcfc, #ddd); background-repeat: repeat-x; }
         .title { font-size: 16px; font-weight: 900; }
+        
+        #awardForm { margin-top: 30px; }
     </style>
 }
 <div class="middle-container clear" style="margin-top: 10px;">
@@ -104,6 +107,7 @@
             </tr>
         </tbody>
     </table>
+    <input id="btnAddAward" type="button" value="添加" />
     <div class="title">
         各科数据图表：</div>
 </div>
@@ -112,4 +116,32 @@
     </ul>
     <br />
     <br />
+</div>
+<div class="hidden">
+    <form id="awardForm">
+    <table>
+        <tr>
+            <td>
+                奖惩:
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                内容:
+            </td>
+            <td>
+                <textarea rows="3"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <input type="submit" value="添加" />
+            </td>
+        </tr>
+    </table>
+    </form>
 </div>

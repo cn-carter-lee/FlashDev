@@ -5,7 +5,7 @@
 .student_info { width: 100%; }
 .nav { width: 100%; margin-top: 10px; margin-bottom: 10px; font-family: 宋体; font-weight: bold; }
 
-.teacher_message { width: 600;margin-left:25px; border: 1px solid #ccc; }
+.teacher_message { width: 600px; margin-left: 25px; border: 1px solid #ccc; }
 .teacher_message thead { font-weight: bold; }
 .teacher_message .no { width: 50px; }
 .teacher_message .time { width: 150px; }
@@ -32,12 +32,16 @@ title { font-size: 16px; font-weight: bold; }
 .title { font-size: 16px; font-weight: 900; }
 .stars { list-style-type: none; margin: 10px 0 0 0; padding: 0; }
 .stars li { margin: 0; padding: 0; }
+.stars li img {margin-left:5px;}
 .stars li label { width: 150px; margin: 0; padding: 0; overflow: hidden; display: inline-block; }
 
-.course { border-top: 2px solid #000; margin-top: 10px; font-weight: bold; }
-.course_tab_nav { list-style: none; margin: 10px 0 0 0; padding: 0; border-bottom: 1px solid #ccc; }
-.course_tab_nav li { width: 50px; float: left; margin-right: 20px; text-align: center;  cursor: pointer; border-left: 1px solid #ccc; border-right: 1px solid #ccc; border-top: 1px solid #ccc; }
-.course_tab_nav li.selected { background: #ccc; }
+
 .course_left { }
 .course_right { }
-.course_box {padding:10px 0;border-left:1px solid #ccc;border-right:1px solid #ccc;border-bottom:1px solid #ccc; }
+.course_box { padding: 10px 0; border-left: 1px solid #ccc; border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; }
+
+.tabs {  margin: 10px 0 0 0; border-top: 1px solid #ccc; border-left: 1px solid #ccc; border-right: 1px solid #ccc; }
+.tabs li { list-style: none; display: inline; }
+.tabs a { padding: 5px 10px; display: inline-block; background: #666; color: #fff; text-decoration: none; }
+.tabs a.active { background: #fff; color: #000; }
+.tab_content { margin: 0; padding: 0; }

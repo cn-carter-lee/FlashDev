@@ -2,6 +2,7 @@ body { margin: 0; padding: 0; color: #666; background: #ffffff; font: 14px/1.5 '
 .fl { float: left; }
 .fr { float: right; }
 .clear:after { content: '.'; clear: both; display: block; height: 0; visibility: hidden; font-size: 0; line-height: 0; }
+.hidden { display: none; }
 input:focus { outline: 0; }
 .logo { width: 100px; height: 100px; float: left; background: center url(/images/logo.png) no-repeat; }
 .nav-menu { float: right; }
