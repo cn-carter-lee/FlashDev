@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="/Content/css/theknot.colorbox.css" rel="stylesheet" />
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+    <script src="/Scripts/jquery-ui-1.10.4.custom.js"></script>
+    <script src="/Scripts/jquery.colorbox-min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Advice
+            // $("#btnAdvice").colorbox({ html: "", innerWidth: "400", innerHeight: "400" })
+
+            // Using a selector:
+            // $("#inline").colorbox({ inline: true, href: "#myForm" });
+
+            // Using a jQuery object:
+            var $form = $("#myForm");
+            $("#btnAdvice").colorbox({ inline: true, href: $form, innerWidth: "400", innerHeight: "400" });
+        });
+    </script>
+</head>
+<body>
+    <form class="cmxform" id="commentForm" method="get" action="">
+    <fieldset>
+        
+        <p>
+            <label for="cname">
+                Name (required, at least 2 characters)</label>
+            <input id="cname" name="name" minlength="2" type="text" required>
+        </p>
+        <p>
+            <label for="cemail">
+                E-Mail (required)</label>
+            <input id="cemail" type="email" name="email" required>
+        </p>
+        <p>
+            <label for="curl">
+                URL (optional)</label>
+            <input id="curl" type="url" name="url">
+        </p>
+        <p>
+            <label for="ccomment">
+                Your comment (required)</label>
+            <textarea id="ccomment" name="comment" required></textarea>
+        </p>
+        <p>
+            <input class="submit" type="submit" value="Submit">
+        </p>
+    </fieldset>
+    </form>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <input id="btnAdvice" type="button" value="click me" />
+    <div style="display: none;">
+        <form id="myForm">
+        NAME:<input type="text" value="" /><br />
+        SEX:<input type="text" value="" /><br />
+        <input type="submit" value="submi" />
+        </form>
+    </div>
+</body>
+</html>

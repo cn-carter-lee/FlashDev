@@ -196,6 +196,7 @@
     <Content Include="Content\css\images\dropdown_arrow.png" />
     <Content Include="Content\css\register.css" />
     <Content Include="Content\css\student.detail.css" />
+    <Content Include="Content\css\theknot.colorbox.css" />
     <Content Include="datafile\classscore.txt" />
     <Content Include="Content\css\custom_dropdown.css" />
     <Content Include="Content\css\custom_dropdown_demo.css" />
@@ -278,6 +279,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Content\css\uploadfile.min.css" />
+    <Content Include="datafile\db.sql" />
     <Content Include="datafile\examclass.txt" />
     <Content Include="datafile\exams.txt" />
     <Content Include="favicon.ico" />
@@ -360,6 +362,8 @@
     <Content Include="Scripts\teacher.js" />
     <Content Include="Scripts\timeline.js" />
     <Content Include="datafile\student.txt" />
+    <Content Include="tab.html" />
+    <Content Include="test.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
