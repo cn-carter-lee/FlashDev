@@ -32,7 +32,7 @@ public class DataContext : DbContext
     { }
 
     public DbSet<StudentTag> StudentTags { get; set; }
-
+    public DbSet<Award> Awards { get; set; }
     protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {
 

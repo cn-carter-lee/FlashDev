@@ -19,12 +19,42 @@ swfobject.embedSWF(
 			flashvars, params, attributes);
 
 
-function getMyVar() {    
+function getMyVar() {
     return "/datafile/student.txt";
 }
 
 
 $(document).ready(function () {
     var $form = $("#awardForm");
-    $("#btnAddAward").colorbox({ inline: true, href: $form, innerWidth: "400", innerHeight: "400" });
+    $("#btnOpenAddAward").colorbox({ inline: true, href: $form, innerWidth: "400", innerHeight: "400" });
+    $("#btnAddAward").click(function () {
+
+        // $(window).colorbox.close();
+
+
+        var awardValue = $("#awardForm").val();
+        if ($.trim(tagValue) == "") return;
+        var award = {
+            TypeId: 0,
+            Content: ""
+        };
+
+        $.ajax({
+            url: "/api/HeadTeacherApi",
+            data: JSON.stringify(tag),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                // addTag(data.Name);
+                var parentWindow = window.parent;
+                parentWindow.$.colorbox.close();
+            }
+        });
+    });
+
+    $("#btnClose").click(function () {
+        $(window).colorbox.close();
+    });
+
 });
+

@@ -10,5 +10,7 @@ namespace MvcTest.Models
         IEnumerable<StudentTag> GetAll();
         StudentTag Add(StudentTag tag);
         void Remove(int id);
+
+        Award Add(Award award);
     }
 }

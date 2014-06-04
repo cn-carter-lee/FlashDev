@@ -31,6 +31,9 @@
         .title { font-size: 16px; font-weight: 900; }
         
         #awardForm { margin-top: 30px; }
+        #awardForm table { width: 350px; margin-left: 25px; }
+        #awardForm .td1 { width: 80px; }
+        #awardForm .td2 { }
     </style>
 }
 <div class="middle-container clear" style="margin-top: 10px;">
@@ -107,7 +110,7 @@
             </tr>
         </tbody>
     </table>
-    <input id="btnAddAward" type="button" value="添加" />
+    <input id="btnOpenAddAward" type="button" value="添加" />
     <div class="title">
         各科数据图表：</div>
 </div>
@@ -119,27 +122,34 @@
 </div>
 <div class="hidden">
     <form id="awardForm">
-    <table>
+    <table style="">
         <tr>
-            <td>
-                奖惩:
+            <td class="td1">
+                类别:
             </td>
-            <td>
+            <td class="td2">
+                <label>
+                    奖</label>
+                <input type="radio" name="TypeId" value="0" checked />
+                <label>
+                    惩</label>
+                <input type="radio" name="TypeId" value="1" />
             </td>
         </tr>
         <tr>
-            <td valign="top">
+            <td valign="top" class="td1">
                 内容:
             </td>
-            <td>
-                <textarea rows="3"></textarea>
+            <td class="td2">
+                <textarea name="Content" rows="4" style="width: 300px;"></textarea>
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="td1">
             </td>
-            <td>
-                <input type="submit" value="添加" />
+            <td class="td2">
+                <input id="btnClose" type="button" value="关闭" />
+                <input id="btnAddAward" type="button" value="添加" />
             </td>
         </tr>
     </table>

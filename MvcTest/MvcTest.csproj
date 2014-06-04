@@ -36,6 +36,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Binaries\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -62,9 +66,6 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\WebFrom_Test\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\WebFrom_Test\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
       <Private>True</Private>
@@ -164,10 +165,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ActionController.cs" />
+    <Compile Include="Controllers\Api\HeadTeacherApiController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\HeadTeacherController.cs" />
-    <Compile Include="Controllers\StudentApiController.cs" />
-    <Compile Include="Controllers\TeacherApiController.cs" />
+    <Compile Include="Controllers\Api\StudentApiController.cs" />
+    <Compile Include="Controllers\Api\TeacherApiController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -175,6 +177,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Award.cs" />
     <Compile Include="Models\IStudentTagRepository.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\StudentContext.cs" />
@@ -197,7 +200,7 @@
     <Content Include="Content\css\register.css" />
     <Content Include="Content\css\student.detail.css" />
     <Content Include="Content\css\theknot.colorbox.css" />
-    <Content Include="datafile\classscore.txt" />
+    <Content Include="Datafile\classscore.txt" />
     <Content Include="Content\css\custom_dropdown.css" />
     <Content Include="Content\css\custom_dropdown_demo.css" />
     <Content Include="Content\css\images\animated-overlay.gif" />
@@ -279,14 +282,14 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Content\css\uploadfile.min.css" />
-    <Content Include="datafile\db.sql" />
-    <Content Include="datafile\examclass.txt" />
-    <Content Include="datafile\exams.txt" />
+    <Content Include="Datafile\db.sql" />
+    <Content Include="Datafile\examclass.txt" />
+    <Content Include="Datafile\exams.txt" />
     <Content Include="favicon.ico" />
-    <Content Include="datafile\flash.txt" />
-    <Content Include="flash\Chart.swf" />
-    <Content Include="flash\Classroom.swf" />
-    <Content Include="flash\expressInstall.swf" />
+    <Content Include="Datafile\flash.txt" />
+    <Content Include="Flash\Chart.swf" />
+    <Content Include="Flash\Classroom.swf" />
+    <Content Include="Flash\expressInstall.swf" />
     <Content Include="Global.asax" />
     <Content Include="Images\ads.png" />
     <Content Include="Images\arrow.png" />
@@ -324,9 +327,9 @@
     <Content Include="Images\star-3.png" />
     <Content Include="Images\thumbsdown.png" />
     <Content Include="Images\thumbsup.png" />
-    <Content Include="datafile\line.txt" />
-    <Content Include="datafile\line2.txt" />
-    <Content Include="datafile\line_test.txt" />
+    <Content Include="Datafile\line.txt" />
+    <Content Include="Datafile\line2.txt" />
+    <Content Include="Datafile\line_test.txt" />
     <Content Include="Scripts\backup\jquery-1.7.1-vsdoc.js" />
     <Content Include="Scripts\backup\jquery-1.7.1.js" />
     <Content Include="Scripts\backup\jquery-1.7.1.min.js" />
@@ -361,7 +364,7 @@
     <Content Include="Scripts\swfobject.js" />
     <Content Include="Scripts\teacher.js" />
     <Content Include="Scripts\timeline.js" />
-    <Content Include="datafile\student.txt" />
+    <Content Include="Datafile\student.txt" />
     <Content Include="tab.html" />
     <Content Include="test.html" />
     <Content Include="Web.config">
@@ -441,6 +444,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Action\Agreement.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MvcTest.Utility\MvcTest.Utility.csproj">
+      <Project>{955116D7-A74F-4380-B670-3E1BBCA6E983}</Project>
+      <Name>MvcTest.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

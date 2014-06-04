@@ -23,5 +23,14 @@ namespace MvcTest.Models
         {
             throw new NotImplementedException();
         }
+
+
+
+        Award IStudentTagRepository.Add(Award award)
+        {
+            DataGateway<DataContext>.Instance.Add(award);
+            DataGateway<DataContext>.Instance.Save();
+            return award;
+        }
     }
 }
