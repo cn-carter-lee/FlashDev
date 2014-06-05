@@ -22,7 +22,7 @@ namespace MvcTest.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Test()
         {
             ViewBag.Message = "Your app description page.";
 

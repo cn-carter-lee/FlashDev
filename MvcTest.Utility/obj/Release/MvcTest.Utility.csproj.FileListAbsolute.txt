@@ -1,0 +1,5 @@
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest.Utility\bin\Release\MvcTest.Utility.dll
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest.Utility\bin\Release\MvcTest.Utility.pdb
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest.Utility\bin\Release\Ionic.Zip.dll
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest.Utility\obj\Release\MvcTest.Utility.dll
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest.Utility\obj\Release\MvcTest.Utility.pdb

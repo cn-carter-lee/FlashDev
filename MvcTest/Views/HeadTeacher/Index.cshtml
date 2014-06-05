@@ -32,8 +32,10 @@
         
         #awardForm { margin-top: 30px; }
         #awardForm table { width: 350px; margin-left: 25px; }
-        #awardForm .td1 { width: 80px; }
-        #awardForm .td2 { }
+        .td1 { width: 60px; text-align: left; }
+        .td2 textarea { width: 260px; }
+        
+        .awardList { width: 100%; text-align: left; font-weight: 100; }
     </style>
 }
 <div class="middle-container clear" style="margin-top: 10px;">
@@ -62,7 +64,7 @@
     </div>
     <div class="title">
         班级奖惩记录：</div>
-    <table style="width: 100%; text-align: left; font-weight: 100;">
+    <table class="awardList">
         <thead>
             <tr>
                 <td>
@@ -122,36 +124,40 @@
 </div>
 <div class="hidden">
     <form id="awardForm">
-    <table style="">
-        <tr>
-            <td class="td1">
-                类别:
-            </td>
-            <td class="td2">
-                <label>
-                    奖</label>
-                <input type="radio" name="TypeId" value="0" checked />
-                <label>
-                    惩</label>
-                <input type="radio" name="TypeId" value="1" />
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" class="td1">
-                内容:
-            </td>
-            <td class="td2">
-                <textarea name="Content" rows="4" style="width: 300px;"></textarea>
-            </td>
-        </tr>
-        <tr>
-            <td class="td1">
-            </td>
-            <td class="td2">
-                <input id="btnClose" type="button" value="关闭" />
-                <input id="btnAddAward" type="button" value="添加" />
-            </td>
-        </tr>
+    <table>
+        <thead>
+            <tr>
+                <td class="td1">
+                    类别:
+                </td>
+                <td class="td2">
+                    <label>
+                        奖</label>
+                    <input type="radio" name="TypeId" value="1" checked="checked" />
+                    <label>
+                        惩</label>
+                    <input type="radio" name="TypeId" value="0" />
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td valign="top" class="td1">
+                    内容:
+                </td>
+                <td class="td2">
+                    <textarea name="Content" rows="4"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1">
+                </td>
+                <td class="td2">
+                    <input id="btnClose" type="button" value="关闭" />
+                    <input id="btnAddAward" type="button" value="添加" />
+                </td>
+            </tr>
+        </tbody>
     </table>
     </form>
 </div>

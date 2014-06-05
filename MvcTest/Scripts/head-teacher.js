@@ -23,31 +23,28 @@ function getMyVar() {
     return "/datafile/student.txt";
 }
 
+function addAward(award) {
+    $('<tr>', { html: '<td>' + ($.find('.awardList tbody tr').length + 1) + ' </td><td>' + (award.TypeId ? "奖" : "惩") + '</td><td>' + award.EventTime + '</td><td>' + award.Content + '</td>' }).appendTo($('.awardList'));
+}
 
 $(document).ready(function () {
     var $form = $("#awardForm");
-    $("#btnOpenAddAward").colorbox({ inline: true, href: $form, innerWidth: "400", innerHeight: "400" });
+    $("#btnOpenAddAward").colorbox({ inline: true, href: $form, innerWidth: "400", innerHeight: "200", onComplete: function () { $('#awardForm input:first').focus(); } });
     $("#btnAddAward").click(function () {
-
-        // $(window).colorbox.close();
-
-
-        var awardValue = $("#awardForm").val();
-        if ($.trim(tagValue) == "") return;
         var award = {
-            TypeId: 0,
-            Content: ""
+            TypeId: $form.find("input[name=TypeId]:checked").val(),
+            Content: $form.find("textarea[name=Content]").val()
         };
-
         $.ajax({
             url: "/api/HeadTeacherApi",
-            data: JSON.stringify(tag),
+            data: JSON.stringify(award),
             type: "POST",
             contentType: "application/json;charset=utf-8",
             success: function (data) {
-                // addTag(data.Name);
+                addAward(data);
                 var parentWindow = window.parent;
                 parentWindow.$.colorbox.close();
+                // $(window).colorbox.close();
             }
         });
     });
@@ -55,6 +52,5 @@ $(document).ready(function () {
     $("#btnClose").click(function () {
         $(window).colorbox.close();
     });
-
 });
 

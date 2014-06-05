@@ -1,6 +1,6 @@
 ﻿
 function addTag(name) {
-    $('<li>', { html: '<a href="javascript:void(0)" class="name">' + name + '</a> <a href="javascript:void(0)" class="remove" title="删除"  onclick="$(this).parent().remove()"></a>' }).appendTo($('.tag_list'));
+    $('<li>', { html: '<a href="javascript:void(0)" class="name">' + name + '</a> <a href="javascript:void(0)" class="remove" title="删除"  onclick="$(this).parent().remove()"></a>' }).appendTo($('.awardList'));
 }
 
 var uri = '/api/StudentApi/GetTags';
