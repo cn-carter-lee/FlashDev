@@ -38,3 +38,4 @@ C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\bin\DotNetOpenAuth.OpenId.
 C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
 C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\obj\Release\MvcTest.dll
 C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\obj\Release\MvcTest.pdb
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\obj\Release\MvcTest.csprojResolveAssemblyReference.cache

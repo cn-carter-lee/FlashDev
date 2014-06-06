@@ -1,0 +1,57 @@
+﻿@{
+    Layout = "~/Views/Shared/Unauthorized_Layout.cshtml";
+    ViewBag.Title = "";
+}
+@section head {
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+    <script src="/Scripts/jquery-ui-1.10.4.custom.js"></script>
+    <script src="/Scripts/register.js"></script>
+    <link href="/Content/css/register.css" rel="stylesheet" />
+    <script type="text/javascript">
+
+    </script>
+}
+<div class="middle-container clear" style="margin-top: 10px;">
+    <div class="title">
+        <div class="fl">
+            会员登录</div>
+        <a href="#nogo" class="close" onclick="hideLogin()"></a>
+    </div>
+    <div class="clear">
+    </div>
+    <form class="cmxform" id="regForm" method="post" action="">
+    <table>
+        <tr>
+            <td>
+                帐号：
+            </td>
+            <td>
+                <input type="text" class="inputcls" id="userid" minlength="2" data-required />
+            </td>
+            <td>
+                长度5～14位. <span id="ruserid_error" class="red"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                密码：
+            </td>
+            <td>
+                <input type="password" class="inputcls" id="rpassword" />
+            </td>
+            <td>
+                <span id="rrpassword_error" class="red"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <input type="button" value="登录" /><span style="margin-left: 10px; color: #f00;" id="register_error"></span>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    </form>
+</div>

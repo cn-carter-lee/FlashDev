@@ -29,7 +29,7 @@ function addAward(award) {
 
 $(document).ready(function () {
     var $form = $("#awardForm");
-    $("#btnOpenAddAward").colorbox({ inline: true, href: $form, innerWidth: "400", innerHeight: "200", onComplete: function () { $('#awardForm input:first').focus(); } });
+    $("#btnOpenAddAward").colorbox({ inline: true, href: $form, innerWidth: "400", innerHeight: "200", onComplete: function () { $('#awardForm').trigger("reset"); $('#awardForm input:first').focus(); } });
     $("#btnAddAward").click(function () {
         var award = {
             TypeId: $form.find("input[name=TypeId]:checked").val(),
