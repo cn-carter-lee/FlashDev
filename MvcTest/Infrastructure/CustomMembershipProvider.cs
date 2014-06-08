@@ -3,7 +3,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web.Security;
 using MvcTest.Contexts;
-using MvcTest.Entities;
+using Mvc.Entity.Member;
 
 namespace MvcTest.Infrastructure
 {

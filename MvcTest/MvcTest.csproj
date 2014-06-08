@@ -171,7 +171,6 @@
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Filters\InitializeSimpleMembershipAttribute.cs" />
-    <Compile Include="Entities\User.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -457,6 +456,16 @@
   <ItemGroup>
     <Content Include="Views\Action\Login.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mvc.Data\Mvc.Data.csproj">
+      <Project>{5A4FD987-7DB3-4CDF-9943-8D46DD324D42}</Project>
+      <Name>Mvc.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mvc.Entity\Mvc.Entity.csproj">
+      <Project>{0B997017-04C3-49ED-9CEB-BF34800C2DE1}</Project>
+      <Name>Mvc.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -473,7 +482,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>10685</DevelopmentServerPort>
+          <DevelopmentServerPort>61040</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

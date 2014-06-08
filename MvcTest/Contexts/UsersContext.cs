@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
-using MvcTest.Entities;
+using Mvc.Entity.Member;
 
 namespace MvcTest.Contexts
 {
     public class UsersContext : DbContext
     {
+        public UsersContext()
+            : base("TeacherDB")
+        {
+
+        }
+
         public DbSet<User> Users { get; set; }
 
         // Helper methods. User can also directly access "Users" property

@@ -10,6 +10,8 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using MvcTest.Filters;
 using MvcTest.Models;
+using MvcTest.Interfaces;
+using MvcTest.Services;
 
 namespace MvcTest.Controllers
 {
@@ -17,6 +19,18 @@ namespace MvcTest.Controllers
     [InitializeSimpleMembership]
     public class AccountController : Controller
     {
+
+        public IFormsAuthenticationService FormsService { get; set; }
+        public IMembershipService MembershipService { get; set; }
+
+        protected override void Initialize(System.Web.Routing.RequestContext requestContext)
+        {
+            if (FormsService == null) { FormsService = new FormsAuthenticationService(); }
+            if (MembershipService == null) { MembershipService = new AccountMembershipService(); }
+
+            base.Initialize(requestContext);
+        }
+
         //
         // GET: /Account/Login
 
@@ -77,6 +91,22 @@ namespace MvcTest.Controllers
             if (ModelState.IsValid)
             {
                 // Attempt to register the user
+                var createStatus = MembershipService.CreateUser(model.UserName, model.Password, model.Email);
+
+                if (createStatus == MembershipCreateStatus.Success)
+                {
+                    FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
+                    return RedirectToAction("Index", "Home");
+                }
+                ModelState.AddModelError("", ErrorCodeToString(createStatus));
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+            /*
+            if (ModelState.IsValid)
+            {
+                // Attempt to register the user
                 try
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
@@ -90,7 +120,7 @@ namespace MvcTest.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return View(model);*/
         }
 
         //

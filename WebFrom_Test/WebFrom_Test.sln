@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebFrom_Test", "..\WebFrom_Test", "{BA9DF413-536C-4057-BA90-E966F16529A3}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebFrom_Test", ".", "{BA9DF413-536C-4057-BA90-E966F16529A3}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/WebFrom_Test"
@@ -18,12 +18,18 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebFrom_Test", "..\WebFrom_
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "12250"
+		VWDPort = "61028"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcTest", "..\MvcTest\MvcTest.csproj", "{3FABB2D9-076F-4221-B8A3-2780680AAF6A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcTest.Utility", "..\MvcTest.Utility\MvcTest.Utility.csproj", "{955116D7-A74F-4380-B670-3E1BBCA6E983}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc.Entity", "..\Mvc.Entity\Mvc.Entity.csproj", "{0B997017-04C3-49ED-9CEB-BF34800C2DE1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{57A142EF-02A6-4094-ACD8-7EC941AA82FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc.Data", "..\Mvc.Data\Mvc.Data.csproj", "{5A4FD987-7DB3-4CDF-9943-8D46DD324D42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,8 +49,22 @@ Global
 		{955116D7-A74F-4380-B670-3E1BBCA6E983}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{955116D7-A74F-4380-B670-3E1BBCA6E983}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{955116D7-A74F-4380-B670-3E1BBCA6E983}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B997017-04C3-49ED-9CEB-BF34800C2DE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B997017-04C3-49ED-9CEB-BF34800C2DE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B997017-04C3-49ED-9CEB-BF34800C2DE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B997017-04C3-49ED-9CEB-BF34800C2DE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A4FD987-7DB3-4CDF-9943-8D46DD324D42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A4FD987-7DB3-4CDF-9943-8D46DD324D42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A4FD987-7DB3-4CDF-9943-8D46DD324D42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A4FD987-7DB3-4CDF-9943-8D46DD324D42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{955116D7-A74F-4380-B670-3E1BBCA6E983} = {57A142EF-02A6-4094-ACD8-7EC941AA82FE}
+		{0B997017-04C3-49ED-9CEB-BF34800C2DE1} = {57A142EF-02A6-4094-ACD8-7EC941AA82FE}
+		{BA9DF413-536C-4057-BA90-E966F16529A3} = {57A142EF-02A6-4094-ACD8-7EC941AA82FE}
+		{5A4FD987-7DB3-4CDF-9943-8D46DD324D42} = {57A142EF-02A6-4094-ACD8-7EC941AA82FE}
 	EndGlobalSection
 EndGlobal
