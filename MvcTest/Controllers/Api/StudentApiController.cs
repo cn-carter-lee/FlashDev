@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Collections;
 using MvcTest.Models;
+using Mvc.Entity;
 
 namespace MvcTest.Controllers
 {

@@ -8,7 +8,7 @@ using Mvc.Entity;
 
 namespace Mvc.Data
 {
-    class LocalContext : DbContext
+    public class LocalContext : DbContext
     {
         public LocalContext()
             : base("TeacherDB")
@@ -18,5 +18,12 @@ namespace Mvc.Data
 
         public DbSet<Student> Students { get; set; }
         public DbSet<StudentTag> Tags { get; set; }
+        public DbSet<User> Users { get; set; }    
+        public DbSet<Role> Roles { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

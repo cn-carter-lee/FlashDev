@@ -12,6 +12,7 @@ using MvcTest.Filters;
 using MvcTest.Models;
 using MvcTest.Interfaces;
 using MvcTest.Services;
+using MvcTest.Utility.Security;
 
 namespace MvcTest.Controllers
 {
@@ -19,15 +20,15 @@ namespace MvcTest.Controllers
     [InitializeSimpleMembership]
     public class AccountController : Controller
     {
-
-        public IFormsAuthenticationService FormsService { get; set; }
-        public IMembershipService MembershipService { get; set; }
+        public LocalMembershipProvider MembershipService { get; set; }
+        public LocalRoleProvider AuthorizationService { get; set; }
 
         protected override void Initialize(System.Web.Routing.RequestContext requestContext)
         {
-            if (FormsService == null) { FormsService = new FormsAuthenticationService(); }
-            if (MembershipService == null) { MembershipService = new AccountMembershipService(); }
-
+            if (MembershipService == null)
+                MembershipService = new LocalMembershipProvider();
+            if (AuthorizationService == null)
+                AuthorizationService = new LocalRoleProvider();
             base.Initialize(requestContext);
         }
 
@@ -49,11 +50,13 @@ namespace MvcTest.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+            if (ModelState.IsValid)
             {
-                return RedirectToLocal(returnUrl);
+                if (MembershipService.ValidateUser(model.UserName, model.Password))
+                {
+                    return RedirectToLocal(returnUrl);
+                }
             }
-
             // If we got this far, something failed, redisplay form
             ModelState.AddModelError("", "The user name or password provided is incorrect.");
             return View(model);
@@ -67,7 +70,6 @@ namespace MvcTest.Controllers
         public ActionResult LogOff()
         {
             WebSecurity.Logout();
-
             return RedirectToAction("Index", "Home");
         }
 
@@ -91,36 +93,22 @@ namespace MvcTest.Controllers
             if (ModelState.IsValid)
             {
                 // Attempt to register the user
-                var createStatus = MembershipService.CreateUser(model.UserName, model.Password, model.Email);
-
-                if (createStatus == MembershipCreateStatus.Success)
-                {
-                    FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
-                    return RedirectToAction("Index", "Home");
-                }
-                ModelState.AddModelError("", ErrorCodeToString(createStatus));
-            }
-
-            // If we got this far, something failed, redisplay form
-            return View(model);
-            /*
-            if (ModelState.IsValid)
-            {
-                // Attempt to register the user
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
-                    WebSecurity.Login(model.UserName, model.Password);
+                    MembershipService.CreateUser(model.UserName, ""/*Name*/, model.Password, model.Email, ""/* Role Name*/);
+
+                    FormsAuthentication.SetAuthCookie(model.UserName, false);
                     return RedirectToAction("Index", "Home");
                 }
-                catch (MembershipCreateUserException e)
+                catch (ArgumentException e)
                 {
-                    ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
+                    ModelState.AddModelError("", e.Message);
                 }
-            }
 
-            // If we got this far, something failed, redisplay form
-            return View(model);*/
+                // If we got this far, something failed, redisplay from
+                return View(model);
+            }
+            return View(model);
         }
 
         //
@@ -174,6 +162,16 @@ namespace MvcTest.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Manage(LocalPasswordModel model)
         {
+            if (ModelState.IsValid)
+            {
+                if (MembershipService.ChangePassword(User.Identity.Name, model.OldPassword, model.NewPassword))
+                    return RedirectToAction("Manage", new { Message = ManageMessageId.ChangePasswordSuccess });
+                else
+                    ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+            }
+            return View(model);
+            
+            /*
             bool hasLocalAccount = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
             ViewBag.HasLocalPassword = hasLocalAccount;
             ViewBag.ReturnUrl = Url.Action("Manage");
@@ -228,6 +226,7 @@ namespace MvcTest.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+             */
         }
 
         //

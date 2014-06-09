@@ -28,7 +28,7 @@ namespace MvcTest
             AuthConfig.RegisterAuth();
 
             // Added
-            System.Data.Entity.Database.SetInitializer(new StudentContextInitializer());
+            // System.Data.Entity.Database.SetInitializer(new StudentContextInitializer());
         }
     }
 }

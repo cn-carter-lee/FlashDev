@@ -91,3 +91,11 @@ D:\dev_code\Git\FlashDev\MvcTest\obj\Debug\MvcTest.dll
 D:\dev_code\Git\FlashDev\MvcTest\obj\Debug\MvcTest.pdb
 D:\dev_code\Git\FlashDev\MvcTest\bin\Mvc.Entity.dll
 D:\dev_code\Git\FlashDev\MvcTest\bin\Mvc.Entity.pdb
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\obj\Debug\MvcTest.csprojResolveAssemblyReference.cache
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\bin\Mvc.Data.dll
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\bin\Mvc.Entity.dll
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\bin\Mvc.Data.pdb
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\bin\Mvc.Entity.pdb
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\bin\MvcTest.Utility.dll
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\bin\Ionic.Zip.dll
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\bin\MvcTest.Utility.pdb

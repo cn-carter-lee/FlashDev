@@ -31,8 +31,8 @@ public class DataContext : DbContext
         : base("TeacherDB")
     { }
 
-    public DbSet<StudentTag> StudentTags { get; set; }
-    public DbSet<Award> Awards { get; set; }
+    // public DbSet<StudentTag> StudentTags { get; set; }
+    // public DbSet<Award> Awards { get; set; }
     protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {
 

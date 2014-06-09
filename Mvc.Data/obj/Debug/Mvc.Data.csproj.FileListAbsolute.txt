@@ -1,1 +1,8 @@
 D:\dev_code\Git\FlashDev\Mvc.Data\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\Mvc.Data\obj\Debug\Mvc.Data.csprojResolveAssemblyReference.cache
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\Mvc.Data\bin\Debug\Mvc.Data.dll
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\Mvc.Data\bin\Debug\Mvc.Data.pdb
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\Mvc.Data\bin\Debug\Mvc.Entity.dll
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\Mvc.Data\bin\Debug\Mvc.Entity.pdb
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\Mvc.Data\obj\Debug\Mvc.Data.dll
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\Mvc.Data\obj\Debug\Mvc.Data.pdb

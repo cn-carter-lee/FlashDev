@@ -174,24 +174,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\CustomMembershipProvider.cs" />
-    <Compile Include="Interfaces\IFormsAuthenticationService.cs" />
-    <Compile Include="Interfaces\IMembershipService.cs" />
+    <Compile Include="Deleted\CustomMembershipProvider.cs" />
+    <Compile Include="Deleted\IFormsAuthenticationService.cs" />
+    <Compile Include="Deleted\IMembershipService.cs" />
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\Award.cs" />
-    <Compile Include="Models\CustomMembershipProvider.cs" />
     <Compile Include="Models\IStudentTagRepository.cs" />
-    <Compile Include="Models\Student.cs" />
-    <Compile Include="Models\StudentContext.cs" />
-    <Compile Include="Models\StudentContextInitializer.cs" />
-    <Compile Include="Models\StudentTag.cs" />
     <Compile Include="Models\StudentTagRepository.cs" />
-    <Compile Include="Models\Teacher.cs" />
-    <Compile Include="Models\UserObj.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataContext.cs" />
-    <Compile Include="Services\AccountMembershipService.cs" />
-    <Compile Include="Services\FormsAuthenticationService.cs" />
+    <Compile Include="Deleted\AccountMembershipService.cs" />
+    <Compile Include="Deleted\FormsAuthenticationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\colorbox.css" />
@@ -464,6 +456,10 @@
     <ProjectReference Include="..\Mvc.Entity\Mvc.Entity.csproj">
       <Project>{0B997017-04C3-49ED-9CEB-BF34800C2DE1}</Project>
       <Name>Mvc.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MvcTest.Utility\MvcTest.Utility.csproj">
+      <Project>{955116D7-A74F-4380-B670-3E1BBCA6E983}</Project>
+      <Name>MvcTest.Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

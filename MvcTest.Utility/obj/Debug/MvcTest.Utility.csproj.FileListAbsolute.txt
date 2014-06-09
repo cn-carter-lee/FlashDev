@@ -19,3 +19,8 @@ D:\dev_code\Git\FlashDev\MvcTest.Utility\bin\Debug\System.Net.Http.Formatting.xm
 D:\dev_code\Git\FlashDev\MvcTest.Utility\obj\Debug\ResolveAssemblyReference.cache
 D:\dev_code\Git\FlashDev\MvcTest.Utility\obj\Debug\MvcTest.Utility.dll
 D:\dev_code\Git\FlashDev\MvcTest.Utility\obj\Debug\MvcTest.Utility.pdb
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest.Utility\obj\Debug\MvcTest.Utility.csprojResolveAssemblyReference.cache
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest.Utility\bin\Debug\Mvc.Data.dll
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest.Utility\bin\Debug\Mvc.Entity.dll
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest.Utility\bin\Debug\Mvc.Data.pdb
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest.Utility\bin\Debug\Mvc.Entity.pdb

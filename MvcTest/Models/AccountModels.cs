@@ -73,9 +73,13 @@ namespace MvcTest.Models
 
     public class RegisterModel
     {
-        [Required]
-        [Display(Name = "User name")]
+        [Required(ErrorMessage="用户名不能为空")]
+        [Display(Name = "用户名:")]
         public string UserName { get; set; }
+
+        [Required(ErrorMessage = "姓名不能为空")]
+        [Display(Name = "姓名")]
+        public string Name { get; set; }
 
         [Required]
         [DataType(DataType.EmailAddress)]

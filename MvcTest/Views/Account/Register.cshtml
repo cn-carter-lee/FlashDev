@@ -1,23 +1,29 @@
 ﻿@model MvcTest.Models.RegisterModel
 @{
+    Layout = "~/Views/Shared/Unauthorized_Layout.cshtml";
     ViewBag.Title = "Register";
 }
-
-<hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-    <h2>Create a new account.</h2>
-</hgroup>
-
-@using (Html.BeginForm()) {
+@section Head {
+    <style type="text/css">
+        .validation-summary-errors { color: #f00; }
+        .reg_list{}
+        .reg_list label{display: inline-block;width:100px; text-align:right;}
+    </style>
+}
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
-
     <fieldset>
         <legend>Registration Form</legend>
-        <ol>
+        <ul class="reg_list">
             <li>
                 @Html.LabelFor(m => m.UserName)
                 @Html.TextBoxFor(m => m.UserName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Name)
+                @Html.TextBoxFor(m => m.Name)
             </li>
             <li>
                 @Html.LabelFor(m => m.Email)
@@ -31,11 +37,7 @@
                 @Html.LabelFor(m => m.ConfirmPassword)
                 @Html.PasswordFor(m => m.ConfirmPassword)
             </li>
-        </ol>
+        </ul>
         <input type="submit" value="Register" />
     </fieldset>
-}
-
-@section Scripts {
-     @Scripts.Render("~/bundles/jqueryval")
 }
