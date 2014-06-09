@@ -78,23 +78,23 @@ namespace MvcTest.Models
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "姓名不能为空")]
-        [Display(Name = "姓名")]
+        [Display(Name = "姓名:")]
         public string Name { get; set; }
 
         [Required]
         [DataType(DataType.EmailAddress)]
-        [Display(Name = "Email address")]
+        [Display(Name = "邮箱:")]
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "密码必须至少6个字符.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "密码:")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "重复密码:")]
+        [Compare("Password", ErrorMessage = "密码不一致.")]
         public string ConfirmPassword { get; set; }
     }
 

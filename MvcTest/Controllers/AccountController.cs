@@ -62,6 +62,11 @@ namespace MvcTest.Controllers
             return View(model);
         }
 
+        public ActionResult SignOut()
+        {
+            return View();
+        }
+
         //
         // POST: /Account/LogOff
 
@@ -69,7 +74,7 @@ namespace MvcTest.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            WebSecurity.Logout();
+            FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
 
@@ -95,7 +100,7 @@ namespace MvcTest.Controllers
                 // Attempt to register the user
                 try
                 {
-                    MembershipService.CreateUser(model.UserName, ""/*Name*/, model.Password, model.Email, ""/* Role Name*/);
+                    MembershipService.CreateUser(model.UserName, model.Name, model.Password, model.Email, "teacher"/* Role Name*/);
 
                     FormsAuthentication.SetAuthCookie(model.UserName, false);
                     return RedirectToAction("Index", "Home");

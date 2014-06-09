@@ -9,7 +9,6 @@ namespace Mvc.Entity
     [Table("StudentTag")]
     public class StudentTag
     {
-        //[Key]
         public int Id { set; get; }
         public int StudentId { set; get; }
         public int TeacherId { set; get; }

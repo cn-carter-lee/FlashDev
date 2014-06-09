@@ -154,7 +154,7 @@ namespace Mvc.Data
                 UserName = username,
                 Name = name,
                 Password = FormsAuthentication.HashPasswordForStoringInConfigFile(password.Trim(), "md5"),
-                UserEmailAddress = email,
+                Email = email,
                 RoleId = role.RoleId
             };
 

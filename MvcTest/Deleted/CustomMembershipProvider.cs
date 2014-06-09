@@ -52,7 +52,7 @@ namespace MvcTest.Infrastructure
 
             if (user == null)
             {
-                var userObj = new User { UserName = username, Password = GetMd5Hash(password), UserEmailAddress = email };
+                var userObj = new User { UserName = username, Password = GetMd5Hash(password), Email = email };
 
                 using (var usersContext = new UsersContext())
                 {
@@ -114,7 +114,7 @@ namespace MvcTest.Infrastructure
             var user = usersContext.GetUser(username);
             if (user != null)
             {
-                var memUser = new MembershipUser("CustomMembershipProvider", username, user.UserID, user.UserEmailAddress,
+                var memUser = new MembershipUser("CustomMembershipProvider", username, user.UserID, user.Email,
                                                             string.Empty, string.Empty,
                                                             true, false, DateTime.MinValue,
                                                             DateTime.MinValue,
