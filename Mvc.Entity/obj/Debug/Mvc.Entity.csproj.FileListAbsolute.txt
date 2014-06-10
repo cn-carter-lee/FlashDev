@@ -1,7 +1,3 @@
-C:\Users\cli\Desktop\TestProject\Git\FlashDev\Mvc.Entity\bin\Debug\Mvc.Entity.dll
-C:\Users\cli\Desktop\TestProject\Git\FlashDev\Mvc.Entity\bin\Debug\Mvc.Entity.pdb
-C:\Users\cli\Desktop\TestProject\Git\FlashDev\Mvc.Entity\obj\Debug\Mvc.Entity.dll
-C:\Users\cli\Desktop\TestProject\Git\FlashDev\Mvc.Entity\obj\Debug\Mvc.Entity.pdb
 D:\dev_code\Git\FlashDev\Mvc.Entity\bin\Debug\Mvc.Entity.dll
 D:\dev_code\Git\FlashDev\Mvc.Entity\bin\Debug\Mvc.Entity.pdb
 D:\dev_code\Git\FlashDev\Mvc.Entity\bin\Debug\EntityFramework.dll
@@ -9,3 +5,7 @@ D:\dev_code\Git\FlashDev\Mvc.Entity\bin\Debug\EntityFramework.xml
 D:\dev_code\Git\FlashDev\Mvc.Entity\obj\Debug\ResolveAssemblyReference.cache
 D:\dev_code\Git\FlashDev\Mvc.Entity\obj\Debug\Mvc.Entity.dll
 D:\dev_code\Git\FlashDev\Mvc.Entity\obj\Debug\Mvc.Entity.pdb
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\Mvc.Entity\bin\Debug\Mvc.Entity.dll
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\Mvc.Entity\bin\Debug\Mvc.Entity.pdb
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\Mvc.Entity\obj\Debug\Mvc.Entity.dll
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\Mvc.Entity\obj\Debug\Mvc.Entity.pdb

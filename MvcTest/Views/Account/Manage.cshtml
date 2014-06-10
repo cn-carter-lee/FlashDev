@@ -1,32 +1,21 @@
 ﻿@model MvcTest.Models.LocalPasswordModel
 @{
-    ViewBag.Title = "Manage Account";
+    ViewBag.Title = "修改账号密码";
 }
-
-<hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-</hgroup>
-
-<p class="message-success">@ViewBag.StatusMessage</p>
-
-<p>You're logged in as <strong>@User.Identity.Name</strong>.</p>
-
-@if (ViewBag.HasLocalPassword)
-{
+@section Head {
+    <style type="text/css">
+        .validation-summary-errors { color: #f00; }
+        .change_password_list { list-style-type: none; }
+        .change_password_list label { display: inline-block; width: 100px; text-align: right; }
+        .btn_submit { margin-left: 145px; }
+    </style>
+}
+<div class="middle-container">
+    <p class="message-success">@ViewBag.StatusMessage</p>
+    <p>
+        当前登录的用户: <strong>@User.Identity.Name</strong></p>
     @Html.Partial("_ChangePasswordPartial")
-}
-else
-{ 
-    @Html.Partial("_SetPasswordPartial")
-}
-
-<section id="externalLogins">
-    @Html.Action("RemoveExternalLogins")
-
-    <h3>Add an external login</h3>
-    @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
-</section>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</div>

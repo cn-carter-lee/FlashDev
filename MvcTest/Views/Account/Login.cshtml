@@ -2,19 +2,25 @@
 @{
     ViewBag.Title = "Log in";
 }
-<hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-</hgroup>
-<section id="loginForm">
-<h2>Use a local account to log in.</h2>
+@section Head {
+    <style type="text/css">
+        .validation-summary-errors { color: #f00; }
+        .login_list { }
+        .login_list li { height: 35px; }
+        .login_list label { display: inline-block; width: 100px; text-align: right; }
+        .login_list .checkbox { display: inline-block; width: 50px; text-align: left; }
+        .btn_submit { margin-left: 145px; }
+    </style>
+}
+<div class="middle-container">
+    <section id="loginForm">
 @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-
     <fieldset>
-        <legend>Log in Form</legend>
-        <ol>
+        <legend>用户登录</legend>
+        <ul class="login_list">
             <li>
                 @Html.LabelFor(m => m.UserName)
                 @Html.TextBoxFor(m => m.UserName)
@@ -26,17 +32,19 @@
                 @Html.ValidationMessageFor(m => m.Password)
             </li>
             <li>
+            <label></label>
                 @Html.CheckBoxFor(m => m.RememberMe)
                 @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
             </li>
-        </ol>
-        <input type="submit" value="登录" />
+        </ul>
+        <input class="btn_submit" type="submit" value="登录" />
     </fieldset>
     <p>
         @Html.ActionLink("注册新帐号", "Register") 
     </p>
 }
 </section>
+</div>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

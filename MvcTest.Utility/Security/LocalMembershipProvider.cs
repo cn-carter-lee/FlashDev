@@ -10,11 +10,11 @@ namespace MvcTest.Utility.Security
 {
     public class LocalMembershipProvider : MembershipProvider
     {
-        private LocalReposiatory repository;
+        private UserReposiatory repository;
 
         public LocalMembershipProvider()
         {
-            this.repository = new LocalReposiatory();
+            this.repository = new UserReposiatory();
         }
 
         public override string ApplicationName

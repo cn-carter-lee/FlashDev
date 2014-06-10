@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Globalization;
 using System.Web.Mvc;
 using System.Web.Security;
+using Mvc.Entity.Model;
 
 namespace MvcTest.Models
 {
@@ -28,72 +29,63 @@ namespace MvcTest.Models
         public string UserName { get; set; }
     }
 
-    public class RegisterExternalLoginModel
-    {
-        [Required]
-        [Display(Name = "User name")]
-        public string UserName { get; set; }
-
-        public string ExternalLoginData { get; set; }
-    }
-
     public class LocalPasswordModel
     {
-        [Required]
+        [LocalRequired]
         [DataType(DataType.Password)]
-        [Display(Name = "Current password")]
+        [Display(Name = "当前密码")]
         public string OldPassword { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [LocalRequired]
+        [StringLength(100, ErrorMessage = "{0} 至少 {2} 个字符长.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "New password")]
+        [Display(Name = "新密码")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        [Display(Name = "确认新密码")]
+        [Compare("NewPassword", ErrorMessage = "新密码不一致.")]
         public string ConfirmPassword { get; set; }
     }
 
     public class LoginModel
     {
-        [Required]
-        [Display(Name = "User name")]
+        [LocalRequired]
+        [Display(Name = "用户名")]
         public string UserName { get; set; }
 
-        [Required]
+        [LocalRequired]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "密码")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "记住?")]
         public bool RememberMe { get; set; }
     }
 
     public class RegisterModel
     {
-        [Required(ErrorMessage="用户名不能为空")]
-        [Display(Name = "用户名:")]
+        [LocalRequired]
+        [Display(Name = "用户名")]
         public string UserName { get; set; }
 
-        [Required(ErrorMessage = "姓名不能为空")]
-        [Display(Name = "姓名:")]
+        [LocalRequired]
+        [Display(Name = "昵称")]
         public string Name { get; set; }
 
-        [Required]
+        [LocalRequired]
         [DataType(DataType.EmailAddress)]
-        [Display(Name = "邮箱:")]
+        [Display(Name = "邮箱")]
         public string Email { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "密码必须至少6个字符.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "密码:")]
+        [Display(Name = "密码")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "重复密码:")]
+        [Display(Name = "重复密码")]
         [Compare("Password", ErrorMessage = "密码不一致.")]
         public string ConfirmPassword { get; set; }
     }

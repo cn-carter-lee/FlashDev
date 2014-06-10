@@ -45,13 +45,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Award.cs" />
+    <Compile Include="Class.cs" />
     <Compile Include="Member\Role.cs" />
+    <Compile Include="Model\LocalRequired.cs" />
+    <Compile Include="Parent.cs" />
+    <Compile Include="School.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="Member\Teacher.cs" />
     <Compile Include="Member\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentTag.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

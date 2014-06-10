@@ -27,12 +27,6 @@ input:focus { outline: 0; }
 .top-ul a:active { color: #00a8eb; text-decoration: underline; }
 
 .top-ul li { float: left; display: list-item; margin-left: 20px; }
-
-
-
-
-
-
 /* footer */
 footer { background: #555; height: 50px; margin-top: 50px; }
 footer .text { color: #808080; text-align: center; padding-top: 15px; }

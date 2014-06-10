@@ -7,7 +7,7 @@ using System.Web.Security;
 
 namespace Mvc.Data
 {
-    public class LocalReposiatory
+    public class UserReposiatory
     {
         #region Variables
 
@@ -42,7 +42,7 @@ namespace Mvc.Data
 
         #region Constructors
 
-        public LocalReposiatory()
+        public UserReposiatory()
         {
             this.entities = new LocalContext();
         }

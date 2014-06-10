@@ -1,30 +1,87 @@
-/****** Object:  Table [dbo].[StudentTag]    Script Date: 2014/6/3 0:06:35 ******/
+USE [master]
+GO
+/****** Object:  Database [MvcTest]    Script Date: 2014/6/10 18:17:54 ******/
+CREATE DATABASE [MvcTest]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'MvcTest', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\MvcTest.mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'MvcTest_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\MvcTest_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO
+ALTER DATABASE [MvcTest] SET COMPATIBILITY_LEVEL = 110
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [MvcTest].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [MvcTest] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [MvcTest] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [MvcTest] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [MvcTest] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [MvcTest] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [MvcTest] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [MvcTest] SET AUTO_CREATE_STATISTICS ON 
+GO
+ALTER DATABASE [MvcTest] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [MvcTest] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [MvcTest] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [MvcTest] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [MvcTest] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [MvcTest] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [MvcTest] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [MvcTest] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [MvcTest] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [MvcTest] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [MvcTest] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [MvcTest] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [MvcTest] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [MvcTest] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [MvcTest] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [MvcTest] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [MvcTest] SET RECOVERY FULL 
+GO
+ALTER DATABASE [MvcTest] SET  MULTI_USER 
+GO
+ALTER DATABASE [MvcTest] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [MvcTest] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [MvcTest] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [MvcTest] SET TARGET_RECOVERY_TIME = 0 SECONDS 
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'MvcTest', N'ON'
+GO
+USE [MvcTest]
+GO
+/****** Object:  Table [dbo].[Award]    Script Date: 2014/6/10 18:17:54 ******/
 SET ANSI_NULLS ON
 GO
-
 SET QUOTED_IDENTIFIER ON
 GO
-
-CREATE TABLE [dbo].[StudentTag](
-	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[StudentId] [int] NULL,
-	[TeacherId] [int] NULL,
-	[Name] [nvarchar](50) NULL,
- CONSTRAINT [PK_StudentTag] PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
-GO
-
-/****** Object:  Table [dbo].[Award]    Script Date: 2014/6/4 18:25:06 ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
 CREATE TABLE [dbo].[Award](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[TypeId] [bit] NULL,
@@ -39,20 +96,146 @@ CREATE TABLE [dbo].[Award](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-
-ALTER TABLE [dbo].[Award] ADD  CONSTRAINT [DF_Award_EventTime]  DEFAULT (getdate()) FOR [EventTime]
+/****** Object:  Table [dbo].[Class]    Script Date: 2014/6/10 18:17:54 ******/
+SET ANSI_NULLS ON
 GO
-
-
-insert into role(name) values('admin')
-insert into role(name) values('teacher')
-insert into role(name) values('headteacher')
-insert into role(name) values('parent')
-
-
-USE [Teacher]
+SET QUOTED_IDENTIFIER ON
 GO
+CREATE TABLE [dbo].[Class](
+	[Id] [int] NOT NULL,
+	[SchoolId] [int] NOT NULL,
+	[HeadTeacherId] [int] NULL,
+	[Name] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Class] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 
+GO
+/****** Object:  Table [dbo].[ClassTeachers]    Script Date: 2014/6/10 18:17:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ClassTeachers](
+	[TeacherId] [int] NOT NULL,
+	[ClassId] [int] NOT NULL,
+	[TypeId] [int] NOT NULL
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Parent]    Script Date: 2014/6/10 18:17:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Parent](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[UserID] [int] NOT NULL,
+	[StudentUniversalNo] [nvarchar](50) NULL,
+	[StudentSchoolNo] [nvarchar](50) NULL,
+	[StudentName] [nchar](10) NULL,
+	[Phone] [nvarchar](50) NULL,
+	[StudentId] [int] NULL,
+ CONSTRAINT [PK_Parent] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Role]    Script Date: 2014/6/10 18:17:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Role](
+	[RoleId] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Role] PRIMARY KEY CLUSTERED 
+(
+	[RoleId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[School]    Script Date: 2014/6/10 18:17:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[School](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NULL,
+	[Province] [nvarchar](50) NULL,
+	[City] [nvarchar](50) NULL,
+	[District] [nvarchar](50) NULL,
+	[TypeId] [int] NULL,
+ CONSTRAINT [PK_School] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Student]    Script Date: 2014/6/10 18:17:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Student](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[ClassId] [int] NULL,
+	[Name] [nvarchar](50) NOT NULL,
+	[Sex] [bit] NOT NULL,
+ CONSTRAINT [PK_Student] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[StudentTag]    Script Date: 2014/6/10 18:17:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[StudentTag](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[StudentId] [int] NULL,
+	[TeacherId] [int] NULL,
+	[Name] [nvarchar](50) NULL,
+ CONSTRAINT [PK_StudentTag] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Teacher]    Script Date: 2014/6/10 18:17:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Teacher](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[UserID] [int] NOT NULL,
+	[SchoolId] [int] NOT NULL,
+ CONSTRAINT [PK_Teacher] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[User]    Script Date: 2014/6/10 18:17:54 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
 CREATE TABLE [dbo].[User](
 	[UserID] [int] IDENTITY(1,1) NOT NULL,
 	[RoleId] [int] NOT NULL,
@@ -70,30 +253,17 @@ CREATE TABLE [dbo].[User](
 ) ON [PRIMARY]
 
 GO
-
 SET ANSI_PADDING OFF
 GO
-
+ALTER TABLE [dbo].[Award] ADD  CONSTRAINT [DF_Award_EventTime]  DEFAULT (getdate()) FOR [EventTime]
+GO
 ALTER TABLE [dbo].[User] ADD  CONSTRAINT [DF_User_Status]  DEFAULT ((0)) FOR [Status]
 GO
-
 ALTER TABLE [dbo].[User] ADD  CONSTRAINT [DF_User_CreateDate]  DEFAULT (getdate()) FOR [CreateDate]
 GO
-
 ALTER TABLE [dbo].[User] ADD  CONSTRAINT [DF_User_ModifyDate]  DEFAULT (getdate()) FOR [ModifyDate]
 GO
-
-
-
-
-
-CREATE TABLE [dbo].[Role](
-	[RoleId] [smallint] NOT NULL,
-	[Name] [nvarchar](50) NULL,
- CONSTRAINT [PK_Role] PRIMARY KEY CLUSTERED 
-(
-	[RoleId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
+USE [master]
+GO
+ALTER DATABASE [MvcTest] SET  READ_WRITE 
 GO

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace MvcTest.Controllers
 {
+    //[Authorize(Roles = "teacher")]
     public class TeacherController : Controller
     {
         public ActionResult Index()

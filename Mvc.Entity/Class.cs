@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
 
 namespace Mvc.Entity
 {
-    [Table("Student")]
-    public class Student
+    [Table("Class")]
+    public class Class
     {
-        [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        public int SchoolId { get; set; }
+        public int HeadTeacherId { get; set; }
         public string Name { get; set; }
-        public bool Sex { get; set; }
     }
 }

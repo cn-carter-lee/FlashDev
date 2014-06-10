@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
 
 namespace Mvc.Entity
 {
-    [Table("Student")]
-    public class Student
+    [Table("School")]
+    public class School
     {
-        [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
-        public bool Sex { get; set; }
+        public string Province { get; set; }
+        public string City { get; set; }
+        public string District { get; set; }
+        public int TypeId { get; set; }
     }
 }
