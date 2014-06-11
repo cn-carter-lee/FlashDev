@@ -17,9 +17,16 @@ namespace Mvc.Data
         }
 
         public DbSet<Student> Students { get; set; }
-        public DbSet<StudentTag> Tags { get; set; }
-        public DbSet<User> Users { get; set; }    
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<Award> Awards { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
+      
+
+        public int Save()
+        {
+            return this.SaveChanges();
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

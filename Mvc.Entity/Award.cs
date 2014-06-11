@@ -10,7 +10,8 @@ namespace Mvc.Entity
     public class Award
     {
         public int Id { set; get; }
-        public byte TypeId { set; get; }
+        public bool IsGood { set; get; }
+        public int ClassId { set; get; }
         public int StudentId { set; get; }
         public int TeacherId { set; get; }
         public string Content { set; get; }

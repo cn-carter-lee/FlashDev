@@ -1,4 +1,5 @@
-﻿@{
+﻿@model MvcTest.Models.HeadTeacherModel
+@{
     ViewBag.Title = "";
 }
 @section head {
@@ -37,6 +38,7 @@
         .td2 textarea { width: 260px; }
         
         .awardList { width: 100%; text-align: left; font-weight: 100; }
+        .awardList thead { font-weight: bold; }
     </style>
 }
 <div class="middle-container clear" style="margin-top: 10px;">
@@ -55,25 +57,27 @@
             </div>
         </div>
         <div class="fr" style="width: 300px; overflow: hidden; line-height: 2;">
+        <!-- 
             <span style="font-weight: bold;">常见问题：</span>
             <br />
             1. 成绩数据从哪里来？<br />
             答：所有成绩有科任老师上传，数据真实准确。<br />
             2.左边的图怎么理解？<br />
             答：每个月的数据点由综合各科数据后得出，数据点越高表示整个班级学业水平越高；连线为当月及之前所有数据点的平均值，该线显示趋势。<br />
-            3.数据点的值是怎么计算出来的？<br />
+            3.数据点的值是怎么计算出来的？<br />-->
         </div>
     </div>
+    <!--
     <div class="title">
         班级奖惩记录：</div>
-    <table class="awardList">
+    <table class="awardList hidden">
         <thead>
             <tr>
                 <td>
                     序号
                 </td>
                 <td>
-                    奖惩
+                    奖/惩
                 </td>
                 <td>
                     日期
@@ -84,39 +88,30 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>
-                    1
-                </td>
-                <td>
-                    奖
-                </td>
-                <td>
-                    2014年5月20日
-                </td>
-                <td>
-                    XXXXXXXXXXXXXXXXXXXXX
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    2
-                </td>
-                <td>
-                    奖
-                </td>
-                <td>
-                    2014年5月21日
-                </td>
-                <td>
-                    XXXXXXXXXXXXXXXXXXXXX
-                </td>
-            </tr>
+            @foreach (var award in Model.Awards)
+            {
+                <tr>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        @(award.IsGood ? "奖" : "惩")
+                    </td>
+                    <td>
+                        @award.EventTime.ToString("yyyy年MM月dd日")
+                    </td>
+                    <td>
+                        @award.Content
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
     <input id="btnOpenAddAward" type="button" value="添加" />
     <div class="title">
         各科数据图表：</div>
+
+-->
 </div>
 <div class="middle-container">
     <ul id="products">
@@ -135,10 +130,10 @@
                 <td class="td2">
                     <label>
                         奖</label>
-                    <input type="radio" name="TypeId" value="1" checked="checked" />
+                    <input type="radio" name="IsGood" value="1" checked="checked" />
                     <label>
                         惩</label>
-                    <input type="radio" name="TypeId" value="0" />
+                    <input type="radio" name="IsGood" value="0" />
                 </td>
             </tr>
         </thead>

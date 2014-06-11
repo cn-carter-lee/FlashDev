@@ -163,11 +163,14 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ActionController.cs" />
-    <Compile Include="Controllers\Api\HeadTeacherApiController.cs" />
+    <Compile Include="Controllers\Api\BaseApiController.cs" />
+    <Compile Include="Controllers\Api\TagController.cs" />
+    <Compile Include="Controllers\Api\HeadTeacherController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\HeadTeacherController.cs" />
-    <Compile Include="Controllers\Api\StudentApiController.cs" />
-    <Compile Include="Controllers\Api\TeacherApiController.cs" />
+    <Compile Include="Controllers\Api\StudentController.cs" />
+    <Compile Include="Controllers\Api\TeacherController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -178,8 +181,7 @@
     <Compile Include="Deleted\IFormsAuthenticationService.cs" />
     <Compile Include="Deleted\IMembershipService.cs" />
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\IStudentTagRepository.cs" />
-    <Compile Include="Models\StudentTagRepository.cs" />
+    <Compile Include="Models\HeadTeacherModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataContext.cs" />
     <Compile Include="Deleted\AccountMembershipService.cs" />

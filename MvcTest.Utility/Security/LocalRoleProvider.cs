@@ -10,10 +10,10 @@ namespace MvcTest.Utility.Security
 {
     public class LocalRoleProvider : RoleProvider
     {
-        private UserReposiatory repository;
+        private MemeberReposiatory repository;
         public LocalRoleProvider()
         {
-            this.repository = new UserReposiatory();
+            this.repository = new MemeberReposiatory();
         }
 
         public override void AddUsersToRoles(string[] usernames, string[] roleNames)

@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MvcTest.Models;
 
 namespace MvcTest.Controllers
 {
     //[Authorize(Roles = "headteacher")]
-    public class HeadTeacherController : Controller
+    public class HeadTeacherController : BaseController
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "";
-
-            return View();
+            HeadTeacherModel model = new HeadTeacherModel();
+            model.Awards = StudentRepository.GetAwardList(1000);
+            return View(model);
         }
 
         public ActionResult Student()

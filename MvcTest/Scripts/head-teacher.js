@@ -8,23 +8,20 @@ var params = {
     bgcolor: "",
     wmode: "direct"
 };
-var attributes = {
-    id: "Chart"
-};
-swfobject.embedSWF(
-			"/flash/Classroom.swf",
-			"altContent", "650", "400", "10.0.0",
-			"/falsh/expressInstall.swf",
-            { "data-file": "flash.txt" },
-			flashvars, params, attributes);
 
+swfobject.embedSWF("/flash/Classroom.swf", "altContent", "650", "400", "10.0.0", "/falsh/expressInstall.swf", flashvars, params, { id: "Chart" });
 
 function getMyVar() {
-    return "/datafile/student.txt";
+    return "http://dev.carter.com/api/student";
+}
+
+function formatAwardEventTime(eventTime) {
+    var arr = eventTime.split('T')[0].split('-')
+    return arr[0] + '年' + arr[1] + '月' + arr[2] + '日';
 }
 
 function addAward(award) {
-    $('<tr>', { html: '<td>' + ($.find('.awardList tbody tr').length + 1) + ' </td><td>' + (award.TypeId ? "奖" : "惩") + '</td><td>' + award.EventTime + '</td><td>' + award.Content + '</td>' }).appendTo($('.awardList'));
+    $('<tr>', { html: '<td>' + ($.find('.awardList tbody tr').length + 1) + ' </td><td>' + (award.IsGood ? "奖" : "惩") + '</td><td>' + formatAwardEventTime(award.EventTime) + '</td><td>' + award.Content + '</td>' }).appendTo($('.awardList'));
 }
 
 $(document).ready(function () {
@@ -32,7 +29,7 @@ $(document).ready(function () {
     $("#btnOpenAddAward").colorbox({ inline: true, href: $form, innerWidth: "400", innerHeight: "200", onComplete: function () { $('#awardForm').trigger("reset"); $('#awardForm input:first').focus(); } });
     $("#btnAddAward").click(function () {
         var award = {
-            TypeId: $form.find("input[name=TypeId]:checked").val(),
+            IsGood: ($form.find("input[name=IsGood]:checked").val() == "1"),
             Content: $form.find("textarea[name=Content]").val()
         };
         $.ajax({
@@ -42,9 +39,7 @@ $(document).ready(function () {
             contentType: "application/json;charset=utf-8",
             success: function (data) {
                 addAward(data);
-                var parentWindow = window.parent;
-                parentWindow.$.colorbox.close();
-                // $(window).colorbox.close();
+                $(window).colorbox.close();
             }
         });
     });
