@@ -119,7 +119,7 @@ package
 			var width2:Number = (stage.stageWidth - width1 * this.columnCount) / columnCount;
 			for (var i:Number = 0; i < students.length; i++)
 			{
-				var student:Student = new Student(students[i].name, students[i].sex);
+				var student:Student = new Student(students[i].Name, students[i].Sex);
 				student.x = (int(i % this.columnCount)) * (width1 + width2);
 				student.y = (int(i / this.columnCount)) * 80 + 100;
 				student.resize();

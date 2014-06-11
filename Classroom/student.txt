@@ -1,152 +1,152 @@
 [
   {
-    "id": 10001,
-    "sort": 1,
-    "name": "刘文",
-	"sex": 1
+    "Id": 10001,
+    "DisplayOrder": 1,
+    "Name": "刘文",
+	"Sex": 1
   },
   {
-    "id": 10002,
-    "sort": 2,
-    "name": "谢思敏2",
-	"sex": 1
+    "Id": 10002,
+    "DisplayOrder": 2,
+    "Name": "谢思敏2",
+	"Sex": 1
   },
   {
-    "id": 10003,
-    "sort": 3,
-    "name": "梁绍鸿3",
-	"sex": 0
+    "Id": 10003,
+    "DisplayOrder": 3,
+    "Name": "梁绍鸿3",
+	"Sex": 0
   },
   {
-    "id": 10004,
-    "sort": 4,
-    "name": "傅志豪4",
-	"sex": 1
+    "Id": 10004,
+    "DisplayOrder": 4,
+    "Name": "傅志豪4",
+	"Sex": 1
   },
   {
-    "id": 10005,
-    "sort": 5,
-    "name": "曾柏珅5",
-	"sex": 0
+    "Id": 10005,
+    "DisplayOrder": 5,
+    "Name": "曾柏珅5",
+	"Sex": 0
   },
   {
-    "id": 10001,
-    "sort": 1,
-    "name": "刘崇文6",
-	"sex": 0
+    "Id": 10001,
+    "DisplayOrder": 1,
+    "Name": "刘崇文6",
+	"Sex": 0
   },
   {
-    "id": 10002,
-    "sort": 2,
-    "name": "谢思敏7",
-	"sex": 0
+    "Id": 10002,
+    "DisplayOrder": 2,
+    "Name": "谢思敏7",
+	"Sex": 0
   },
   {
-    "id": 10003,
-    "sort": 3,
-    "name": "梁绍鸿8",
-	"sex": 3
+    "Id": 10003,
+    "DisplayOrder": 3,
+    "Name": "梁绍鸿8",
+	"Sex": 3
   },
   {
-    "id": 10004,
-    "sort": 4,
-    "name": "傅志豪",
-	"sex": 2
+    "Id": 10004,
+    "DisplayOrder": 4,
+    "Name": "傅志豪",
+	"Sex": 2
   },
   {
-    "id": 10005,
-    "sort": 5,
-    "name": "曾柏珅",
-	"sex": 1
+    "Id": 10005,
+    "DisplayOrder": 5,
+    "Name": "曾柏珅",
+	"Sex": 1
   },
   {
-    "id": 10001,
-    "sort": 1,
-    "name": "刘崇文",
-	"sex": 1
+    "Id": 10001,
+    "DisplayOrder": 1,
+    "Name": "刘崇文",
+	"Sex": 1
   },
   {
-    "id": 10002,
-    "sort": 2,
-    "name": "谢思敏",
-	"sex": 1
+    "Id": 10002,
+    "DisplayOrder": 2,
+    "Name": "谢思敏",
+	"Sex": 1
   },
   {
-    "id": 10003,
-    "sort": 3,
-    "name": "梁绍鸿",
-	"sex": 0
+    "Id": 10003,
+    "DisplayOrder": 3,
+    "Name": "梁绍鸿",
+	"Sex": 0
   },
   {
-    "id": 10004,
-    "sort": 4,
-    "name": "傅志豪",
-	"sex": 1
+    "Id": 10004,
+    "DisplayOrder": 4,
+    "Name": "傅志豪",
+	"Sex": 1
   },
   {
-    "id": 10005,
-    "sort": 5,
-    "name": "曾柏珅",
-	"sex": 0
+    "Id": 10005,
+    "DisplayOrder": 5,
+    "Name": "曾柏珅",
+	"Sex": 0
   },
   {
-    "id": 10001,
-    "sort": 1,
-    "name": "刘崇文",
-	"sex": 0
+    "Id": 10001,
+    "DisplayOrder": 1,
+    "Name": "刘崇文",
+	"Sex": 0
   },
   {
-    "id": 10002,
-    "sort": 2,
-    "name": "谢思敏",
-	"sex": 0
+    "Id": 10002,
+    "DisplayOrder": 2,
+    "Name": "谢思敏",
+	"Sex": 0
   },
   {
-    "id": 10003,
-    "sort": 3,
-    "name": "梁绍鸿",
-	"sex": 2
+    "Id": 10003,
+    "DisplayOrder": 3,
+    "Name": "梁绍鸿",
+	"Sex": 2
   },
   {
-    "id": 10004,
-    "sort": 4,
-    "name": "傅志豪",
-	"sex": 0
+    "Id": 10004,
+    "DisplayOrder": 4,
+    "Name": "傅志豪",
+	"Sex": 0
   },
   {
-    "id": 10005,
-    "sort": 5,
-    "name": "曾柏珅",
-	"sex": 1
+    "Id": 10005,
+    "DisplayOrder": 5,
+    "Name": "曾柏珅",
+	"Sex": 1
   },
   {
-    "id": 10001,
-    "sort": 1,
-    "name": "刘崇文",
-	"sex": 2
+    "Id": 10001,
+    "DisplayOrder": 1,
+    "Name": "刘崇文",
+	"Sex": 2
   },
   {
-    "id": 10002,
-    "sort": 2,
-    "name": "谢思敏",
-	"sex": 2
+    "Id": 10002,
+    "DisplayOrder": 2,
+    "Name": "谢思敏",
+	"Sex": 2
   },
   {
-    "id": 10003,
-    "sort": 3,
-    "name": "梁绍鸿",
-	"sex": 1
+    "Id": 10003,
+    "DisplayOrder": 3,
+    "Name": "梁绍鸿",
+	"Sex": 1
   },
   {
-    "id": 10004,
-    "sort": 4,
-    "name": "傅志豪",
-	"sex": 0
+    "Id": 10004,
+    "DisplayOrder": 4,
+    "Name": "傅志豪",
+	"Sex": 0
   },
   {
-    "id": 10005,
-    "sort": 5,
-    "name": "曾柏珅",
-	"sex": 1
+    "Id": 10005,
+    "DisplayOrder": 5,
+    "Name": "曾柏珅",
+	"Sex": 1
   }
 ]
