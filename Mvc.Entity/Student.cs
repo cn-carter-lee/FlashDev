@@ -15,7 +15,7 @@ namespace Mvc.Entity
         public int Id { get; set; }
         public int ClassId { get; set; }
         public string Name { get; set; }
-        public bool Sex { get; set; }
+        public int Sex { get; set; }
         public int DisplayOrder { get; set; }
     }
 }

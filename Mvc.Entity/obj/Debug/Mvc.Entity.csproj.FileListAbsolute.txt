@@ -9,3 +9,4 @@ C:\Users\cli\Desktop\TestProject\Git\FlashDev\Mvc.Entity\bin\Debug\Mvc.Entity.dl
 C:\Users\cli\Desktop\TestProject\Git\FlashDev\Mvc.Entity\bin\Debug\Mvc.Entity.pdb
 C:\Users\cli\Desktop\TestProject\Git\FlashDev\Mvc.Entity\obj\Debug\Mvc.Entity.dll
 C:\Users\cli\Desktop\TestProject\Git\FlashDev\Mvc.Entity\obj\Debug\Mvc.Entity.pdb
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\Mvc.Entity\obj\Debug\Mvc.Entity.csprojResolveAssemblyReference.cache

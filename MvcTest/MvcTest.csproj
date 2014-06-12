@@ -199,6 +199,8 @@
     <Content Include="Content\css\register.css" />
     <Content Include="Content\css\student.detail.css" />
     <Content Include="Content\css\theknot.colorbox.css" />
+    <Content Include="data.html" />
+    <Content Include="data.txt" />
     <Content Include="Datafile\classscore.txt" />
     <Content Include="Content\css\custom_dropdown.css" />
     <Content Include="Content\css\custom_dropdown_demo.css" />
@@ -288,7 +290,6 @@
     <Content Include="Datafile\flash.txt" />
     <Content Include="Flash\Chart.swf" />
     <Content Include="Flash\Classroom.swf" />
-    <Content Include="Flash\expressInstall.swf" />
     <Content Include="Global.asax" />
     <Content Include="Images\ads.png" />
     <Content Include="Images\arrow.png" />

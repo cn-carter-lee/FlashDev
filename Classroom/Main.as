@@ -7,6 +7,7 @@ package
 	import flash.net.URLRequest;
 	import flash.events.IOErrorEvent;
 	import flash.external.ExternalInterface;
+	import flash.net.URLRequestHeader;
 	
 	/**
 	 * @author PYS
@@ -30,30 +31,18 @@ package
 		private function init(e:Event = null):void
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
-			this.addChild(new Loading("loading..."));
+			this.addChild(new Loading("拼命加载中..."));		
 			var filePath:String = this.callExternalCallback("getMyVar");
-			if (filePath != null)
+			if (filePath == null)
+				filePath = 'student.txt';
+			try
 			{
-				try
-				{
-					this.load_external_file(filePath);
-				}
-				catch (e:Error)
-				{
-					this.show_error('Loading data\n' + filePath + '\n' + e.message);
-				}
+				this.load_external_file(filePath);
 			}
-			else
+			catch (e:Error)
 			{
-				try
-				{
-					this.load_external_file("student.txt");
-				}
-				catch (e:Error)
-				{
-					this.show_error('Loading data\n' + e.message);
-				}
-			}
+				this.show_error('Loading data\n' + filePath + '\n' + e.message);
+			}		
 		}
 		
 		private function load_external_file(file:String):void
@@ -63,6 +52,7 @@ package
 			loader.addEventListener(IOErrorEvent.IO_ERROR, this.ioError);
 			loader.addEventListener(Event.COMPLETE, jsonFileLoaded);
 			var request:URLRequest = new URLRequest(file);
+			request.requestHeaders.push(new URLRequestHeader("Accept", "application/json"));
 			loader.load(request);
 		}
 		
@@ -112,7 +102,7 @@ package
 			this.addChild(this.blackboard);
 			
 			platform.x = 300;
-			platform.y = 40;			
+			platform.y = 40;
 			this.addChild(this.platform);
 			
 			var width1:Number = 60;
