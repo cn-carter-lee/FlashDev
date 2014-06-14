@@ -91,17 +91,17 @@ package
 			
 			this.chart_parameters = LoaderInfo(this.loaderInfo).parameters;
 			if (this.chart_parameters['loading'] == null)
-				this.chart_parameters['loading'] = '加载数据...';
+				this.chart_parameters['loading'] = '拼命加载数据中...';
 			
 			var l:Loading = new Loading(this.chart_parameters['loading']);
 			this.addChild(l);
 			this.build_right_click_menu();
 			this.OK = false;
 			
-			load_data("exams.txt");
+			this.loadDataFile();
 			
-			// inform javascript that it can call our reload method
-			this.addCallback("reload", reload); // mf 18nov08, line 110 of original 'main.as'
+			// Inform javascript that it can call our reload method
+			this.addCallback("reload", reload);
 			
 			// inform javascript that it can call our load method
 			this.addCallback("load", load);
@@ -132,24 +132,6 @@ package
 			urlLoader.addEventListener(Event.COMPLETE, urlLoader_complete);
 		}
 		
-		private function findPageFile():Boolean
-		{
-			var filePath:String = this.callExternalCallback("getMyVar", 1);
-			if (filePath != null)
-			{
-				try
-				{
-					this.load_external_file(filePath);
-				}
-				catch (e:Error)
-				{
-					this.show_error('Loading data\n' + filePath + '\n' + e.message);
-				}
-				return true;
-			}
-			return false;
-		}
-		
 		private function addCallback(functionName:String, closure:Function):void
 		{
 			// the debug player does not have an external interface because it is NOT embedded in a browser
@@ -171,43 +153,38 @@ package
 			return PNGEncoder.encode(pngSource);
 		}
 		
-		// An external interface, used by javascript to reload JSON from a URL :: mf 18nov08
+		// An external interface, used by javascript to reload JSON from a URL 
 		public function reload(url:String):void
 		{
-			var l:Loading = new Loading(this.chart_parameters['loading']);
-			this.addChild(l);
-			this.load_external_file(url);
+			// var l:Loading = new Loading(this.chart_parameters['loading']);
+			// this.addChild(l);			
+			// this.load_external_file(url);
 		}
 		
-		private function load_data(file:String):void
+		private function loadDataFile(filePath:String = null):void
 		{
-			if (!this.findPageFile())
+			if (filePath == null)
+				filePath = this.callExternalCallback("getDataFilePath", 1);
+			if (filePath == null)
+				filePath = "exams.txt";
+			try
 			{
-				try
-				{
-					this.load_external_file(file);
-				}
-				catch (e:Error)
-				{
-					this.show_error('Loading data\n' + file + '\n' + e.message);
-				}
+				this.URL = filePath;
+				var loader:URLLoader = new URLLoader();
+				loader.addEventListener(IOErrorEvent.IO_ERROR, this.ioError);
+				loader.addEventListener(Event.COMPLETE, jsonFileLoaded);
+				var request:URLRequest = new URLRequest(filePath);
+				loader.load(request);
 			}
-		}
-		
-		private function load_external_file(file:String):void
-		{
-			this.URL = file;
-			// LOAD THE DATA			
-			var loader:URLLoader = new URLLoader();
-			loader.addEventListener(IOErrorEvent.IO_ERROR, this.ioError);
-			loader.addEventListener(Event.COMPLETE, jsonFileLoaded);
-			var request:URLRequest = new URLRequest(file);
-			loader.load(request);
+			catch (e:Error)
+			{
+				this.show_error('Loading data\n' + filePath + '\n' + e.message);
+			}
 		}
 		
 		private function ioError(e:IOErrorEvent):void
 		{
-			// remove the 'loading data...' msg:
+			// Remove the 'loading data...' msg:
 			this.removeChildAt(0);
 			var msg:ErrorMsg = new ErrorMsg('Open Flash Chart\nIO ERROR\nLoading test data\n' + e.text);
 			msg.add_html('This is the URL that I tried to open:<br><a href="' + this.URL + '">' + this.URL + '</a>');
@@ -260,43 +237,33 @@ package
 		
 		private function build_chart(json:Object):void
 		{
-			//if (this.listChartSet != null) this.die();
-			
-			this.tooltip = new Tooltip(json.tooltip);
-			
+			//if (this.listChartSet != null) this.die();			
+			this.tooltip = new Tooltip(json.tooltip);			
 			var g:Global = Global.getInstance();
-			g.set_tooltip_string(this.tooltip.tip_text);
-			
+			g.set_tooltip_string(this.tooltip.tip_text);			
 			// this.listChartSet = Factory.MakeChart(json);
-			this.pysChartSetCollection = Factory.MakePysChart(json);
-			
+			this.pysChartSetCollection = Factory.MakePysChart(json);			
 			// step 1 these are common to both X Y charts and PIE charts:
 			this.stage_background = new StageBackground(json);
-			this.addChild(this.stage_background);
-			
+			this.addChild(this.stage_background);			
 			// step 2
-			this.build_chart_background(json);
-			
+			this.build_chart_background(json);			
 			//if (!this.topNavigation)
-			this.topNavigation = new TopNavigation(json["nav"]);
-			
+			this.topNavigation = new TopNavigation(json["nav"]);			
 			this.addChild(this.topNavigation);
 			// step 4
 			this.addChild(this.pysChartSetCollection.scatter);
 			for each (var line:Sprite in this.pysChartSetCollection.listLine)
-				this.addChild(line);
-			
+				this.addChild(line);			
 			// step 5
-			this.addChild(this.tooltip);
-			
+			this.addChild(this.tooltip);			
 			if (json['menu'] != null)
 			{
 				this.menu = new Menu('99', json['menu']);
 				this.addChild(this.menu);
 			}
-			this.OK = true;
-			
-			// add horizonal lines
+			this.OK = true;			
+			// Add horizonal lines
 			horizonLine1 = new PysHorizonLine(1);
 			this.addChild(horizonLine1);
 			horizonLine1.y = 50;
@@ -357,8 +324,7 @@ package
 			this.pysChartSetCollection.resize(sc);
 			
 			var rectangle:Rectangle = new Rectangle(left, top, right - left, top - bottom);
-			this.resize_dragObjs(rectangle);
-			
+			this.resize_dragObjs(rectangle);			
 			return sc;
 		}
 		
@@ -457,7 +423,7 @@ package
 			
 			try
 			{
-				this.load_external_file(file);
+				this.loadDataFile(file);
 			}
 			catch (e:Error)
 			{

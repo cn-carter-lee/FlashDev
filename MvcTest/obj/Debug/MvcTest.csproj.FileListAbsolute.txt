@@ -56,6 +56,7 @@ D:\dev_code\Git\FlashDev\MvcTest\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
 D:\dev_code\Git\FlashDev\MvcTest\obj\Debug\ResolveAssemblyReference.cache
 D:\dev_code\Git\FlashDev\MvcTest\obj\Debug\MvcTest.dll
 D:\dev_code\Git\FlashDev\MvcTest\obj\Debug\MvcTest.pdb
+C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\obj\Debug\MvcTest.csprojResolveAssemblyReference.cache
 C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\bin\MvcTest.dll
 C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\bin\MvcTest.pdb
 C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\bin\Antlr3.Runtime.dll
@@ -101,6 +102,5 @@ C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\bin\DotNetOpenAuth.OAuth.C
 C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\bin\DotNetOpenAuth.OAuth.xml
 C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\bin\DotNetOpenAuth.OpenId.xml
 C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
-C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\obj\Debug\MvcTest.csprojResolveAssemblyReference.cache
 C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\obj\Debug\MvcTest.dll
 C:\Users\cli\Desktop\TestProject\Git\FlashDev\MvcTest\obj\Debug\MvcTest.pdb

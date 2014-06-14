@@ -46,10 +46,12 @@
   <ItemGroup>
     <Compile Include="Award.cs" />
     <Compile Include="Class.cs" />
+    <Compile Include="Exam.cs" />
     <Compile Include="Member\Role.cs" />
     <Compile Include="Model\LocalRequired.cs" />
     <Compile Include="Parent.cs" />
     <Compile Include="School.cs" />
+    <Compile Include="Score.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="Member\Teacher.cs" />
     <Compile Include="Member\User.cs" />

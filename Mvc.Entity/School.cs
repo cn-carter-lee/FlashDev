@@ -15,5 +15,7 @@ namespace Mvc.Entity
         public string City { get; set; }
         public string District { get; set; }
         public int TypeId { get; set; }
+
+        public virtual ICollection<Class> Classes { get; set; }
     }
 }

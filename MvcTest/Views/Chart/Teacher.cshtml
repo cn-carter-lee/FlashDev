@@ -1,3 +1,9 @@
+﻿@model MvcTest.Models.TeacherChartModel
+@{
+    this.Layout = null; 
+}
+
+
 {
   "nav": [
     {
@@ -36,56 +42,19 @@
         "dot-size": 3
       },
       "values": [
-        {
-          "x": 0,
-          "y": 39,
-          "tip": "一班"
-        },
-        {
-          "x": 1,
-          "y": 45,
-          "tip": "二班"
-        },
-        {
-          "x": 2,
-          "y": 49,
-          "tip": "三班"
-        },
-        {
-          "x": 3,
-          "y": 54,
-          "tip": "四班"
-        },
-        {
-          "x": 4,
-          "y": 54,
-          "tip": "五班"
-        },
-        {
-          "x": 5,
-          "y": 55,
-          "tip": "六班"
-        },
-        {
-          "x": 6,
-          "y": 60,
-          "tip": "七班"
-        },
-        {
-          "x": 7,
-          "y": 65,
-          "tip": "八班"
-        },
-        {
-          "x": 8,
-          "y": 70,
-          "tip": "九班"
-        },
-        {
-          "x": 9,
-          "y": 75,
-          "tip": "十班"
-        }
+@{
+    var arr = Model.Exam.Classes.ToArray();
+    for (int i = 0; i < arr.Length; i++)
+    {
+       <text>{</text>   
+   <text>"x":</text> @i  
+   <text>,"y":</text>@arr[i].Score  
+   <text>,"tip":"</text> @arr[i].Name  
+   <text>"}</text>
+        if (i < arr.Length-1){ <text>,</text>}
+    }
+}
+
       ]
     },
     "lines": [

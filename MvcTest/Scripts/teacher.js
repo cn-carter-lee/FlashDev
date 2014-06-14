@@ -1,35 +1,19 @@
-﻿var flashvars = {
-};
-var params = {
-    menu: "false",
-    scale: "noScale",
-    allowFullscreen: "true",
-    allowScriptAccess: "always",
-    bgcolor: "",
-    wmode: "direct"
-};
-var attributes = {
-    id: "Chart"
-};
-swfobject.embedSWF(
-			"/flash/Chart.swf",
-			"altContent", "550", "350", "10.0.0",
-			"falsh/expressInstall.swf",
-            { "data-file": "flash.txt" },
-			flashvars, params, attributes);
+﻿var flashvars = {};
+var params = { menu: "false", scale: "noScale", allowFullscreen: "true", allowScriptAccess: "always", bgcolor: "", wmode: "direct" };
+
+swfobject.embedSWF("/flash/Chart.swf", "altContent", "550", "350", "10.0.0", "falsh/expressInstall.swf", { "data-file": "flash.txt" }, flashvars, params, { id: "Chart" });
 
 jQuery(document).ready(function ($) {
     $('#lineContainer').perfectScrollbar();
 });
 
-function getMyVar() {
-    return "/datafile/exams.txt";
+function getDataFilePath() {
+    return "/chart/teacher";
 }
 
 function getChartValues() {
     var v = '';
 }
-
 
 //
 function selectColumn(num) {
@@ -279,6 +263,6 @@ $(document).ready(function () {
 
 
     // Advice
-   $("#btnAdvice").colorbox({ html: "<h1>Welcome</h1>" })
-   
+    $("#btnAdvice").colorbox({ html: "<h1>Welcome</h1>" })
+
 });

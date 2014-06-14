@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExamRepository.cs" />
     <Compile Include="Interface\IStudentRepository.cs" />
     <Compile Include="LocalContext.cs" />
     <Compile Include="MemeberReposiatory.cs" />

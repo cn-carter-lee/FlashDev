@@ -13,5 +13,8 @@ namespace Mvc.Entity
         public int SchoolId { get; set; }
         public int HeadTeacherId { get; set; }
         public string Name { get; set; }
+
+        public int SchollId { get; set; }
+        public virtual School School { get; set; }
     }
 }
