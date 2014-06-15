@@ -6,7 +6,7 @@ body { margin: 0; padding: 0; color: #666; background: #ffffff; font: 14px/1.5 '
 input:focus { outline: 0; }
 .logo { width: 100px; height: 100px; float: left; background: center url(/images/logo.png) no-repeat; }
 .nav-menu { float: right; }
-
+ 
 .nav-menu ul { list-style-type: none; }
 .nav-menu li { width: 62px; height: 62px; text-align: center; margin-left: 20px; float: left; font-size: 12px; }
 .ui-header-top { background: #555; height: 25px; line-height: 25px; text-align: right; }

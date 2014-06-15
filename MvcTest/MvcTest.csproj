@@ -301,6 +301,7 @@
     <Content Include="Images\atop.png" />
     <Content Include="Images\bg.jpg" />
     <Content Include="Images\box_bottom.png" />
+    <Content Include="Images\collapse.png" />
     <Content Include="Images\cursor.png" />
     <Content Include="Images\input_bg.png" />
     <Content Include="Images\line.png" />
@@ -316,6 +317,7 @@
     <Content Include="Images\menu_seo.png" />
     <Content Include="Images\menu_site.png" />
     <Content Include="Images\qq.gif" />
+    <Content Include="Images\question-mark.png" />
     <Content Include="Images\select-menu-1.png" />
     <Content Include="Images\select-menu-2.png" />
     <Content Include="Images\select-menu-3.png" />
@@ -335,6 +337,7 @@
     <Content Include="Datafile\line.txt" />
     <Content Include="Datafile\line2.txt" />
     <Content Include="Datafile\line_test.txt" />
+    <Content Include="Images\uncollapse.png" />
     <Content Include="Scripts\backup\jquery-1.7.1-vsdoc.js" />
     <Content Include="Scripts\backup\jquery-1.7.1.js" />
     <Content Include="Scripts\backup\jquery-1.7.1.min.js" />

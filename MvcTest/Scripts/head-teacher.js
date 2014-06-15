@@ -11,8 +11,8 @@ var params = {
 
 swfobject.embedSWF("/flash/Classroom.swf", "altContent", "650", "400", "10.0.0", "/falsh/expressInstall.swf", flashvars, params, { id: "Chart" });
 
-function getMyVar() {
-    return "http://dev.carter.com/api/student";
+function loadStudents() {
+    return "/api/student";
 }
 
 function formatAwardEventTime(eventTime) {
@@ -33,7 +33,7 @@ $(document).ready(function () {
             Content: $form.find("textarea[name=Content]").val()
         };
         $.ajax({
-            url: "/api/HeadTeacherApi",
+            url: "/api/HeadTeacher",
             data: JSON.stringify(award),
             type: "POST",
             contentType: "application/json;charset=utf-8",

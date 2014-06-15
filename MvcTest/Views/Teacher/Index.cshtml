@@ -14,12 +14,11 @@
     <script src="/Scripts/jquery.colorbox-min.js"></script>
     <script src="/Scripts/teacher.js"></script>
 }
-<!-- 
+<!-- -->
 <div id="dialog-modal" title="考试成绩">
     <div style="height: 120px;">
         保存对本次成绩的修改!</div>
 </div>
-
 <div id="dialog-form" title="增加新列">
     <p class="validateTips">
         请输入要增加列的名字.</p>
@@ -63,7 +62,6 @@
     </div>
 </div>
 <hr class="middle-container" />
-
 <div class="middle-container exam-info">
     <h1>
         2013届初三中考一模</h1>
@@ -74,13 +72,19 @@
         备注:校内统考
     </div>
 </div>
--->
 <div class="middle-container exam-data">
     <div class="exam-data-list">
-    <!-- 
+        <!-- -->
         <div class="hdg">
-            <div class="title">
-                考生成绩</div>
+            <div class="title clear">
+                <p class="text">
+                    考生成绩</p>
+                <p class="question-mark" title="考生成绩">
+                </p>
+                <span style="font-size: 12px; font-weight: normal;">(总计:4个班/300人)</span>
+                <p class="collapse">
+                </p>
+            </div>
             <dl class="menu">
                 <dt></dt>
                 <dd>
@@ -102,12 +106,17 @@
         </div>
         <div id="dataTable" class="table">
         </div>
-        -->
     </div>
     <div class="exam-chart">
         <div class="hdg">
-            <div class="title">
-                统计图表</div>
+            <div class="title clear">
+                <p class="text">
+                    统计图表</p>
+                <p class="question-mark" title="统计图表">
+                </p>
+                <p class="collapse">
+                </p>
+            </div>
             <dl class="menu">
                 <dt></dt>
                 <dd>
@@ -126,7 +135,34 @@
         </div>
         <div class="hdg">
             <div class="title">
-                成绩统计</div>
+                <p class="text">
+                    数据分析</p>
+                <p class="question-mark" title="数据分析">
+                </p>
+                <p class="collapse">
+                </p>
+            </div>
+            <dl class="menu">
+                <dt></dt>
+            </dl>
+        </div>
+        <div>
+            本次考试概况：<br />
+            &nbsp;&nbsp;&nbsp;&nbsp; 考生共有**人，总分**分，平均分**分；**考生(**%)超过优秀线，**考生(**%)超过及格线;**班(平均分)排名第一，**班(平均分)排名最后;优秀率最高**班(**%)、最低**班(**%);**班考生分数最集中，**班两极分化较严重；考生排名前五名:**(**)、**(**)、**(**)、**(**)、**(**);考生排名后五：**(**)、**(**)、**(**)、**(**)、**(**);
+            <br />
+            <br />
+            与*******考试比较：<br />
+            &nbsp;&nbsp;&nbsp;&nbsp; 考生人数增加**人，总分增加**分，平均分增加**分； 优秀人数增加**人(**%);及格人数增加**人(**%);**班(**%)进步最大，**班(-**%)退步最大;**班(+**人/+**%)优秀率提高最多,**班(-**人/-**%)优秀率减少最多;**班(+**人/+**%)及格率提高最多,**班(-**人/-**%)及格率减少最多;**班分数集中趋势最明显,**班两极分化趋势最明显;进步最大前五考生**(**)、**(**)、**(**)、**(**)、**(**);退步最大前五:**(**)、**(**)、**(**)、**(**)、**(**);
+        </div>
+        <div class="hdg">
+            <div class="title">
+                <p class="text">
+                    成绩统计</p>
+                <p class="question-mark" title="成绩统计">
+                </p>
+                <p class="collapse">
+                </p>
+            </div>
             <dl class="menu">
                 <dt></dt>
                 <dd>
@@ -239,22 +275,20 @@
         </table>
         <div class="hdg">
             <div class="title">
-                数据分析</div>
+                <p class="text">
+                    心情加油站</p>
+                <p class="question-mark" title="心情加油站">
+                </p>
+                <p class="collapse">
+                </p>
+            </div>
             <dl class="menu">
                 <dt></dt>
             </dl>
         </div>
-        <div>
-            本次考试概况：<br />
-            &nbsp;&nbsp;&nbsp;&nbsp; 考生共有**人，总分**分，平均分**分；**考生(**%)超过优秀线，**考生(**%)超过及格线;**班(平均分)排名第一，**班(平均分)排名最后;优秀率最高**班(**%)、最低**班(**%);**班考生分数最集中，**班两极分化较严重；考生排名前五名:**(**)、**(**)、**(**)、**(**)、**(**);考生排名后五：**(**)、**(**)、**(**)、**(**)、**(**);
-            <br />
-            <br />
-            与*******考试比较：<br />
-            &nbsp;&nbsp;&nbsp;&nbsp; 考生人数增加**人，总分增加**分，平均分增加**分； 优秀人数增加**人(**%);及格人数增加**人(**%);**班(**%)进步最大，**班(-**%)退步最大;**班(+**人/+**%)优秀率提高最多,**班(-**人/-**%)优秀率减少最多;**班(+**人/+**%)及格率提高最多,**班(-**人/-**%)及格率减少最多;**班分数集中趋势最明显,**班两极分化趋势最明显;进步最大前五考生**(**)、**(**)、**(**)、**(**)、**(**);退步最大前五:**(**)、**(**)、**(**)、**(**)、**(**);
-        </div>
         <div class="share clear  bdsharebuttonbox">
             <label class="tit">
-                分享到：</label>
+                分享：</label>
             <a href="javascript:void(0)" class="bds_qzone" data-cmd="qzone"></a><a href="javascript:void(0)"
                 class="icon-weixin"></a>
         </div>
@@ -264,16 +298,6 @@
                 <a href="javascript:void(0)" style="background: url(~/images/thumbsup.png);"></a>
             </div>
         </div>
-        <div class="hdg">
-            <div class="title">
-                常见问题</div>
-            <dl class="menu">
-                <dt></dt>
-            </dl>
-        </div>
-        <fieldset>
-            <legend><span>常见问题</span></legend>
-        </fieldset>
     </div>
 </div>
 <div style="clear: both;">

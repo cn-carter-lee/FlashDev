@@ -32,7 +32,7 @@ package
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			this.addChild(new Loading("拼命加载中..."));		
-			var filePath:String = this.callExternalCallback("getMyVar");
+			var filePath:String = this.callExternalCallback("loadStudents");
 			if (filePath == null)
 				filePath = 'student.txt';
 			try

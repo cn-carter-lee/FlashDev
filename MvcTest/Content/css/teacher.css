@@ -7,9 +7,7 @@
 .customer { cursor: url(/images/cursor.png),auto; }
 
 .e-message { background-color: #666666; position: absolute; top: 25px; color: white; }
-
 .message-pointer { background: url(/Images/main_img.png) no-repeat 0 -122px; width: 14px; height: 18px; position: absolute; top: -11px; z-index: 1; }
-
 .msg { padding: 5px; font-size: 10px; cursor: pointer; z-index: 100; position: relative; }
 
 .wrapper { position: relative; z-index: 3; }
@@ -35,9 +33,7 @@
 .exam-data { margin-top: 10px; }
 
 .exam-data-list { width: 380px; padding-right: 15px; float: left; border-right: 2px #cccccc solid; font-size: 10px; }
-.exam-data-list .menu { margin-top: 3px; padding-top: 0; height: 30px; margin-bottom: 10px; background: #ebeff9; }
 .exam-data-list .menu dt { float: left; font-size: 12px; line-height: 26px; }
-
 .exam-data-list .menu dd { float: left; margin: 2px 5px 0 5px; }
 
 .exam-data-list .menu .button { color: #333; text-shadow: 0 1px 0 rgba(255,255,255,0.9); white-space: nowrap; background-color: #fff; background-repeat: repeat-x; border-radius: 3px; border: 1px solid #d5d5d5; vertical-align: middle; cursor: pointer; }
@@ -51,6 +47,9 @@
 .exam-chart dt { float: left; }
 .exam-chart dd { float: right; }
 .hdg .title { height: 30px; line-height: 30px; font-size: 16px; font-weight: bold; margin: 0; padding: 0; border-bottom: 1px solid #d5d5d5; background: #ebeff9; margin-bottom: 10px; padding-left: 10px; }
+.hdg .title .text { height: 30px; float: left; line-height: 30px; margin: 0; padding: 0; }
+.hdg .title .question-mark { width: 30px; height: 30px; float: left; margin: 0; padding: 0; background: url(/images/question-mark.png) no-repeat center; cursor: pointer; }
+.hdg .title .collapse{width:30px;height:30px;margin:0;padding:0;float:right; cursor:pointer;    margin-right:20px;background:url(/images/collapse.png) no-repeat center;}
 .hdg .menu { width: 100%; margin: 5px 0px; }
 .hdg .menu dt { line-height: 30px; margin-right: 10px; }
 .hdg .menu dd { line-height: 30px; margin: 2px 10px 0 0; padding: 0; }
